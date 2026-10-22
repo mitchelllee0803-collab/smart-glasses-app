@@ -1,0 +1,140 @@
+{
+  "manifestVersion": 2,
+  "argos": [
+    {
+      "id": "en_ko",
+      "file": "translate-en_ko-1_1.argosmodel",
+      "fromCode": "en",
+      "toCode": "ko",
+      "packageVersion": "1.1",
+      "argosVersion": "1.1",
+      "url": "https://argos-net.com/v1/translate-en_ko-1_1.argosmodel",
+      "size": 120789009,
+      "sha256": "e03d8e65e6d44525ec5808c3409fcf8728c76c2c76925372b6d3dc3278de17fc"
+    },
+    {
+      "id": "ko_en",
+      "file": "translate-ko_en-1_1.argosmodel",
+      "fromCode": "ko",
+      "toCode": "en",
+      "packageVersion": "1.1",
+      "argosVersion": "1.1",
+      "url": "https://argos-net.com/v1/translate-ko_en-1_1.argosmodel",
+      "size": 118852077,
+      "sha256": "6da8f3db6ca40f42b1875570a1c06856f6e17c7ef62845d85de217ba548c1471"
+    },
+    {
+      "id": "en_zh",
+      "file": "translate-en_zh-1_9.argosmodel",
+      "fromCode": "en",
+      "toCode": "zh",
+      "packageVersion": "1.9",
+      "argosVersion": "1.9.0",
+      "url": "https://argos-net.com/v1/translate-en_zh-1_9.argosmodel",
+      "size": 70743021,
+      "sha256": "433e7c4f034d87fbe2353161e05f18646d7999452f801a4e1f0378522b9850ab"
+    },
+    {
+      "id": "zh_en",
+      "file": "translate-zh_en-1_9.argosmodel",
+      "fromCode": "zh",
+      "toCode": "en",
+      "packageVersion": "1.9",
+      "argosVersion": "1.9.0",
+      "url": "https://argos-net.com/v1/translate-zh_en-1_9.argosmodel",
+      "size": 74481402,
+      "sha256": "62e7af5a3a48b530e47b7b3e5c78c2de79073ecd815750d2bf3ab35b4a67da2d"
+    },
+    {
+      "id": "en_zt",
+      "file": "translate-en_zt-1_9.argosmodel",
+      "fromCode": "en",
+      "toCode": "zt",
+      "packageVersion": "1.9",
+      "argosVersion": "1.9.0",
+      "url": "https://argos-net.com/v1/translate-en_zt-1_9.argosmodel",
+      "size": 70743045,
+      "sha256": "b97b6532196c4421240c0788cb711cc1fe5e5ecbde553c937193d13e5c67826c"
+    },
+    {
+      "id": "zt_en",
+      "file": "translate-zt_en-1_9.argosmodel",
+      "fromCode": "zt",
+      "toCode": "en",
+      "packageVersion": "1.9",
+      "argosVersion": "1.9.0",
+      "url": "https://argos-net.com/v1/translate-zt_en-1_9.argosmodel",
+      "size": 74498034,
+      "sha256": "a9ea826d801f059dd47f1f47b6c1dc9d762519a80ea3afd2a982130a42a25486"
+    }
+  ],
+  "tessdata": [
+    {
+      "lang": "eng",
+      "file": "eng.traineddata",
+      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/87416418657359cb625c412a48b6e1d6d41c29bd/eng.traineddata",
+      "size": 4113088,
+      "sha256": "7d4322bd2a7749724879683fc3912cb542f19906c83bcc1a52132556427170b2",
+      "gitBlobSha1": "bbef4675053b5b468cdb477053e28b1c698ba08e"
+    },
+    {
+      "lang": "kor",
+      "file": "kor.traineddata",
+      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/87416418657359cb625c412a48b6e1d6d41c29bd/kor.traineddata",
+      "size": 1677415,
+      "sha256": "6b85e11d9bbf07863b97b3523b1b112844c43e713df8b66418a081fd1060b3b2",
+      "gitBlobSha1": "60986d44497689f3abace0b148199476d93292e1"
+    },
+    {
+      "lang": "chi_sim",
+      "file": "chi_sim.traineddata",
+      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/87416418657359cb625c412a48b6e1d6d41c29bd/chi_sim.traineddata",
+      "size": 2469156,
+      "sha256": "a5fcb6f0db1e1d6d8522f39db4e848f05984669172e584e8d76b6b3141e1f730",
+      "gitBlobSha1": "388bac276d033d06e5ed5ba7a7ad14ae58f97dab"
+    },
+    {
+      "lang": "chi_tra",
+      "file": "chi_tra.traineddata",
+      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/87416418657359cb625c412a48b6e1d6d41c29bd/chi_tra.traineddata",
+      "size": 2366642,
+      "sha256": "529c5b5797d64b126065cd55f2bb4c7fd7b15790798091b1ff259941a829330b",
+      "gitBlobSha1": "1955cd8b8d076b898616e9c2c1ace65b43105356"
+    }
+  ],
+  "speech": [
+    {
+      "id": "sense-voice-small",
+      "dir": "sense-voice-small",
+      "label": "SenseVoice-Small (live)",
+      "languages": [
+        "zh",
+        "en",
+        "ko",
+        "ja",
+        "yue"
+      ],
+      "license": "FunASR Model Open Source License 1.1 (attribution required: FunAudioLLM/SenseVoiceSmall, Alibaba Group)",
+      "source": "https://huggingface.co/FunAudioLLM/SenseVoiceSmall",
+      "archive": {
+        "file": "sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2",
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2",
+        "size": 163002883,
+        "sha256": "7d1efa2138a65b0b488df37f8b89e3d91a60676e416f515b952358d83dfd347e",
+        "member": "sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17"
+      },
+      "files": [
+        {
+          "file": "model.int8.onnx",
+          "size": 239233841,
+          "sha256": "c71f0ce00bec95b07744e116345e33d8cbbe08cef896382cf907bf4b51a2cd51"
+        },
+        {
+          "file": "tokens.txt",
+          "size": 315894,
+          "sha256": "f449eb28dc567533d7fa59be34e2abca8784f771850c78a47fb731a31429a1dc"
+        }
+      ]
+    }
+  ]
+}

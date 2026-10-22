@@ -1,0 +1,2349 @@
+{
+ "cases": [
+  {
+   "source": "en.wav",
+   "text": "The East African islands are in the Indian Ocean, off the eastern coast of Africa.",
+   "lang": "<|en|>",
+   "requested": "auto",
+   "partial": false,
+   "expected": {
+    "text": "The East African islands are in the Indian Ocean, off the eastern coast of Africa.",
+    "language": "en"
+   }
+  },
+  {
+   "source": "en.wav",
+   "text": "The East African islands are in the Indian Ocean, off the eastern coast of Africa.",
+   "lang": "<|en|>",
+   "requested": "auto",
+   "partial": true,
+   "expected": {
+    "text": "The East African islands are in the Indian Ocean, off the eastern coast of Africa.",
+    "language": "en"
+   }
+  },
+  {
+   "source": "en.wav",
+   "text": "The East African islands are in the Indian Ocean, off the eastern coast of Africa.",
+   "lang": "<|en|>",
+   "requested": "en",
+   "partial": false,
+   "expected": {
+    "text": "The East African islands are in the Indian Ocean, off the eastern coast of Africa.",
+    "language": "en"
+   }
+  },
+  {
+   "source": "en.wav",
+   "text": "The East African islands are in the Indian Ocean, off the eastern coast of Africa.",
+   "lang": "<|en|>",
+   "requested": "en",
+   "partial": true,
+   "expected": {
+    "text": "The East African islands are in the Indian Ocean, off the eastern coast of Africa.",
+    "language": "en"
+   }
+  },
+  {
+   "source": "en.wav",
+   "text": "The East African islands are in the Indian Ocean, off the eastern coast of Africa.",
+   "lang": "<|en|>",
+   "requested": "ko",
+   "partial": false,
+   "expected": {
+    "text": "The East African islands are in the Indian Ocean, off the eastern coast of Africa.",
+    "language": "ko"
+   }
+  },
+  {
+   "source": "en.wav",
+   "text": "The East African islands are in the Indian Ocean, off the eastern coast of Africa.",
+   "lang": "<|en|>",
+   "requested": "ko",
+   "partial": true,
+   "expected": {
+    "text": "The East African islands are in the Indian Ocean, off the eastern coast of Africa.",
+    "language": "ko"
+   }
+  },
+  {
+   "source": "en.wav",
+   "text": "The East African islands are in the Indian Ocean, off the eastern coast of Africa.",
+   "lang": "<|en|>",
+   "requested": "zh-Hans",
+   "partial": false,
+   "expected": {
+    "text": "The East African islands are in the Indian Ocean, off the eastern coast of Africa.",
+    "language": "zh-Hans"
+   }
+  },
+  {
+   "source": "en.wav",
+   "text": "The East African islands are in the Indian Ocean, off the eastern coast of Africa.",
+   "lang": "<|en|>",
+   "requested": "zh-Hans",
+   "partial": true,
+   "expected": {
+    "text": "The East African islands are in the Indian Ocean, off the eastern coast of Africa.",
+    "language": "zh-Hans"
+   }
+  },
+  {
+   "source": "en.wav",
+   "text": "The East African islands are in the Indian Ocean, off the eastern coast of Africa.",
+   "lang": "<|en|>",
+   "requested": "zh-Hant",
+   "partial": false,
+   "expected": {
+    "text": "The East African islands are in the Indian Ocean, off the eastern coast of Africa.",
+    "language": "zh-Hant"
+   }
+  },
+  {
+   "source": "en.wav",
+   "text": "The East African islands are in the Indian Ocean, off the eastern coast of Africa.",
+   "lang": "<|en|>",
+   "requested": "zh-Hant",
+   "partial": true,
+   "expected": {
+    "text": "The East African islands are in the Indian Ocean, off the eastern coast of Africa.",
+    "language": "zh-Hant"
+   }
+  },
+  {
+   "source": "ko.wav",
+   "text": "그래도 관계의 조언 을 듣고 모든 표지판 을 지키 고 안전 경고에 세 심한 주의 를 기울여야 합니다.",
+   "lang": "<|ko|>",
+   "requested": "auto",
+   "partial": false,
+   "expected": {
+    "text": "그래도 관계의 조언 을 듣고 모든 표지판 을 지키 고 안전 경고에 세 심한 주의 를 기울여야 합니다.",
+    "language": "ko"
+   }
+  },
+  {
+   "source": "ko.wav",
+   "text": "그래도 관계의 조언 을 듣고 모든 표지판 을 지키 고 안전 경고에 세 심한 주의 를 기울여야 합니다.",
+   "lang": "<|ko|>",
+   "requested": "auto",
+   "partial": true,
+   "expected": {
+    "text": "그래도 관계의 조언 을 듣고 모든 표지판 을 지키 고 안전 경고에 세 심한 주의 를 기울여야 합니다.",
+    "language": "ko"
+   }
+  },
+  {
+   "source": "ko.wav",
+   "text": "그래도 관계의 조언 을 듣고 모든 표지판 을 지키 고 안전 경고에 세 심한 주의 를 기울여야 합니다.",
+   "lang": "<|ko|>",
+   "requested": "en",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "ko.wav",
+   "text": "그래도 관계의 조언 을 듣고 모든 표지판 을 지키 고 안전 경고에 세 심한 주의 를 기울여야 합니다.",
+   "lang": "<|ko|>",
+   "requested": "en",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "ko.wav",
+   "text": "그래도 관계의 조언 을 듣고 모든 표지판 을 지키 고 안전 경고에 세 심한 주의 를 기울여야 합니다.",
+   "lang": "<|ko|>",
+   "requested": "ko",
+   "partial": false,
+   "expected": {
+    "text": "그래도 관계의 조언 을 듣고 모든 표지판 을 지키 고 안전 경고에 세 심한 주의 를 기울여야 합니다.",
+    "language": "ko"
+   }
+  },
+  {
+   "source": "ko.wav",
+   "text": "그래도 관계의 조언 을 듣고 모든 표지판 을 지키 고 안전 경고에 세 심한 주의 를 기울여야 합니다.",
+   "lang": "<|ko|>",
+   "requested": "ko",
+   "partial": true,
+   "expected": {
+    "text": "그래도 관계의 조언 을 듣고 모든 표지판 을 지키 고 안전 경고에 세 심한 주의 를 기울여야 합니다.",
+    "language": "ko"
+   }
+  },
+  {
+   "source": "ko.wav",
+   "text": "그래도 관계의 조언 을 듣고 모든 표지판 을 지키 고 안전 경고에 세 심한 주의 를 기울여야 합니다.",
+   "lang": "<|ko|>",
+   "requested": "zh-Hans",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "ko.wav",
+   "text": "그래도 관계의 조언 을 듣고 모든 표지판 을 지키 고 안전 경고에 세 심한 주의 를 기울여야 합니다.",
+   "lang": "<|ko|>",
+   "requested": "zh-Hans",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "ko.wav",
+   "text": "그래도 관계의 조언 을 듣고 모든 표지판 을 지키 고 안전 경고에 세 심한 주의 를 기울여야 합니다.",
+   "lang": "<|ko|>",
+   "requested": "zh-Hant",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "ko.wav",
+   "text": "그래도 관계의 조언 을 듣고 모든 표지판 을 지키 고 안전 경고에 세 심한 주의 를 기울여야 합니다.",
+   "lang": "<|ko|>",
+   "requested": "zh-Hant",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "zh-Hans.wav",
+   "text": "西班牙人开始了长达3个世纪的殖民时期。",
+   "lang": "<|zh|>",
+   "requested": "auto",
+   "partial": false,
+   "expected": {
+    "text": "西班牙人开始了长达3个世纪的殖民时期。",
+    "language": "zh-Hans"
+   }
+  },
+  {
+   "source": "zh-Hans.wav",
+   "text": "西班牙人开始了长达3个世纪的殖民时期。",
+   "lang": "<|zh|>",
+   "requested": "auto",
+   "partial": true,
+   "expected": {
+    "text": "西班牙人开始了长达3个世纪的殖民时期。",
+    "language": "zh-Hans"
+   }
+  },
+  {
+   "source": "zh-Hans.wav",
+   "text": "西班牙人开始了长达3个世纪的殖民时期。",
+   "lang": "<|zh|>",
+   "requested": "en",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "zh-Hans.wav",
+   "text": "西班牙人开始了长达3个世纪的殖民时期。",
+   "lang": "<|zh|>",
+   "requested": "en",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "zh-Hans.wav",
+   "text": "西班牙人开始了长达3个世纪的殖民时期。",
+   "lang": "<|zh|>",
+   "requested": "ko",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "zh-Hans.wav",
+   "text": "西班牙人开始了长达3个世纪的殖民时期。",
+   "lang": "<|zh|>",
+   "requested": "ko",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "zh-Hans.wav",
+   "text": "西班牙人开始了长达3个世纪的殖民时期。",
+   "lang": "<|zh|>",
+   "requested": "zh-Hans",
+   "partial": false,
+   "expected": {
+    "text": "西班牙人开始了长达3个世纪的殖民时期。",
+    "language": "zh-Hans"
+   }
+  },
+  {
+   "source": "zh-Hans.wav",
+   "text": "西班牙人开始了长达3个世纪的殖民时期。",
+   "lang": "<|zh|>",
+   "requested": "zh-Hans",
+   "partial": true,
+   "expected": {
+    "text": "西班牙人开始了长达3个世纪的殖民时期。",
+    "language": "zh-Hans"
+   }
+  },
+  {
+   "source": "zh-Hans.wav",
+   "text": "西班牙人开始了长达3个世纪的殖民时期。",
+   "lang": "<|zh|>",
+   "requested": "zh-Hant",
+   "partial": false,
+   "expected": {
+    "text": "西班牙人開始了長達3個世紀的殖民時期。",
+    "language": "zh-Hant"
+   }
+  },
+  {
+   "source": "zh-Hans.wav",
+   "text": "西班牙人开始了长达3个世纪的殖民时期。",
+   "lang": "<|zh|>",
+   "requested": "zh-Hant",
+   "partial": true,
+   "expected": {
+    "text": "西班牙人開始了長達3個世紀的殖民時期。",
+    "language": "zh-Hant"
+   }
+  },
+  {
+   "source": "silence.wav",
+   "text": "그.",
+   "lang": "<|ko|>",
+   "requested": "auto",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "silence.wav",
+   "text": "그.",
+   "lang": "<|ko|>",
+   "requested": "auto",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "silence.wav",
+   "text": "그.",
+   "lang": "<|ko|>",
+   "requested": "en",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "silence.wav",
+   "text": "그.",
+   "lang": "<|ko|>",
+   "requested": "en",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "silence.wav",
+   "text": "그.",
+   "lang": "<|ko|>",
+   "requested": "ko",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "silence.wav",
+   "text": "그.",
+   "lang": "<|ko|>",
+   "requested": "ko",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "silence.wav",
+   "text": "그.",
+   "lang": "<|ko|>",
+   "requested": "zh-Hans",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "silence.wav",
+   "text": "그.",
+   "lang": "<|ko|>",
+   "requested": "zh-Hans",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "silence.wav",
+   "text": "그.",
+   "lang": "<|ko|>",
+   "requested": "zh-Hant",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "silence.wav",
+   "text": "그.",
+   "lang": "<|ko|>",
+   "requested": "zh-Hant",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "noise.wav",
+   "text": "그.",
+   "lang": "<|ko|>",
+   "requested": "auto",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "noise.wav",
+   "text": "그.",
+   "lang": "<|ko|>",
+   "requested": "auto",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "noise.wav",
+   "text": "그.",
+   "lang": "<|ko|>",
+   "requested": "en",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "noise.wav",
+   "text": "그.",
+   "lang": "<|ko|>",
+   "requested": "en",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "noise.wav",
+   "text": "그.",
+   "lang": "<|ko|>",
+   "requested": "ko",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "noise.wav",
+   "text": "그.",
+   "lang": "<|ko|>",
+   "requested": "ko",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "noise.wav",
+   "text": "그.",
+   "lang": "<|ko|>",
+   "requested": "zh-Hans",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "noise.wav",
+   "text": "그.",
+   "lang": "<|ko|>",
+   "requested": "zh-Hans",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "noise.wav",
+   "text": "그.",
+   "lang": "<|ko|>",
+   "requested": "zh-Hant",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "noise.wav",
+   "text": "그.",
+   "lang": "<|ko|>",
+   "requested": "zh-Hant",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "The.",
+   "lang": "<|en|>",
+   "requested": "auto",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "The.",
+   "lang": "<|en|>",
+   "requested": "auto",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "The.",
+   "lang": "<|en|>",
+   "requested": "en",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "The.",
+   "lang": "<|en|>",
+   "requested": "en",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "The.",
+   "lang": "<|en|>",
+   "requested": "ko",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "The.",
+   "lang": "<|en|>",
+   "requested": "ko",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "The.",
+   "lang": "<|en|>",
+   "requested": "zh-Hans",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "The.",
+   "lang": "<|en|>",
+   "requested": "zh-Hans",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "The.",
+   "lang": "<|en|>",
+   "requested": "zh-Hant",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "The.",
+   "lang": "<|en|>",
+   "requested": "zh-Hant",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "你好 世界 ，再见",
+   "lang": "<|zh|>",
+   "requested": "auto",
+   "partial": false,
+   "expected": {
+    "text": "你好世界，再见",
+    "language": "zh-Hans"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "你好 世界 ，再见",
+   "lang": "<|zh|>",
+   "requested": "auto",
+   "partial": true,
+   "expected": {
+    "text": "你好世界，再见",
+    "language": "zh-Hans"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "你好 世界 ，再见",
+   "lang": "<|zh|>",
+   "requested": "en",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "你好 世界 ，再见",
+   "lang": "<|zh|>",
+   "requested": "en",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "你好 世界 ，再见",
+   "lang": "<|zh|>",
+   "requested": "ko",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "你好 世界 ，再见",
+   "lang": "<|zh|>",
+   "requested": "ko",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "你好 世界 ，再见",
+   "lang": "<|zh|>",
+   "requested": "zh-Hans",
+   "partial": false,
+   "expected": {
+    "text": "你好世界，再见",
+    "language": "zh-Hans"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "你好 世界 ，再见",
+   "lang": "<|zh|>",
+   "requested": "zh-Hans",
+   "partial": true,
+   "expected": {
+    "text": "你好世界，再见",
+    "language": "zh-Hans"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "你好 世界 ，再见",
+   "lang": "<|zh|>",
+   "requested": "zh-Hant",
+   "partial": false,
+   "expected": {
+    "text": "你好世界，再見",
+    "language": "zh-Hant"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "你好 世界 ，再见",
+   "lang": "<|zh|>",
+   "requested": "zh-Hant",
+   "partial": true,
+   "expected": {
+    "text": "你好世界，再見",
+    "language": "zh-Hant"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "你好",
+   "lang": "<|yue|>",
+   "requested": "auto",
+   "partial": false,
+   "expected": {
+    "text": "你好",
+    "language": "zh-Hans"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "你好",
+   "lang": "<|yue|>",
+   "requested": "auto",
+   "partial": true,
+   "expected": {
+    "text": "你好",
+    "language": "zh-Hans"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "你好",
+   "lang": "<|yue|>",
+   "requested": "en",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "你好",
+   "lang": "<|yue|>",
+   "requested": "en",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "你好",
+   "lang": "<|yue|>",
+   "requested": "ko",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "你好",
+   "lang": "<|yue|>",
+   "requested": "ko",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "你好",
+   "lang": "<|yue|>",
+   "requested": "zh-Hans",
+   "partial": false,
+   "expected": {
+    "text": "你好",
+    "language": "zh-Hans"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "你好",
+   "lang": "<|yue|>",
+   "requested": "zh-Hans",
+   "partial": true,
+   "expected": {
+    "text": "你好",
+    "language": "zh-Hans"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "你好",
+   "lang": "<|yue|>",
+   "requested": "zh-Hant",
+   "partial": false,
+   "expected": {
+    "text": "你好",
+    "language": "zh-Hant"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "你好",
+   "lang": "<|yue|>",
+   "requested": "zh-Hant",
+   "partial": true,
+   "expected": {
+    "text": "你好",
+    "language": "zh-Hant"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "こんにちは。",
+   "lang": "<|ja|>",
+   "requested": "auto",
+   "partial": false,
+   "expected": {
+    "error": "UNSUPPORTED_LANGUAGE"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "こんにちは。",
+   "lang": "<|ja|>",
+   "requested": "auto",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "こんにちは。",
+   "lang": "<|ja|>",
+   "requested": "en",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "こんにちは。",
+   "lang": "<|ja|>",
+   "requested": "en",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "こんにちは。",
+   "lang": "<|ja|>",
+   "requested": "ko",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "こんにちは。",
+   "lang": "<|ja|>",
+   "requested": "ko",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "こんにちは。",
+   "lang": "<|ja|>",
+   "requested": "zh-Hans",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "こんにちは。",
+   "lang": "<|ja|>",
+   "requested": "zh-Hans",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "こんにちは。",
+   "lang": "<|ja|>",
+   "requested": "zh-Hant",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "こんにちは。",
+   "lang": "<|ja|>",
+   "requested": "zh-Hant",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "  Hello   there.  ",
+   "lang": "<|en|>",
+   "requested": "auto",
+   "partial": false,
+   "expected": {
+    "text": "Hello there.",
+    "language": "en"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "  Hello   there.  ",
+   "lang": "<|en|>",
+   "requested": "auto",
+   "partial": true,
+   "expected": {
+    "text": "Hello there.",
+    "language": "en"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "  Hello   there.  ",
+   "lang": "<|en|>",
+   "requested": "en",
+   "partial": false,
+   "expected": {
+    "text": "Hello there.",
+    "language": "en"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "  Hello   there.  ",
+   "lang": "<|en|>",
+   "requested": "en",
+   "partial": true,
+   "expected": {
+    "text": "Hello there.",
+    "language": "en"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "  Hello   there.  ",
+   "lang": "<|en|>",
+   "requested": "ko",
+   "partial": false,
+   "expected": {
+    "text": "Hello there.",
+    "language": "ko"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "  Hello   there.  ",
+   "lang": "<|en|>",
+   "requested": "ko",
+   "partial": true,
+   "expected": {
+    "text": "Hello there.",
+    "language": "ko"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "  Hello   there.  ",
+   "lang": "<|en|>",
+   "requested": "zh-Hans",
+   "partial": false,
+   "expected": {
+    "text": "Hello there.",
+    "language": "zh-Hans"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "  Hello   there.  ",
+   "lang": "<|en|>",
+   "requested": "zh-Hans",
+   "partial": true,
+   "expected": {
+    "text": "Hello there.",
+    "language": "zh-Hans"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "  Hello   there.  ",
+   "lang": "<|en|>",
+   "requested": "zh-Hant",
+   "partial": false,
+   "expected": {
+    "text": "Hello there.",
+    "language": "zh-Hant"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "  Hello   there.  ",
+   "lang": "<|en|>",
+   "requested": "zh-Hant",
+   "partial": true,
+   "expected": {
+    "text": "Hello there.",
+    "language": "zh-Hant"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "嗯。",
+   "lang": "<|zh|>",
+   "requested": "auto",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "嗯。",
+   "lang": "<|zh|>",
+   "requested": "auto",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "嗯。",
+   "lang": "<|zh|>",
+   "requested": "en",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "嗯。",
+   "lang": "<|zh|>",
+   "requested": "en",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "嗯。",
+   "lang": "<|zh|>",
+   "requested": "ko",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "嗯。",
+   "lang": "<|zh|>",
+   "requested": "ko",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "嗯。",
+   "lang": "<|zh|>",
+   "requested": "zh-Hans",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "嗯。",
+   "lang": "<|zh|>",
+   "requested": "zh-Hans",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "嗯。",
+   "lang": "<|zh|>",
+   "requested": "zh-Hant",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "嗯。",
+   "lang": "<|zh|>",
+   "requested": "zh-Hant",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "Some text",
+   "lang": "<|nospeech|>",
+   "requested": "auto",
+   "partial": false,
+   "expected": {
+    "text": "Some text",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "Some text",
+   "lang": "<|nospeech|>",
+   "requested": "auto",
+   "partial": true,
+   "expected": {
+    "text": "Some text",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "Some text",
+   "lang": "<|nospeech|>",
+   "requested": "en",
+   "partial": false,
+   "expected": {
+    "text": "Some text",
+    "language": "en"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "Some text",
+   "lang": "<|nospeech|>",
+   "requested": "en",
+   "partial": true,
+   "expected": {
+    "text": "Some text",
+    "language": "en"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "Some text",
+   "lang": "<|nospeech|>",
+   "requested": "ko",
+   "partial": false,
+   "expected": {
+    "text": "Some text",
+    "language": "ko"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "Some text",
+   "lang": "<|nospeech|>",
+   "requested": "ko",
+   "partial": true,
+   "expected": {
+    "text": "Some text",
+    "language": "ko"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "Some text",
+   "lang": "<|nospeech|>",
+   "requested": "zh-Hans",
+   "partial": false,
+   "expected": {
+    "text": "Some text",
+    "language": "zh-Hans"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "Some text",
+   "lang": "<|nospeech|>",
+   "requested": "zh-Hans",
+   "partial": true,
+   "expected": {
+    "text": "Some text",
+    "language": "zh-Hans"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "Some text",
+   "lang": "<|nospeech|>",
+   "requested": "zh-Hant",
+   "partial": false,
+   "expected": {
+    "text": "Some text",
+    "language": "zh-Hant"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "Some text",
+   "lang": "<|nospeech|>",
+   "requested": "zh-Hant",
+   "partial": true,
+   "expected": {
+    "text": "Some text",
+    "language": "zh-Hant"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "",
+   "lang": "<|en|>",
+   "requested": "auto",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "",
+   "lang": "<|en|>",
+   "requested": "auto",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "",
+   "lang": "<|en|>",
+   "requested": "en",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "",
+   "lang": "<|en|>",
+   "requested": "en",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "",
+   "lang": "<|en|>",
+   "requested": "ko",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "",
+   "lang": "<|en|>",
+   "requested": "ko",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "",
+   "lang": "<|en|>",
+   "requested": "zh-Hans",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "",
+   "lang": "<|en|>",
+   "requested": "zh-Hans",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "",
+   "lang": "<|en|>",
+   "requested": "zh-Hant",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "",
+   "lang": "<|en|>",
+   "requested": "zh-Hant",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "嗯我也宣问。",
+   "lang": "<|zh|>",
+   "requested": "auto",
+   "partial": false,
+   "expected": {
+    "text": "嗯我也宣问。",
+    "language": "zh-Hans"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "嗯我也宣问。",
+   "lang": "<|zh|>",
+   "requested": "auto",
+   "partial": true,
+   "expected": {
+    "text": "嗯我也宣问。",
+    "language": "zh-Hans"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "嗯我也宣问。",
+   "lang": "<|zh|>",
+   "requested": "en",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "嗯我也宣问。",
+   "lang": "<|zh|>",
+   "requested": "en",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "嗯我也宣问。",
+   "lang": "<|zh|>",
+   "requested": "ko",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "嗯我也宣问。",
+   "lang": "<|zh|>",
+   "requested": "ko",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "嗯我也宣问。",
+   "lang": "<|zh|>",
+   "requested": "zh-Hans",
+   "partial": false,
+   "expected": {
+    "text": "嗯我也宣问。",
+    "language": "zh-Hans"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "嗯我也宣问。",
+   "lang": "<|zh|>",
+   "requested": "zh-Hans",
+   "partial": true,
+   "expected": {
+    "text": "嗯我也宣问。",
+    "language": "zh-Hans"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "嗯我也宣问。",
+   "lang": "<|zh|>",
+   "requested": "zh-Hant",
+   "partial": false,
+   "expected": {
+    "text": "嗯我也宣問。",
+    "language": "zh-Hant"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "嗯我也宣问。",
+   "lang": "<|zh|>",
+   "requested": "zh-Hant",
+   "partial": true,
+   "expected": {
+    "text": "嗯我也宣問。",
+    "language": "zh-Hant"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "life from我.",
+   "lang": "<|en|>",
+   "requested": "auto",
+   "partial": false,
+   "expected": {
+    "text": "life from我.",
+    "language": "en"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "life from我.",
+   "lang": "<|en|>",
+   "requested": "auto",
+   "partial": true,
+   "expected": {
+    "text": "life from我.",
+    "language": "en"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "life from我.",
+   "lang": "<|en|>",
+   "requested": "en",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "life from我.",
+   "lang": "<|en|>",
+   "requested": "en",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "life from我.",
+   "lang": "<|en|>",
+   "requested": "ko",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "life from我.",
+   "lang": "<|en|>",
+   "requested": "ko",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "life from我.",
+   "lang": "<|en|>",
+   "requested": "zh-Hans",
+   "partial": false,
+   "expected": {
+    "text": "life from我.",
+    "language": "zh-Hans"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "life from我.",
+   "lang": "<|en|>",
+   "requested": "zh-Hans",
+   "partial": true,
+   "expected": {
+    "text": "life from我.",
+    "language": "zh-Hans"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "life from我.",
+   "lang": "<|en|>",
+   "requested": "zh-Hant",
+   "partial": false,
+   "expected": {
+    "text": "life from我.",
+    "language": "zh-Hant"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "life from我.",
+   "lang": "<|en|>",
+   "requested": "zh-Hant",
+   "partial": true,
+   "expected": {
+    "text": "life from我.",
+    "language": "zh-Hant"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "は.",
+   "lang": "<|ja|>",
+   "requested": "auto",
+   "partial": false,
+   "expected": {
+    "error": "UNSUPPORTED_LANGUAGE"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "は.",
+   "lang": "<|ja|>",
+   "requested": "auto",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "は.",
+   "lang": "<|ja|>",
+   "requested": "en",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "は.",
+   "lang": "<|ja|>",
+   "requested": "en",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "は.",
+   "lang": "<|ja|>",
+   "requested": "ko",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "は.",
+   "lang": "<|ja|>",
+   "requested": "ko",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "は.",
+   "lang": "<|ja|>",
+   "requested": "zh-Hans",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "は.",
+   "lang": "<|ja|>",
+   "requested": "zh-Hans",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "は.",
+   "lang": "<|ja|>",
+   "requested": "zh-Hant",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "は.",
+   "lang": "<|ja|>",
+   "requested": "zh-Hant",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "ど？",
+   "lang": "<|ja|>",
+   "requested": "auto",
+   "partial": false,
+   "expected": {
+    "error": "UNSUPPORTED_LANGUAGE"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "ど？",
+   "lang": "<|ja|>",
+   "requested": "auto",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "ど？",
+   "lang": "<|ja|>",
+   "requested": "en",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "ど？",
+   "lang": "<|ja|>",
+   "requested": "en",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "ど？",
+   "lang": "<|ja|>",
+   "requested": "ko",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "ど？",
+   "lang": "<|ja|>",
+   "requested": "ko",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "ど？",
+   "lang": "<|ja|>",
+   "requested": "zh-Hans",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "ど？",
+   "lang": "<|ja|>",
+   "requested": "zh-Hans",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "ど？",
+   "lang": "<|ja|>",
+   "requested": "zh-Hant",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "ど？",
+   "lang": "<|ja|>",
+   "requested": "zh-Hant",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "I.",
+   "lang": "<|en|>",
+   "requested": "auto",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "I.",
+   "lang": "<|en|>",
+   "requested": "auto",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "I.",
+   "lang": "<|en|>",
+   "requested": "en",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "I.",
+   "lang": "<|en|>",
+   "requested": "en",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "I.",
+   "lang": "<|en|>",
+   "requested": "ko",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "I.",
+   "lang": "<|en|>",
+   "requested": "ko",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "I.",
+   "lang": "<|en|>",
+   "requested": "zh-Hans",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "I.",
+   "lang": "<|en|>",
+   "requested": "zh-Hans",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "I.",
+   "lang": "<|en|>",
+   "requested": "zh-Hant",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "I.",
+   "lang": "<|en|>",
+   "requested": "zh-Hant",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "我。",
+   "lang": "<|zh|>",
+   "requested": "auto",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "我。",
+   "lang": "<|zh|>",
+   "requested": "auto",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "我。",
+   "lang": "<|zh|>",
+   "requested": "en",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "我。",
+   "lang": "<|zh|>",
+   "requested": "en",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "我。",
+   "lang": "<|zh|>",
+   "requested": "ko",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "我。",
+   "lang": "<|zh|>",
+   "requested": "ko",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "我。",
+   "lang": "<|zh|>",
+   "requested": "zh-Hans",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "我。",
+   "lang": "<|zh|>",
+   "requested": "zh-Hans",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "我。",
+   "lang": "<|zh|>",
+   "requested": "zh-Hant",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "我。",
+   "lang": "<|zh|>",
+   "requested": "zh-Hant",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "没。",
+   "lang": "<|zh|>",
+   "requested": "auto",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "没。",
+   "lang": "<|zh|>",
+   "requested": "auto",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "没。",
+   "lang": "<|zh|>",
+   "requested": "en",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "没。",
+   "lang": "<|zh|>",
+   "requested": "en",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "没。",
+   "lang": "<|zh|>",
+   "requested": "ko",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "没。",
+   "lang": "<|zh|>",
+   "requested": "ko",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "没。",
+   "lang": "<|zh|>",
+   "requested": "zh-Hans",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "没。",
+   "lang": "<|zh|>",
+   "requested": "zh-Hans",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "没。",
+   "lang": "<|zh|>",
+   "requested": "zh-Hant",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "没。",
+   "lang": "<|zh|>",
+   "requested": "zh-Hant",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "OK 알겠어요.",
+   "lang": "<|ko|>",
+   "requested": "auto",
+   "partial": false,
+   "expected": {
+    "text": "OK 알겠어요.",
+    "language": "ko"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "OK 알겠어요.",
+   "lang": "<|ko|>",
+   "requested": "auto",
+   "partial": true,
+   "expected": {
+    "text": "OK 알겠어요.",
+    "language": "ko"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "OK 알겠어요.",
+   "lang": "<|ko|>",
+   "requested": "en",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "OK 알겠어요.",
+   "lang": "<|ko|>",
+   "requested": "en",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "OK 알겠어요.",
+   "lang": "<|ko|>",
+   "requested": "ko",
+   "partial": false,
+   "expected": {
+    "text": "OK 알겠어요.",
+    "language": "ko"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "OK 알겠어요.",
+   "lang": "<|ko|>",
+   "requested": "ko",
+   "partial": true,
+   "expected": {
+    "text": "OK 알겠어요.",
+    "language": "ko"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "OK 알겠어요.",
+   "lang": "<|ko|>",
+   "requested": "zh-Hans",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "OK 알겠어요.",
+   "lang": "<|ko|>",
+   "requested": "zh-Hans",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "OK 알겠어요.",
+   "lang": "<|ko|>",
+   "requested": "zh-Hant",
+   "partial": false,
+   "expected": {
+    "error": "NO_SPEECH"
+   }
+  },
+  {
+   "source": "synthetic",
+   "text": "OK 알겠어요.",
+   "lang": "<|ko|>",
+   "requested": "zh-Hant",
+   "partial": true,
+   "expected": {
+    "text": "",
+    "language": null
+   }
+  }
+ ],
+ "conversions": {
+  "zh-Hans|The East African islands are in the Indian Ocean, off the eastern coast of Africa.": "The East African islands are in the Indian Ocean, off the eastern coast of Africa.",
+  "zh-Hant|The East African islands are in the Indian Ocean, off the eastern coast of Africa.": "The East African islands are in the Indian Ocean, off the eastern coast of Africa.",
+  "zh-Hans|西班牙人开始了长达3个世纪的殖民时期。": "西班牙人开始了长达3个世纪的殖民时期。",
+  "zh-Hant|西班牙人开始了长达3个世纪的殖民时期。": "西班牙人開始了長達3個世紀的殖民時期。",
+  "zh-Hans|你好世界，再见": "你好世界，再见",
+  "zh-Hant|你好世界，再见": "你好世界，再見",
+  "zh-Hans|你好": "你好",
+  "zh-Hant|你好": "你好",
+  "zh-Hans|Hello there.": "Hello there.",
+  "zh-Hant|Hello there.": "Hello there.",
+  "zh-Hans|Some text": "Some text",
+  "zh-Hant|Some text": "Some text",
+  "zh-Hans|嗯我也宣问。": "嗯我也宣问。",
+  "zh-Hant|嗯我也宣问。": "嗯我也宣問。",
+  "zh-Hans|life from我.": "life from我.",
+  "zh-Hant|life from我.": "life from我."
+ },
+ "cleanText": [
+  {
+   "input": "  Hello   world. ",
+   "output": "Hello world."
+  },
+  {
+   "input": "你好 世界 ，再见",
+   "output": "你好世界，再见"
+  },
+  {
+   "input": "안녕 하세요",
+   "output": "안녕 하세요"
+  },
+  {
+   "input": "A　B",
+   "output": "A B"
+  }
+ ],
+ "isFiller": [
+  {
+   "input": "Hello.",
+   "output": false
+  },
+  {
+   "input": "I.",
+   "output": true
+  },
+  {
+   "input": "我。",
+   "output": true
+  },
+  {
+   "input": "没。",
+   "output": true
+  },
+  {
+   "input": "그.",
+   "output": true
+  },
+  {
+   "input": "The.",
+   "output": true
+  },
+  {
+   "input": "嗯。",
+   "output": true
+  },
+  {
+   "input": "uh",
+   "output": true
+  },
+  {
+   "input": "Yeah!",
+   "output": true
+  },
+  {
+   "input": "그래요.",
+   "output": false
+  },
+  {
+   "input": "There.",
+   "output": false
+  },
+  {
+   "input": "你好",
+   "output": false
+  },
+  {
+   "input": "OK",
+   "output": false
+  },
+  {
+   "input": " . ",
+   "output": true
+  },
+  {
+   "input": "_",
+   "output": true
+  },
+  {
+   "input": "1",
+   "output": false
+  },
+  {
+   "input": "안녕 하세요",
+   "output": false
+  }
+ ]
+}

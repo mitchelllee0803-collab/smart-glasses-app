@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Smart Glasses</string>
+
+    <!-- Common -->
+    <string name="action_stop">Stop</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_back">Back</string>
+    <string name="action_close">Close</string>
+    <string name="action_retry">Retry</string>
+    <string name="action_open_settings">Open settings</string>
+    <string name="cd_menu">Menu</string>
+    <string name="cd_glasses_image">Smart glasses</string>
+
+    <!-- Home: connection -->
+    <string name="status_not_connected">Not connected</string>
+    <string name="status_connected_to">Connected to %1$s</string>
+    <string name="action_disconnect">Disconnect</string>
+    <string name="connect_ready_title">Ready to Connect</string>
+    <string name="action_scan">Scan</string>
+    <string name="connect_connecting_title">Connecting…</string>
+    <string name="connect_reconnecting_title">Reconnecting…</string>
+    <string name="connect_reconnecting_subtitle">%1$s · attempt %2$d of %3$d</string>
+    <string name="connect_failed_title">Couldn\'t connect</string>
+    <string name="connect_failed_timeout">%1$s did not answer. Make sure the glasses are on and on their Bluetooth pairing screen.</string>
+    <string name="connect_failed_rejected">The connection to %1$s was refused. Check that the glasses are not connected to another phone.</string>
+    <string name="connect_failed_lost">The connection to %1$s was lost.</string>
+    <string name="connect_failed_bluetooth_off">Bluetooth was turned off.</string>
+    <string name="connect_failed_sdk">The connection to %1$s could not be started. Try again.</string>
+    <string name="action_scan_again">Scan again</string>
+    <string name="bt_permission_title">Allow Bluetooth access</string>
+    <string name="bt_permission_subtitle">Needed to find and connect to your glasses</string>
+    <string name="action_allow">Allow</string>
+    <string name="bt_off_title">Bluetooth is off</string>
+    <string name="bt_off_subtitle">Turn on Bluetooth to find your glasses</string>
+    <string name="action_turn_on_bluetooth">Turn on Bluetooth</string>
+    <string name="location_off_title">Turn on location</string>
+    <string name="location_off_subtitle">Android 10 and 11 find Bluetooth devices only while location is on</string>
+    <string name="action_location_settings">Location settings</string>
+    <string name="bt_unsupported_title">Bluetooth not available</string>
+    <string name="bt_unsupported_subtitle">This phone has no Bluetooth</string>
+
+    <!-- Home: scan results -->
+    <string name="scan_scanning">Scanning… (%1$d found)</string>
+    <string name="scan_finished">%1$d devices found</string>
+    <string name="scan_none_title">No glasses found</string>
+    <string name="scan_none_tips">Turn the glasses on and open their Bluetooth pairing screen. Glasses that are connected to another phone are not visible.</string>
+    <string name="scan_failed">Bluetooth scanning could not start. Try again.</string>
+    <string name="device_paired">Paired</string>
+    <string name="device_rssi">%1$d dBm</string>
+
+    <!-- Home: features -->
+    <string name="section_features">FEATURES</string>
+    <string name="feature_translate_title">Translate</string>
+    <string name="feature_translate_subtitle">Real-time speech translation on display</string>
+    <string name="battery_percent">%1$d%%</string>
+    <string name="cd_battery">Battery %1$d%%</string>
+    <string name="cd_charging">charging</string>
+
+    <!-- Drawer -->
+    <string name="drawer_models">Offline models</string>
+    <string name="drawer_about">About</string>
+
+    <!-- Translate -->
+    <string name="translate_title">Translate</string>
+    <string name="cd_display_settings">Translation settings</string>
+    <string name="cd_swap_languages">Swap languages</string>
+    <string name="glasses_status_none">Glasses not connected · showing on phone only</string>
+    <string name="glasses_status_opening">Opening translation on glasses…</string>
+    <string name="glasses_status_active">Showing on glasses</string>
+    <string name="glasses_status_left">Glasses switched to another screen</string>
+    <string name="glasses_status_failed">Glasses did not open the translation screen</string>
+    <string name="action_reopen">Reopen</string>
+    <string name="transcript_empty_title">Tap the microphone and start speaking</string>
+    <string name="transcript_empty_subtitle">Translations appear here and on your glasses.</string>
+    <string name="line_recognizing">Recognizing…</string>
+    <string name="line_translating">Translating…</string>
+    <string name="mic_start">Tap to start</string>
+    <string name="mic_listening">Listening…</string>
+    <string name="mic_finishing">Finishing…</string>
+    <string name="cd_start_listening">Start listening</string>
+    <string name="cd_stop_listening">Stop listening</string>
+    <string name="action_clear">Clear</string>
+    <string name="models_needed_title">Offline models needed</string>
+    <string name="models_needed_body">Speech recognition and translation run on this phone. Import the Translate-models folder once to start.</string>
+    <string name="action_set_up_models">Set up models</string>
+    <string name="engine_starting">Starting the offline engine…</string>
+    <string name="engine_failed">The offline engine could not start: %1$s</string>
+    <string name="mic_permission_denied">Microphone access is needed for translation.</string>
+    <string name="error_microphone">Microphone problem: %1$s</string>
+
+    <!-- Translate home and records -->
+    <string name="source_language">Source Language</string>
+    <string name="target_language">Target Language</string>
+    <string name="action_start_translation">Start Translation</string>
+    <string name="all_records">All Records</string>
+    <string name="records_empty">No records yet. Tap Start Translation to begin.</string>
+    <string name="records_no_match">No records match your search.</string>
+    <string name="search_records_hint">Search records</string>
+    <string name="cd_search_records">Search records</string>
+    <string name="cd_select_records">Select records</string>
+    <string name="cd_rename_record">Rename</string>
+    <string name="record_default_title">Record %1$d</string>
+    <string name="record_missing">This record was deleted.</string>
+    <string name="select_all">Select All</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_done">Done</string>
+    <string name="edit_title">Edit Title</string>
+    <string name="edit_title_hint">Please enter content</string>
+    <plurals name="delete_records_confirm">
+        <item quantity="one">Delete %1$d record? This cannot be undone.</item>
+        <item quantity="other">Delete %1$d records? This cannot be undone.</item>
+    </plurals>
+
+    <!-- Translation Settings -->
+    <string name="settings_title">Translation Settings</string>
+    <string name="settings_microphone">Microphone Device</string>
+    <string name="settings_microphone_hint">(For meeting records, using phone microphone is recommended)</string>
+    <string name="settings_mic_glasses">Glasses</string>
+    <string name="settings_mic_phone">Phone</string>
+    <string name="settings_subtitle_content">Subtitle Content</string>
+    <string name="settings_show_both">Show Original and Translation</string>
+    <string name="settings_show_translation">Show Translation</string>
+    <string name="settings_sample_original">Hello!</string>
+    <string name="settings_sample_translation">你好!</string>
+    <string name="settings_text_display">Text display</string>
+    <string name="settings_history">History</string>
+    <string name="settings_newest">Newest</string>
+    <string name="action_use_phone_mic">Use phone</string>
+
+    <!-- Models -->
+    <string name="models_title">Offline models</string>
+    <string name="models_ready_title">Models ready</string>
+    <string name="models_ready_body">Translation and speech recognition work offline on this phone.</string>
+    <string name="models_missing_title">Models not installed</string>
+    <string name="models_partial_title">Some models are missing</string>
+    <string name="models_steps">1. Copy the Translate-models folder (from the Translation project build) to this phone, for example into Download.\n2. Tap Choose folder and select the Translate-models folder itself.\n3. Wait for the copy and check (1–3 minutes).</string>
+    <string name="action_choose_folder">Choose folder</string>
+    <string name="models_progress">%1$s of %2$s</string>
+    <string name="models_done">Imported %1$d files (%2$d already installed).</string>
+    <string name="models_done_missing">Still missing: %1$s</string>
+    <string name="models_failed">Import failed: %1$s</string>
+    <string name="models_cancelled">Import cancelled.</string>
+
+    <!-- About -->
+    <string name="about_body">Smart Glasses %1$s\nVenusSDK %2$s (%3$s)\n\nSpeech recognition and translation run offline on this phone. Audio and text are not stored or sent anywhere.</string>
+
+    <!-- Notification -->
+    <string name="notification_channel_session">Translation session</string>
+    <string name="notification_session_title">Translating</string>
+    <string name="notification_channel_glasses">Requests from the glasses</string>
+    <string name="notification_glasses_title">Translate opened on the glasses</string>
+    <string name="notification_glasses_text">Tap to start translating</string>
+    <string name="notification_session_text">Listening for speech</string>
+</resources>

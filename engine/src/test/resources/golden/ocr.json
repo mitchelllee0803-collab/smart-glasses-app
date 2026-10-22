@@ -1,0 +1,754 @@
+[
+ {
+  "fixture": "en_clean",
+  "language": "en",
+  "psm": 3,
+  "hocr": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"\n    \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\n <head>\n  <title></title>\n  <meta http-equiv=\"Content-Type\" content=\"text/html;charset=utf-8\"/>\n  <meta name='ocr-system' content='tesseract v5.4.0.20240606' />\n  <meta name='ocr-capabilities' content='ocr_page ocr_carea ocr_par ocr_line ocrx_word ocrp_wconf'/>\n </head>\n <body>\n  <div class='ocr_page' id='page_1' title='image \"C:\\Users\\M.L\\AppData\\Local\\Temp\\tess__y_ctqp3_input.PNG\"; bbox 0 0 755 338; ppageno 0; scan_res 70 70'>\n   <div class='ocr_carea' id='block_1_1' title=\"bbox 41 46 688 180\">\n    <p class='ocr_par' id='par_1_1' lang='eng' title=\"bbox 41 46 688 180\">\n     <span class='ocr_line' id='line_1_1' title=\"bbox 42 46 672 78; baseline 0 -7; x_size 32; x_descenders 7; x_ascenders 7\">\n      <span class='ocrx_word' id='word_1_1' title='bbox 42 46 137 71; x_wconf 96'>Offline</span>\n      <span class='ocrx_word' id='word_1_2' title='bbox 148 46 302 71; x_wconf 96'>translation</span>\n      <span class='ocrx_word' id='word_1_3' title='bbox 315 46 403 78; x_wconf 95'>keeps</span>\n      <span class='ocrx_word' id='word_1_4' title='bbox 414 53 480 78; x_wconf 95'>your</span>\n      <span class='ocrx_word' id='word_1_5' title='bbox 489 46 552 71; x_wconf 96'>data</span>\n      <span class='ocrx_word' id='word_1_6' title='bbox 565 46 672 78; x_wconf 96'>private.</span>\n     </span>\n     <span class='ocr_line' id='line_1_2' title=\"bbox 41 97 635 129; baseline 0 -7; x_size 32; x_descenders 7; x_ascenders 7\">\n      <span class='ocrx_word' id='word_1_7' title='bbox 41 97 98 122; x_wconf 96'>The</span>\n      <span class='ocrx_word' id='word_1_8' title='bbox 110 97 227 129; x_wconf 96'>meeting</span>\n      <span class='ocrx_word' id='word_1_9' title='bbox 239 98 319 122; x_wconf 96'>starts</span>\n      <span class='ocrx_word' id='word_1_10' title='bbox 330 98 357 122; x_wconf 96'>at</span>\n      <span class='ocrx_word' id='word_1_11' title='bbox 370 97 449 122; x_wconf 96'>10:30</span>\n      <span class='ocrx_word' id='word_1_12' title='bbox 461 104 496 122; x_wconf 96'>on</span>\n      <span class='ocrx_word' id='word_1_13' title='bbox 509 97 635 129; x_wconf 96'>Monday.</span>\n     </span>\n     <span class='ocr_line' id='line_1_3' title=\"bbox 43 148 688 180; baseline 0 -7; x_size 32; x_descenders 7; x_ascenders 7\">\n      <span class='ocrx_word' id='word_1_14' title='bbox 43 148 144 173; x_wconf 95'>Please</span>\n      <span class='ocrx_word' id='word_1_15' title='bbox 155 148 243 173; x_wconf 96'>check</span>\n      <span class='ocrx_word' id='word_1_16' title='bbox 253 148 298 173; x_wconf 96'>the</span>\n      <span class='ocrx_word' id='word_1_17' title='bbox 309 148 416 173; x_wconf 96'>second</span>\n      <span class='ocrx_word' id='word_1_18' title='bbox 429 148 580 180; x_wconf 96'>paragraph</span>\n      <span class='ocrx_word' id='word_1_19' title='bbox 593 148 688 173; x_wconf 96'>below.</span>\n     </span>\n    </p>\n   </div>\n   <div class='ocr_carea' id='block_1_2' title=\"bbox 43 253 713 285\">\n    <p class='ocr_par' id='par_1_2' lang='eng' title=\"bbox 43 253 713 285\">\n     <span class='ocr_line' id='line_1_4' title=\"bbox 43 253 713 285; baseline 0 -7; x_size 32; x_descenders 7; x_ascenders 7\">\n      <span class='ocrx_word' id='word_1_20' title='bbox 43 253 150 285; x_wconf 91'>Images</span>\n      <span class='ocrx_word' id='word_1_21' title='bbox 161 260 208 278; x_wconf 96'>are</span>\n      <span class='ocrx_word' id='word_1_22' title='bbox 220 253 373 285; x_wconf 96'>processed</span>\n      <span class='ocrx_word' id='word_1_23' title='bbox 385 260 420 278; x_wconf 96'>on</span>\n      <span class='ocrx_word' id='word_1_24' title='bbox 432 253 483 278; x_wconf 96'>this</span>\n      <span class='ocrx_word' id='word_1_25' title='bbox 494 254 635 285; x_wconf 96'>computer</span>\n      <span class='ocrx_word' id='word_1_26' title='bbox 644 253 713 285; x_wconf 96'>only.</span>\n     </span>\n    </p>\n   </div>\n  </div>\n </body>\n</html>\n",
+  "text": "Offline translation keeps your data private. The meeting starts at 10:30 on Monday. Please check the second paragraph below.\nImages are processed on this computer only.",
+  "lines": [
+   {
+    "text": "Offline translation keeps your data private.",
+    "confidence": 95.8,
+    "bbox": {
+     "x": 42,
+     "y": 46,
+     "width": 630,
+     "height": 32
+    },
+    "block": 1,
+    "paragraph": 1,
+    "line": 1,
+    "wordCount": 6
+   },
+   {
+    "text": "The meeting starts at 10:30 on Monday.",
+    "confidence": 96.0,
+    "bbox": {
+     "x": 41,
+     "y": 97,
+     "width": 594,
+     "height": 32
+    },
+    "block": 1,
+    "paragraph": 1,
+    "line": 2,
+    "wordCount": 7
+   },
+   {
+    "text": "Please check the second paragraph below.",
+    "confidence": 95.8,
+    "bbox": {
+     "x": 43,
+     "y": 148,
+     "width": 645,
+     "height": 32
+    },
+    "block": 1,
+    "paragraph": 1,
+    "line": 3,
+    "wordCount": 6
+   },
+   {
+    "text": "Images are processed on this computer only.",
+    "confidence": 95.2,
+    "bbox": {
+     "x": 43,
+     "y": 253,
+     "width": 670,
+     "height": 32
+    },
+    "block": 2,
+    "paragraph": 1,
+    "line": 1,
+    "wordCount": 7
+   }
+  ]
+ },
+ {
+  "fixture": "en_clean",
+  "language": "en",
+  "psm": 6,
+  "hocr": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"\n    \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\n <head>\n  <title></title>\n  <meta http-equiv=\"Content-Type\" content=\"text/html;charset=utf-8\"/>\n  <meta name='ocr-system' content='tesseract v5.4.0.20240606' />\n  <meta name='ocr-capabilities' content='ocr_page ocr_carea ocr_par ocr_line ocrx_word ocrp_wconf'/>\n </head>\n <body>\n  <div class='ocr_page' id='page_1' title='image \"C:\\Users\\M.L\\AppData\\Local\\Temp\\tess_2vy2_241_input.PNG\"; bbox 0 0 755 338; ppageno 0; scan_res 70 70'>\n   <div class='ocr_carea' id='block_1_1' title=\"bbox 41 46 713 285\">\n    <p class='ocr_par' id='par_1_1' lang='eng' title=\"bbox 41 46 713 285\">\n     <span class='ocr_line' id='line_1_1' title=\"bbox 42 46 672 78; baseline 0 -7; x_size 32; x_descenders 7; x_ascenders 7\">\n      <span class='ocrx_word' id='word_1_1' title='bbox 42 46 137 71; x_wconf 96'>Offline</span>\n      <span class='ocrx_word' id='word_1_2' title='bbox 148 46 302 71; x_wconf 96'>translation</span>\n      <span class='ocrx_word' id='word_1_3' title='bbox 315 46 403 78; x_wconf 95'>keeps</span>\n      <span class='ocrx_word' id='word_1_4' title='bbox 414 53 480 78; x_wconf 95'>your</span>\n      <span class='ocrx_word' id='word_1_5' title='bbox 489 46 552 71; x_wconf 96'>data</span>\n      <span class='ocrx_word' id='word_1_6' title='bbox 565 46 672 78; x_wconf 96'>private.</span>\n     </span>\n     <span class='ocr_line' id='line_1_2' title=\"bbox 41 97 635 129; baseline 0 -7; x_size 32; x_descenders 7; x_ascenders 7\">\n      <span class='ocrx_word' id='word_1_7' title='bbox 41 97 98 122; x_wconf 96'>The</span>\n      <span class='ocrx_word' id='word_1_8' title='bbox 110 97 227 129; x_wconf 96'>meeting</span>\n      <span class='ocrx_word' id='word_1_9' title='bbox 239 98 319 122; x_wconf 96'>starts</span>\n      <span class='ocrx_word' id='word_1_10' title='bbox 330 98 357 122; x_wconf 96'>at</span>\n      <span class='ocrx_word' id='word_1_11' title='bbox 370 97 449 122; x_wconf 96'>10:30</span>\n      <span class='ocrx_word' id='word_1_12' title='bbox 461 104 496 122; x_wconf 96'>on</span>\n      <span class='ocrx_word' id='word_1_13' title='bbox 509 97 635 129; x_wconf 96'>Monday.</span>\n     </span>\n     <span class='ocr_line' id='line_1_3' title=\"bbox 43 148 688 180; baseline 0 -7; x_size 32; x_descenders 7; x_ascenders 7\">\n      <span class='ocrx_word' id='word_1_14' title='bbox 43 148 144 173; x_wconf 95'>Please</span>\n      <span class='ocrx_word' id='word_1_15' title='bbox 155 148 243 173; x_wconf 96'>check</span>\n      <span class='ocrx_word' id='word_1_16' title='bbox 253 148 298 173; x_wconf 96'>the</span>\n      <span class='ocrx_word' id='word_1_17' title='bbox 309 148 416 173; x_wconf 96'>second</span>\n      <span class='ocrx_word' id='word_1_18' title='bbox 429 148 580 180; x_wconf 96'>paragraph</span>\n      <span class='ocrx_word' id='word_1_19' title='bbox 593 148 688 173; x_wconf 96'>below.</span>\n     </span>\n     <span class='ocr_line' id='line_1_4' title=\"bbox 43 253 713 285; baseline 0 -7; x_size 32; x_descenders 7; x_ascenders 7\">\n      <span class='ocrx_word' id='word_1_20' title='bbox 43 253 150 285; x_wconf 91'>Images</span>\n      <span class='ocrx_word' id='word_1_21' title='bbox 161 260 208 278; x_wconf 96'>are</span>\n      <span class='ocrx_word' id='word_1_22' title='bbox 220 253 373 285; x_wconf 96'>processed</span>\n      <span class='ocrx_word' id='word_1_23' title='bbox 385 260 420 278; x_wconf 96'>on</span>\n      <span class='ocrx_word' id='word_1_24' title='bbox 432 253 483 278; x_wconf 96'>this</span>\n      <span class='ocrx_word' id='word_1_25' title='bbox 494 254 635 285; x_wconf 96'>computer</span>\n      <span class='ocrx_word' id='word_1_26' title='bbox 644 253 713 285; x_wconf 96'>only.</span>\n     </span>\n    </p>\n   </div>\n  </div>\n </body>\n</html>\n",
+  "text": "Offline translation keeps your data private. The meeting starts at 10:30 on Monday. Please check the second paragraph below.\nImages are processed on this computer only.",
+  "lines": [
+   {
+    "text": "Offline translation keeps your data private.",
+    "confidence": 95.8,
+    "bbox": {
+     "x": 42,
+     "y": 46,
+     "width": 630,
+     "height": 32
+    },
+    "block": 1,
+    "paragraph": 1,
+    "line": 1,
+    "wordCount": 6
+   },
+   {
+    "text": "The meeting starts at 10:30 on Monday.",
+    "confidence": 96.0,
+    "bbox": {
+     "x": 41,
+     "y": 97,
+     "width": 594,
+     "height": 32
+    },
+    "block": 1,
+    "paragraph": 1,
+    "line": 2,
+    "wordCount": 7
+   },
+   {
+    "text": "Please check the second paragraph below.",
+    "confidence": 95.8,
+    "bbox": {
+     "x": 43,
+     "y": 148,
+     "width": 645,
+     "height": 32
+    },
+    "block": 1,
+    "paragraph": 1,
+    "line": 3,
+    "wordCount": 6
+   },
+   {
+    "text": "Images are processed on this computer only.",
+    "confidence": 95.2,
+    "bbox": {
+     "x": 43,
+     "y": 253,
+     "width": 670,
+     "height": 32
+    },
+    "block": 1,
+    "paragraph": 1,
+    "line": 4,
+    "wordCount": 7
+   }
+  ]
+ },
+ {
+  "fixture": "ko_clean",
+  "language": "ko",
+  "psm": 3,
+  "hocr": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"\n    \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\n <head>\n  <title></title>\n  <meta http-equiv=\"Content-Type\" content=\"text/html;charset=utf-8\"/>\n  <meta name='ocr-system' content='tesseract v5.4.0.20240606' />\n  <meta name='ocr-capabilities' content='ocr_page ocr_carea ocr_par ocr_line ocrx_word ocrp_wconf'/>\n </head>\n <body>\n  <div class='ocr_page' id='page_1' title='image \"C:\\Users\\M.L\\AppData\\Local\\Temp\\tess_ov_i3wd5_input.PNG\"; bbox 0 0 691 287; ppageno 0; scan_res 70 70'>\n   <div class='ocr_separator' id='block_1_1' title=\"bbox 81 52 472 81\"></div>\n   <div class='ocr_carea' id='block_1_2' title=\"bbox 42 48 650 131\">\n    <p class='ocr_par' id='par_1_1' lang='kor' title=\"bbox 42 48 650 131\">\n     <span class='ocr_line' id='line_1_1' title=\"bbox 42 48 490 80; baseline -0.016 -5; x_size 38.640865; x_descenders 9.6408663; x_ascenders 11\">\n      <span class='ocrx_word' id='word_1_1' title='bbox 42 51 72 75; x_wconf 93'>오</span>\n      <span class='ocrx_word' id='word_1_2' title='bbox 85 49 106 63; x_wconf 93'>늘</span>\n      <span class='ocrx_word' id='word_1_3' title='bbox 117 49 136 79; x_wconf 86'>은</span>\n      <span class='ocrx_word' id='word_1_4' title='bbox 161 48 186 63; x_wconf 93'>날</span>\n      <span class='ocrx_word' id='word_1_5' title='bbox 196 48 216 80; x_wconf 88'>씨</span>\n      <span class='ocrx_word' id='word_1_6' title='bbox 231 48 253 80; x_wconf 96'>가</span>\n      <span class='ocrx_word' id='word_1_7' title='bbox 272 48 329 80; x_wconf 96'>매우</span>\n      <span class='ocrx_word' id='word_1_8' title='bbox 350 48 490 80; x_wconf 96'>좋습니다.</span>\n     </span>\n     <span class='ocr_line' id='line_1_2' title=\"bbox 43 99 650 131; baseline -0.02 10; x_size 59; x_descenders 17; x_ascenders 10\">\n      <span class='ocrx_word' id='word_1_9' title='bbox 43 99 69 131; x_wconf 92'>회</span>\n      <span class='ocrx_word' id='word_1_10' title='bbox 79 99 103 131; x_wconf 93'>의</span>\n      <span class='ocrx_word' id='word_1_11' title='bbox 115 100 132 130; x_wconf 96'>는</span>\n      <span class='ocrx_word' id='word_1_12' title='bbox 157 99 250 124; x_wconf 90'>월요일</span>\n      <span class='ocrx_word' id='word_1_13' title='bbox 274 99 331 130; x_wconf 93'>오전</span>\n      <span class='ocrx_word' id='word_1_14' title='bbox 353 99 376 116; x_wconf 92'>열</span>\n      <span class='ocrx_word' id='word_1_15' title='bbox 396 99 457 131; x_wconf 93'>시</span>\n      <span class='ocrx_word' id='word_1_16' title='bbox 428 87 454 154; x_wconf 93'>에</span>\n      <span class='ocrx_word' id='word_1_17' title='bbox 476 99 502 131; x_wconf 93'>시</span>\n      <span class='ocrx_word' id='word_1_18' title='bbox 512 99 540 131; x_wconf 93'>작</span>\n      <span class='ocrx_word' id='word_1_19' title='bbox 545 99 650 131; x_wconf 96'>합니다.</span>\n     </span>\n    </p>\n   </div>\n   <div class='ocr_separator' id='block_1_3' title=\"bbox 110 101 632 135\"></div>\n   <div class='ocr_separator' id='block_1_4' title=\"bbox 42 113 376 133\"></div>\n   <div class='ocr_separator' id='block_1_5' title=\"bbox 162 104 632 135\"></div>\n   <div class='ocr_separator' id='block_1_6' title=\"bbox 174 99 187 231\"></div>\n   <div class='ocr_carea' id='block_1_7' title=\"bbox 44 204 217 236\">\n    <p class='ocr_par' id='par_1_2' lang='kor' title=\"bbox 44 204 217 236\">\n     <span class='ocr_line' id='line_1_3' title=\"bbox 44 204 217 236; baseline -0.017 -3; x_size 34; x_descenders 8.5; x_ascenders 8.5\">\n      <span class='ocrx_word' id='word_1_20' title='bbox 44 204 68 236; x_wconf 96'>이</span>\n      <span class='ocrx_word' id='word_1_21' title='bbox 88 204 217 231; x_wconf 96'>프로그램</span>\n     </span>\n    </p>\n   </div>\n   <div class='ocr_carea' id='block_1_8' title=\"bbox 180 224 217 235\">\n    <p class='ocr_par' id='par_1_3' lang='eng' title=\"bbox 180 224 217 235\">\n     <span class='ocr_line' id='line_1_4' title=\"bbox 180 224 217 235; baseline -0.027 1; x_size 20; x_descenders 5; x_ascenders 5\">\n      <span class='ocrx_word' id='word_1_22' title='bbox 180 224 217 235; x_wconf 66'>+o</span>\n     </span>\n    </p>\n   </div>\n   <div class='ocr_carea' id='block_1_9' title=\"bbox 224 205 254 235\">\n    <p class='ocr_par' id='par_1_4' lang='kor' title=\"bbox 224 205 254 235\">\n     <span class='ocr_line' id='line_1_5' title=\"bbox 224 205 254 235; textangle 90; x_size 31; x_descenders 6; x_ascenders 6\">\n      <span class='ocrx_word' id='word_1_23' title='bbox 224 205 254 235; x_wconf 70'>10</span>\n     </span>\n    </p>\n   </div>\n   <div class='ocr_carea' id='block_1_10' title=\"bbox 273 204 330 236\">\n    <p class='ocr_par' id='par_1_5' lang='kor' title=\"bbox 273 204 330 236\">\n     <span class='ocr_line' id='line_1_6' title=\"bbox 273 204 330 236; baseline 0.018 -1; x_size 59.5; x_descenders 10; x_ascenders 16.5\">\n      <span class='ocrx_word' id='word_1_24' title='bbox 273 204 330 236; x_wconf 96'>인터</span>\n     </span>\n    </p>\n   </div>\n   <div class='ocr_carea' id='block_1_11' title=\"bbox 341 204 367 236\">\n    <p class='ocr_par' id='par_1_6' lang='eng' title=\"bbox 341 204 367 236\">\n     <span class='ocr_line' id='line_1_7' title=\"bbox 341 204 367 236; textangle 90; x_size 50; x_descenders 11; x_ascenders 13\">\n      <span class='ocrx_word' id='word_1_25' title='bbox 341 204 367 236; x_wconf 37'>in</span>\n     </span>\n    </p>\n   </div>\n   <div class='ocr_carea' id='block_1_12' title=\"bbox 386 204 638 236\">\n    <p class='ocr_par' id='par_1_7' lang='kor' title=\"bbox 386 204 638 236\">\n     <span class='ocr_line' id='line_1_8' title=\"bbox 386 204 638 236; baseline -0.024 2; x_size 41.666668; x_descenders 10.416667; x_ascenders 10.416667\">\n      <span class='ocrx_word' id='word_1_26' title='bbox 386 204 444 236; x_wconf 93'>없이</span>\n      <span class='ocrx_word' id='word_1_27' title='bbox 469 204 494 236; x_wconf 93'>작</span>\n      <span class='ocrx_word' id='word_1_28' title='bbox 503 205 528 235; x_wconf 93'>동</span>\n      <span class='ocrx_word' id='word_1_29' title='bbox 570 204 638 236; x_wconf 87'>합니다.</span>\n     </span>\n    </p>\n   </div>\n  </div>\n </body>\n</html>\n",
+  "text": "오늘은 날씨가 매우 좋습니다. 회의는 월요일 오전 열 시에 시작합니다.\n이 프로그램\n+o\n10\n인터\nin\n없이 작동 합니다.",
+  "lines": [
+   {
+    "text": "오늘은 날씨가 매우 좋습니다.",
+    "confidence": 93.9,
+    "bbox": {
+     "x": 42,
+     "y": 48,
+     "width": 448,
+     "height": 32
+    },
+    "block": 2,
+    "paragraph": 1,
+    "line": 1,
+    "wordCount": 8
+   },
+   {
+    "text": "회의는 월요일 오전 열 시에 시작합니다.",
+    "confidence": 93.2,
+    "bbox": {
+     "x": 43,
+     "y": 87,
+     "width": 607,
+     "height": 67
+    },
+    "block": 2,
+    "paragraph": 1,
+    "line": 2,
+    "wordCount": 11
+   },
+   {
+    "text": "이 프로그램",
+    "confidence": 96.0,
+    "bbox": {
+     "x": 44,
+     "y": 204,
+     "width": 173,
+     "height": 32
+    },
+    "block": 7,
+    "paragraph": 1,
+    "line": 1,
+    "wordCount": 2
+   },
+   {
+    "text": "+o",
+    "confidence": 66.0,
+    "bbox": {
+     "x": 180,
+     "y": 224,
+     "width": 37,
+     "height": 11
+    },
+    "block": 8,
+    "paragraph": 1,
+    "line": 1,
+    "wordCount": 1
+   },
+   {
+    "text": "10",
+    "confidence": 70.0,
+    "bbox": {
+     "x": 224,
+     "y": 205,
+     "width": 30,
+     "height": 30
+    },
+    "block": 9,
+    "paragraph": 1,
+    "line": 1,
+    "wordCount": 1
+   },
+   {
+    "text": "인터",
+    "confidence": 96.0,
+    "bbox": {
+     "x": 273,
+     "y": 204,
+     "width": 57,
+     "height": 32
+    },
+    "block": 10,
+    "paragraph": 1,
+    "line": 1,
+    "wordCount": 1
+   },
+   {
+    "text": "in",
+    "confidence": 37.0,
+    "bbox": {
+     "x": 341,
+     "y": 204,
+     "width": 26,
+     "height": 32
+    },
+    "block": 11,
+    "paragraph": 1,
+    "line": 1,
+    "wordCount": 1
+   },
+   {
+    "text": "없이 작동 합니다.",
+    "confidence": 90.0,
+    "bbox": {
+     "x": 386,
+     "y": 204,
+     "width": 252,
+     "height": 32
+    },
+    "block": 12,
+    "paragraph": 1,
+    "line": 1,
+    "wordCount": 4
+   }
+  ]
+ },
+ {
+  "fixture": "ko_clean",
+  "language": "ko",
+  "psm": 6,
+  "hocr": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"\n    \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\n <head>\n  <title></title>\n  <meta http-equiv=\"Content-Type\" content=\"text/html;charset=utf-8\"/>\n  <meta name='ocr-system' content='tesseract v5.4.0.20240606' />\n  <meta name='ocr-capabilities' content='ocr_page ocr_carea ocr_par ocr_line ocrx_word ocrp_wconf'/>\n </head>\n <body>\n  <div class='ocr_page' id='page_1' title='image \"C:\\Users\\M.L\\AppData\\Local\\Temp\\tess_wo31crz1_input.PNG\"; bbox 0 0 691 287; ppageno 0; scan_res 70 70'>\n   <div class='ocr_carea' id='block_1_1' title=\"bbox 42 48 650 236\">\n    <p class='ocr_par' id='par_1_1' lang='kor' title=\"bbox 42 48 650 236\">\n     <span class='ocr_line' id='line_1_1' title=\"bbox 42 48 490 80; baseline 0.002 -1; x_size 41.78788; x_descenders 10.44697; x_ascenders 10.44697\">\n      <span class='ocrx_word' id='word_1_1' title='bbox 42 51 72 75; x_wconf 93'>오</span>\n      <span class='ocrx_word' id='word_1_2' title='bbox 84 49 106 79; x_wconf 93'>늘</span>\n      <span class='ocrx_word' id='word_1_3' title='bbox 119 49 140 79; x_wconf 92'>은</span>\n      <span class='ocrx_word' id='word_1_4' title='bbox 159 48 255 80; x_wconf 93'>날</span>\n      <span class='ocrx_word' id='word_1_5' title='bbox 197 44 229 94; x_wconf 92'>씨</span>\n      <span class='ocrx_word' id='word_1_6' title='bbox 228 44 251 94; x_wconf 96'>가</span>\n      <span class='ocrx_word' id='word_1_7' title='bbox 272 48 334 80; x_wconf 96'>매우</span>\n      <span class='ocrx_word' id='word_1_8' title='bbox 350 48 490 80; x_wconf 96'>좋습니다.</span>\n     </span>\n     <span class='ocr_line' id='line_1_2' title=\"bbox 42 99 650 131; baseline 0.002 -1; x_size 41.78788; x_descenders 10.44697; x_ascenders 10.44697\">\n      <span class='ocrx_word' id='word_1_9' title='bbox 42 99 69 131; x_wconf 93'>회</span>\n      <span class='ocrx_word' id='word_1_10' title='bbox 84 99 103 131; x_wconf 93'>의</span>\n      <span class='ocrx_word' id='word_1_11' title='bbox 116 100 138 130; x_wconf 97'>는</span>\n      <span class='ocrx_word' id='word_1_12' title='bbox 157 99 251 130; x_wconf 96'>월요일</span>\n      <span class='ocrx_word' id='word_1_13' title='bbox 270 99 331 130; x_wconf 93'>오전</span>\n      <span class='ocrx_word' id='word_1_14' title='bbox 353 99 377 130; x_wconf 92'>열</span>\n      <span class='ocrx_word' id='word_1_15' title='bbox 396 99 457 131; x_wconf 92'>시</span>\n      <span class='ocrx_word' id='word_1_16' title='bbox 434 95 457 145; x_wconf 93'>에</span>\n      <span class='ocrx_word' id='word_1_17' title='bbox 481 99 502 131; x_wconf 93'>시</span>\n      <span class='ocrx_word' id='word_1_18' title='bbox 516 99 540 131; x_wconf 92'>작</span>\n      <span class='ocrx_word' id='word_1_19' title='bbox 544 99 650 131; x_wconf 96'>합니다.</span>\n     </span>\n     <span class='ocr_line' id='line_1_3' title=\"bbox 44 204 638 236; baseline 0 -1; x_size 41.78788; x_descenders 10.44697; x_ascenders 10.44697\">\n      <span class='ocrx_word' id='word_1_20' title='bbox 44 204 68 236; x_wconf 93'>이</span>\n      <span class='ocrx_word' id='word_1_21' title='bbox 94 207 118 231; x_wconf 93'>프</span>\n      <span class='ocrx_word' id='word_1_22' title='bbox 129 207 152 231; x_wconf 93'>로</span>\n      <span class='ocrx_word' id='word_1_23' title='bbox 161 207 186 231; x_wconf 93'>그</span>\n      <span class='ocrx_word' id='word_1_24' title='bbox 196 204 217 235; x_wconf 93'>램</span>\n      <span class='ocrx_word' id='word_1_25' title='bbox 231 205 254 235; x_wconf 97'>은</span>\n      <span class='ocrx_word' id='word_1_26' title='bbox 273 204 367 236; x_wconf 96'>인터넷</span>\n      <span class='ocrx_word' id='word_1_27' title='bbox 386 204 444 236; x_wconf 93'>없이</span>\n      <span class='ocrx_word' id='word_1_28' title='bbox 470 204 494 236; x_wconf 93'>작</span>\n      <span class='ocrx_word' id='word_1_29' title='bbox 505 205 528 235; x_wconf 93'>동</span>\n      <span class='ocrx_word' id='word_1_30' title='bbox 532 204 638 236; x_wconf 96'>합니다.</span>\n     </span>\n    </p>\n   </div>\n  </div>\n </body>\n</html>\n",
+  "text": "오늘은 날씨가 매우좋습니다. 회의는 월요일 오전 열 시에 시작합니다.\n이 프로그램은 인터넷 없이 작동합니다.",
+  "lines": [
+   {
+    "text": "오늘은 날씨가 매우좋습니다.",
+    "confidence": 94.7,
+    "bbox": {
+     "x": 42,
+     "y": 44,
+     "width": 448,
+     "height": 50
+    },
+    "block": 1,
+    "paragraph": 1,
+    "line": 1,
+    "wordCount": 8
+   },
+   {
+    "text": "회의는 월요일 오전 열 시에 시작합니다.",
+    "confidence": 94.3,
+    "bbox": {
+     "x": 42,
+     "y": 95,
+     "width": 608,
+     "height": 50
+    },
+    "block": 1,
+    "paragraph": 1,
+    "line": 2,
+    "wordCount": 11
+   },
+   {
+    "text": "이 프로그램은 인터넷 없이 작동합니다.",
+    "confidence": 94.5,
+    "bbox": {
+     "x": 44,
+     "y": 204,
+     "width": 594,
+     "height": 32
+    },
+    "block": 1,
+    "paragraph": 1,
+    "line": 3,
+    "wordCount": 11
+   }
+  ]
+ },
+ {
+  "fixture": "zh-Hans_clean",
+  "language": "zh-Hans",
+  "psm": 3,
+  "hocr": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"\n    \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\n <head>\n  <title></title>\n  <meta http-equiv=\"Content-Type\" content=\"text/html;charset=utf-8\"/>\n  <meta name='ocr-system' content='tesseract v5.4.0.20240606' />\n  <meta name='ocr-capabilities' content='ocr_page ocr_carea ocr_par ocr_line ocrx_word ocrp_wconf'/>\n </head>\n <body>\n  <div class='ocr_page' id='page_1' title='image \"C:\\Users\\M.L\\AppData\\Local\\Temp\\tess_991wiim9_input.PNG\"; bbox 0 0 454 287; ppageno 0; scan_res 70 70'>\n   <div class='ocr_carea' id='block_1_1' title=\"bbox 40 47 391 132\">\n    <p class='ocr_par' id='par_1_1' lang='chi_sim' title=\"bbox 40 47 391 132\">\n     <span class='ocr_line' id='line_1_1' title=\"bbox 41 47 391 81; baseline -0.003 -1; x_size 41.629631; x_descenders 10.407408; x_ascenders 10.407408\">\n      <span class='ocrx_word' id='word_1_1' title='bbox 41 48 73 80; x_wconf 96'>这</span>\n      <span class='ocrx_word' id='word_1_2' title='bbox 82 50 108 80; x_wconf 96'>是</span>\n      <span class='ocrx_word' id='word_1_3' title='bbox 121 62 142 65; x_wconf 96'>一</span>\n      <span class='ocrx_word' id='word_1_4' title='bbox 157 49 175 79; x_wconf 96'>个</span>\n      <span class='ocrx_word' id='word_1_5' title='bbox 193 47 262 81; x_wconf 96'>离线</span>\n      <span class='ocrx_word' id='word_1_6' title='bbox 269 48 325 80; x_wconf 96'>翻译</span>\n      <span class='ocrx_word' id='word_1_7' title='bbox 329 48 379 80; x_wconf 93'>程序</span>\n      <span class='ocrx_word' id='word_1_8' title='bbox 382 71 391 79; x_wconf 92'>。</span>\n     </span>\n     <span class='ocr_line' id='line_1_2' title=\"bbox 40 98 391 132; baseline 0 -2; x_size 41.629631; x_descenders 10.407408; x_ascenders 10.407408\">\n      <span class='ocrx_word' id='word_1_9' title='bbox 40 99 92 131; x_wconf 92'>我</span>\n      <span class='ocrx_word' id='word_1_10' title='bbox 94 102 121 131; x_wconf 93'>们</span>\n      <span class='ocrx_word' id='word_1_11' title='bbox 120 101 175 131; x_wconf 96'>明天</span>\n      <span class='ocrx_word' id='word_1_12' title='bbox 185 98 209 132; x_wconf 96'>在</span>\n      <span class='ocrx_word' id='word_1_13' title='bbox 221 101 242 131; x_wconf 96'>图</span>\n      <span class='ocrx_word' id='word_1_14' title='bbox 257 98 311 131; x_wconf 96'>书馆</span>\n      <span class='ocrx_word' id='word_1_15' title='bbox 325 101 379 131; x_wconf 91'>见面</span>\n      <span class='ocrx_word' id='word_1_16' title='bbox 383 122 391 130; x_wconf 91'>。</span>\n     </span>\n    </p>\n   </div>\n   <div class='ocr_separator' id='block_1_2' title=\"bbox 157 212 306 217\"></div>\n   <div class='ocr_carea' id='block_1_3' title=\"bbox 41 203 391 237\">\n    <p class='ocr_par' id='par_1_2' lang='chi_sim' title=\"bbox 41 203 391 237\">\n     <span class='ocr_line' id='line_1_3' title=\"bbox 41 203 391 237; baseline -0.003 -1; x_size 41.866665; x_descenders 10.466666; x_ascenders 10.466666\">\n      <span class='ocrx_word' id='word_1_17' title='bbox 41 204 108 236; x_wconf 96'>软件</span>\n      <span class='ocrx_word' id='word_1_18' title='bbox 119 205 194 236; x_wconf 95'>开发</span>\n      <span class='ocrx_word' id='word_1_19' title='bbox 193 199 254 250; x_wconf 94'>需要</span>\n      <span class='ocrx_word' id='word_1_20' title='bbox 254 203 328 237; x_wconf 96'>认真</span>\n      <span class='ocrx_word' id='word_1_21' title='bbox 336 203 379 236; x_wconf 92'>测试</span>\n      <span class='ocrx_word' id='word_1_22' title='bbox 384 227 391 235; x_wconf 92'>。</span>\n     </span>\n    </p>\n   </div>\n   <div class='ocr_separator' id='block_1_4' title=\"bbox 284 211 286 230\"></div>\n   <div class='ocr_separator' id='block_1_5' title=\"bbox 284 220 306 222\"></div>\n   <div class='ocr_separator' id='block_1_6' title=\"bbox 304 211 306 230\"></div>\n   <div class='ocr_separator' id='block_1_7' title=\"bbox 284 224 306 226\"></div>\n   <div class='ocr_separator' id='block_1_8' title=\"bbox 279 228 311 230\"></div>\n  </div>\n </body>\n</html>\n",
+  "text": "这是一个离线翻译程序。我们明天在图书馆见面。\n软件开发需要认真测试。",
+  "lines": [
+   {
+    "text": "这是一个离线翻译程序。",
+    "confidence": 95.1,
+    "bbox": {
+     "x": 41,
+     "y": 47,
+     "width": 350,
+     "height": 34
+    },
+    "block": 1,
+    "paragraph": 1,
+    "line": 1,
+    "wordCount": 8
+   },
+   {
+    "text": "我们明天在图书馆见面。",
+    "confidence": 94.0,
+    "bbox": {
+     "x": 40,
+     "y": 98,
+     "width": 351,
+     "height": 34
+    },
+    "block": 1,
+    "paragraph": 1,
+    "line": 2,
+    "wordCount": 8
+   },
+   {
+    "text": "软件开发需要认真测试。",
+    "confidence": 94.4,
+    "bbox": {
+     "x": 41,
+     "y": 199,
+     "width": 350,
+     "height": 51
+    },
+    "block": 3,
+    "paragraph": 1,
+    "line": 1,
+    "wordCount": 6
+   }
+  ]
+ },
+ {
+  "fixture": "zh-Hans_clean",
+  "language": "zh-Hans",
+  "psm": 6,
+  "hocr": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"\n    \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\n <head>\n  <title></title>\n  <meta http-equiv=\"Content-Type\" content=\"text/html;charset=utf-8\"/>\n  <meta name='ocr-system' content='tesseract v5.4.0.20240606' />\n  <meta name='ocr-capabilities' content='ocr_page ocr_carea ocr_par ocr_line ocrx_word ocrp_wconf'/>\n </head>\n <body>\n  <div class='ocr_page' id='page_1' title='image \"C:\\Users\\M.L\\AppData\\Local\\Temp\\tess_8snn85wb_input.PNG\"; bbox 0 0 454 287; ppageno 0; scan_res 70 70'>\n   <div class='ocr_carea' id='block_1_1' title=\"bbox 40 47 391 237\">\n    <p class='ocr_par' id='par_1_1' lang='chi_sim' title=\"bbox 40 47 391 237\">\n     <span class='ocr_line' id='line_1_1' title=\"bbox 41 47 391 81; baseline -0.003 -1; x_size 41.777779; x_descenders 10.444445; x_ascenders 10.444445\">\n      <span class='ocrx_word' id='word_1_1' title='bbox 41 48 73 80; x_wconf 96'>这</span>\n      <span class='ocrx_word' id='word_1_2' title='bbox 82 50 108 80; x_wconf 96'>是</span>\n      <span class='ocrx_word' id='word_1_3' title='bbox 121 62 142 65; x_wconf 96'>一</span>\n      <span class='ocrx_word' id='word_1_4' title='bbox 157 49 175 79; x_wconf 96'>个</span>\n      <span class='ocrx_word' id='word_1_5' title='bbox 193 47 262 81; x_wconf 96'>离线</span>\n      <span class='ocrx_word' id='word_1_6' title='bbox 269 48 325 80; x_wconf 96'>翻译</span>\n      <span class='ocrx_word' id='word_1_7' title='bbox 329 48 379 80; x_wconf 93'>程序</span>\n      <span class='ocrx_word' id='word_1_8' title='bbox 382 71 391 79; x_wconf 92'>。</span>\n     </span>\n     <span class='ocr_line' id='line_1_2' title=\"bbox 40 98 391 132; baseline 0 -2; x_size 41.777779; x_descenders 10.444445; x_ascenders 10.444445\">\n      <span class='ocrx_word' id='word_1_9' title='bbox 40 99 92 131; x_wconf 92'>我</span>\n      <span class='ocrx_word' id='word_1_10' title='bbox 94 102 121 131; x_wconf 93'>们</span>\n      <span class='ocrx_word' id='word_1_11' title='bbox 120 101 175 131; x_wconf 96'>明天</span>\n      <span class='ocrx_word' id='word_1_12' title='bbox 185 98 209 132; x_wconf 96'>在</span>\n      <span class='ocrx_word' id='word_1_13' title='bbox 221 101 242 131; x_wconf 96'>图</span>\n      <span class='ocrx_word' id='word_1_14' title='bbox 257 98 311 131; x_wconf 96'>书馆</span>\n      <span class='ocrx_word' id='word_1_15' title='bbox 325 101 379 131; x_wconf 91'>见面</span>\n      <span class='ocrx_word' id='word_1_16' title='bbox 383 122 391 130; x_wconf 91'>。</span>\n     </span>\n     <span class='ocr_line' id='line_1_3' title=\"bbox 41 203 391 237; baseline -0.003 -1; x_size 41.777779; x_descenders 10.444445; x_ascenders 10.444445\">\n      <span class='ocrx_word' id='word_1_17' title='bbox 41 204 108 236; x_wconf 96'>软件</span>\n      <span class='ocrx_word' id='word_1_18' title='bbox 119 205 194 236; x_wconf 95'>开发</span>\n      <span class='ocrx_word' id='word_1_19' title='bbox 193 199 254 250; x_wconf 94'>需要</span>\n      <span class='ocrx_word' id='word_1_20' title='bbox 254 203 328 237; x_wconf 96'>认真</span>\n      <span class='ocrx_word' id='word_1_21' title='bbox 336 203 379 236; x_wconf 92'>测试</span>\n      <span class='ocrx_word' id='word_1_22' title='bbox 384 227 391 235; x_wconf 92'>。</span>\n     </span>\n    </p>\n   </div>\n  </div>\n </body>\n</html>\n",
+  "text": "这是一个离线翻译程序。我们明天在图书馆见面。\n软件开发需要认真测试。",
+  "lines": [
+   {
+    "text": "这是一个离线翻译程序。",
+    "confidence": 95.1,
+    "bbox": {
+     "x": 41,
+     "y": 47,
+     "width": 350,
+     "height": 34
+    },
+    "block": 1,
+    "paragraph": 1,
+    "line": 1,
+    "wordCount": 8
+   },
+   {
+    "text": "我们明天在图书馆见面。",
+    "confidence": 94.0,
+    "bbox": {
+     "x": 40,
+     "y": 98,
+     "width": 351,
+     "height": 34
+    },
+    "block": 1,
+    "paragraph": 1,
+    "line": 2,
+    "wordCount": 8
+   },
+   {
+    "text": "软件开发需要认真测试。",
+    "confidence": 94.4,
+    "bbox": {
+     "x": 41,
+     "y": 199,
+     "width": 350,
+     "height": 51
+    },
+    "block": 1,
+    "paragraph": 1,
+    "line": 3,
+    "wordCount": 6
+   }
+  ]
+ },
+ {
+  "fixture": "zh-Hant_clean",
+  "language": "zh-Hant",
+  "psm": 3,
+  "hocr": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"\n    \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\n <head>\n  <title></title>\n  <meta http-equiv=\"Content-Type\" content=\"text/html;charset=utf-8\"/>\n  <meta name='ocr-system' content='tesseract v5.4.0.20240606' />\n  <meta name='ocr-capabilities' content='ocr_page ocr_carea ocr_par ocr_line ocrx_word ocrp_wconf'/>\n </head>\n <body>\n  <div class='ocr_page' id='page_1' title='image \"C:\\Users\\M.L\\AppData\\Local\\Temp\\tess_qxwsyg5u_input.PNG\"; bbox 0 0 454 287; ppageno 0; scan_res 70 70'>\n   <div class='ocr_separator' id='block_1_1' title=\"bbox 52 48 173 54\"></div>\n   <div class='ocr_separator' id='block_1_2' title=\"bbox 152 50 156 79\"></div>\n   <div class='ocr_separator' id='block_1_3' title=\"bbox 170 50 174 79\"></div>\n   <div class='ocr_separator' id='block_1_4' title=\"bbox 51 68 344 80\"></div>\n   <div class='ocr_separator' id='block_1_5' title=\"bbox 147 97 378 107\"></div>\n   <div class='ocr_separator' id='block_1_6' title=\"bbox 179 103 377 111\"></div>\n   <div class='ocr_carea' id='block_1_7' title=\"bbox 42 49 309 130\">\n    <p class='ocr_par' id='par_1_1' lang='chi_tra' title=\"bbox 42 49 309 130\">\n     <span class='ocr_line' id='line_1_1' title=\"bbox 42 49 309 79; baseline 0.009 -2; x_size 39.111111; x_descenders 9.7777777; x_ascenders 9.7777777\">\n      <span class='ocrx_word' id='word_1_1' title='bbox 42 49 70 79; x_wconf 96'>這</span>\n      <span class='ocrx_word' id='word_1_2' title='bbox 86 64 106 78; x_wconf 96'>是</span>\n      <span class='ocrx_word' id='word_1_3' title='bbox 122 49 151 79; x_wconf 96'>一</span>\n      <span class='ocrx_word' id='word_1_4' title='bbox 158 49 191 78; x_wconf 96'>個</span>\n      <span class='ocrx_word' id='word_1_5' title='bbox 194 49 260 79; x_wconf 96'>離線</span>\n      <span class='ocrx_word' id='word_1_6' title='bbox 261 50 309 79; x_wconf 96'>翻譯</span>\n     </span>\n     <span class='ocr_line' id='line_1_2' title=\"bbox 42 100 276 130; baseline 0.009 0; x_size 39.111111; x_descenders 9.7777777; x_ascenders 9.7777777\">\n      <span class='ocrx_word' id='word_1_7' title='bbox 42 100 186 130; x_wconf 93'>我</span>\n      <span class='ocrx_word' id='word_1_8' title='bbox 92 96 122 144; x_wconf 93'>們</span>\n      <span class='ocrx_word' id='word_1_9' title='bbox 122 100 185 130; x_wconf 96'>明天</span>\n      <span class='ocrx_word' id='word_1_10' title='bbox 185 96 221 144; x_wconf 96'>在</span>\n      <span class='ocrx_word' id='word_1_11' title='bbox 221 102 254 123; x_wconf 96'>圖</span>\n      <span class='ocrx_word' id='word_1_12' title='bbox 262 102 276 113; x_wconf 96'>書</span>\n     </span>\n    </p>\n   </div>\n   <div class='ocr_carea' id='block_1_8' title=\"bbox 266 49 309 134\">\n    <p class='ocr_par' id='par_1_2' lang='chi_tra' title=\"bbox 266 49 309 134\">\n     <span class='ocr_line' id='line_1_3' title=\"bbox 266 49 309 134; textangle 90; x_size 24; x_descenders 6; x_ascenders 6\">\n      <span class='ocrx_word' id='word_1_13' title='bbox 266 99 298 134; x_wconf 38'>rm</span>\n      <span class='ocrx_word' id='word_1_14' title='bbox 268 49 309 79; x_wconf 56' lang='eng'>ut</span>\n     </span>\n    </p>\n   </div>\n   <div class='ocr_carea' id='block_1_9' title=\"bbox 294 99 310 130\">\n    <p class='ocr_par' id='par_1_3' lang='eng' title=\"bbox 294 99 310 130\">\n     <span class='ocr_line' id='line_1_4' title=\"bbox 294 99 310 130; textangle 90; x_size 20; x_descenders 5; x_ascenders 5\">\n      <span class='ocrx_word' id='word_1_15' title='bbox 294 99 310 130; x_wconf 64'>uu}</span>\n     </span>\n    </p>\n   </div>\n   <div class='ocr_separator' id='block_1_10' title=\"bbox 259 101 263 117\"></div>\n   <div class='ocr_separator' id='block_1_11' title=\"bbox 317 101 321 119\"></div>\n   <div class='ocr_separator' id='block_1_12' title=\"bbox 356 107 360 127\"></div>\n   <div class='ocr_separator' id='block_1_13' title=\"bbox 350 107 353 129\"></div>\n   <div class='ocr_separator' id='block_1_14' title=\"bbox 373 107 377 129\"></div>\n   <div class='ocr_separator' id='block_1_15' title=\"bbox 188 110 340 119\"></div>\n   <div class='ocr_separator' id='block_1_16' title=\"bbox 238 101 242 129\"></div>\n   <div class='ocr_separator' id='block_1_17' title=\"bbox 213 101 217 129\"></div>\n   <div class='ocr_separator' id='block_1_18' title=\"bbox 250 116 340 122\"></div>\n   <div class='ocr_separator' id='block_1_19' title=\"bbox 195 109 197 129\"></div>\n   <div class='ocr_separator' id='block_1_20' title=\"bbox 184 118 376 129\"></div>\n   <div class='ocr_separator' id='block_1_21' title=\"bbox 184 121 376 131\"></div>\n   <div class='ocr_separator' id='block_1_22' title=\"bbox 186 208 379 215\"></div>\n   <div class='ocr_separator' id='block_1_23' title=\"bbox 335 101 341 228\"></div>\n   <div class='ocr_separator' id='block_1_24' title=\"bbox 335 101 346 234\"></div>\n   <div class='ocr_separator' id='block_1_25' title=\"bbox 364 107 375 228\"></div>\n   <div class='ocr_separator' id='block_1_26' title=\"bbox 303 211 307 229\"></div>\n   <div class='ocr_separator' id='block_1_27' title=\"bbox 89 211 306 226\"></div>\n   <div class='ocr_separator' id='block_1_28' title=\"bbox 89 213 306 224\"></div>\n   <div class='ocr_separator' id='block_1_29' title=\"bbox 284 211 288 229\"></div>\n   <div class='ocr_carea' id='block_1_30' title=\"bbox 42 204 401 235\">\n    <p class='ocr_par' id='par_1_4' lang='chi_tra' title=\"bbox 42 204 401 235\">\n     <span class='ocr_line' id='line_1_5' title=\"bbox 42 204 401 235; baseline 0.003 -1; x_size 22; x_descenders 4; x_ascenders 8\">\n      <span class='ocrx_word' id='word_1_16' title='bbox 42 205 124 235; x_wconf 96'>軟體</span>\n      <span class='ocrx_word' id='word_1_17' title='bbox 127 206 157 235; x_wconf 96'>開</span>\n      <span class='ocrx_word' id='word_1_18' title='bbox 158 205 189 235; x_wconf 93'>發</span>\n      <span class='ocrx_word' id='word_1_19' title='bbox 188 212 206 234; x_wconf 91'>需</span>\n      <span class='ocrx_word' id='word_1_20' title='bbox 212 204 254 235; x_wconf 92'>要</span>\n      <span class='ocrx_word' id='word_1_21' title='bbox 257 205 276 234; x_wconf 82'>認</span>\n      <span class='ocrx_word' id='word_1_22' title='bbox 314 205 333 234; x_wconf 67' lang='eng'>A</span>\n      <span class='ocrx_word' id='word_1_23' title='bbox 348 204 377 234; x_wconf 92'>試</span>\n      <span class='ocrx_word' id='word_1_24' title='bbox 394 217 401 223; x_wconf 60' lang='eng'>°</span>\n     </span>\n    </p>\n   </div>\n   <div class='ocr_separator' id='block_1_31' title=\"bbox 89 218 306 225\"></div>\n   <div class='ocr_separator' id='block_1_32' title=\"bbox 115 219 306 229\"></div>\n   <div class='ocr_separator' id='block_1_33' title=\"bbox 280 226 310 230\"></div>\n   <div class='ocr_carea' id='block_1_34' title=\"bbox 331 112 401 130\">\n    <p class='ocr_par' id='par_1_5' lang='eng' title=\"bbox 331 112 401 130\">\n     <span class='ocr_textfloat' id='line_1_6' title=\"bbox 331 112 401 130; baseline 0.014 0; x_size 25; x_descenders 6; x_ascenders 8\">\n      <span class='ocrx_word' id='word_1_25' title='bbox 331 112 401 130; x_wconf 22'>Tle</span>\n      <span class='ocrx_word' id='word_1_26' title='bbox 390 108 404 141; x_wconf 58'>°</span>\n     </span>\n    </p>\n   </div>\n  </div>\n </body>\n</html>\n",
+  "text": "這是一個離線翻譯我們明天在圖書\nrm ut\nuu}\n軟體開發需要認 A 試 °\nTle °",
+  "lines": [
+   {
+    "text": "這是一個離線翻譯",
+    "confidence": 96.0,
+    "bbox": {
+     "x": 42,
+     "y": 49,
+     "width": 267,
+     "height": 30
+    },
+    "block": 7,
+    "paragraph": 1,
+    "line": 1,
+    "wordCount": 6
+   },
+   {
+    "text": "我們明天在圖書",
+    "confidence": 95.1,
+    "bbox": {
+     "x": 42,
+     "y": 96,
+     "width": 234,
+     "height": 48
+    },
+    "block": 7,
+    "paragraph": 1,
+    "line": 2,
+    "wordCount": 6
+   },
+   {
+    "text": "rm ut",
+    "confidence": 47.0,
+    "bbox": {
+     "x": 266,
+     "y": 49,
+     "width": 43,
+     "height": 85
+    },
+    "block": 8,
+    "paragraph": 1,
+    "line": 1,
+    "wordCount": 2
+   },
+   {
+    "text": "uu}",
+    "confidence": 64.0,
+    "bbox": {
+     "x": 294,
+     "y": 99,
+     "width": 16,
+     "height": 31
+    },
+    "block": 9,
+    "paragraph": 1,
+    "line": 1,
+    "wordCount": 1
+   },
+   {
+    "text": "軟體開發需要認 A 試 °",
+    "confidence": 86.5,
+    "bbox": {
+     "x": 42,
+     "y": 204,
+     "width": 359,
+     "height": 31
+    },
+    "block": 30,
+    "paragraph": 1,
+    "line": 1,
+    "wordCount": 9
+   },
+   {
+    "text": "Tle °",
+    "confidence": 31.0,
+    "bbox": {
+     "x": 331,
+     "y": 108,
+     "width": 73,
+     "height": 33
+    },
+    "block": 34,
+    "paragraph": 1,
+    "line": 1,
+    "wordCount": 2
+   }
+  ]
+ },
+ {
+  "fixture": "zh-Hant_clean",
+  "language": "zh-Hant",
+  "psm": 6,
+  "hocr": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"\n    \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\n <head>\n  <title></title>\n  <meta http-equiv=\"Content-Type\" content=\"text/html;charset=utf-8\"/>\n  <meta name='ocr-system' content='tesseract v5.4.0.20240606' />\n  <meta name='ocr-capabilities' content='ocr_page ocr_carea ocr_par ocr_line ocrx_word ocrp_wconf'/>\n </head>\n <body>\n  <div class='ocr_page' id='page_1' title='image \"C:\\Users\\M.L\\AppData\\Local\\Temp\\tess_93_2dqav_input.PNG\"; bbox 0 0 454 287; ppageno 0; scan_res 70 70'>\n   <div class='ocr_carea' id='block_1_1' title=\"bbox 42 49 401 235\">\n    <p class='ocr_par' id='par_1_1' lang='chi_tra' title=\"bbox 42 49 401 235\">\n     <span class='ocr_line' id='line_1_1' title=\"bbox 42 49 401 79; baseline 0 0; x_size 39.719299; x_descenders 9.9298248; x_ascenders 9.9298248\">\n      <span class='ocrx_word' id='word_1_1' title='bbox 42 49 72 79; x_wconf 96'>這</span>\n      <span class='ocrx_word' id='word_1_2' title='bbox 86 50 106 78; x_wconf 96'>是</span>\n      <span class='ocrx_word' id='word_1_3' title='bbox 122 49 151 79; x_wconf 96'>一</span>\n      <span class='ocrx_word' id='word_1_4' title='bbox 158 49 191 79; x_wconf 96'>個</span>\n      <span class='ocrx_word' id='word_1_5' title='bbox 194 49 260 79; x_wconf 96'>離線</span>\n      <span class='ocrx_word' id='word_1_6' title='bbox 261 49 326 79; x_wconf 95'>翻譯</span>\n      <span class='ocrx_word' id='word_1_7' title='bbox 329 45 392 93; x_wconf 93'>程式</span>\n      <span class='ocrx_word' id='word_1_8' title='bbox 394 61 401 67; x_wconf 92'>。</span>\n     </span>\n     <span class='ocr_line' id='line_1_2' title=\"bbox 42 99 401 131; baseline -0.003 -1; x_size 39.719299; x_descenders 9.9298248; x_ascenders 9.9298248\">\n      <span class='ocrx_word' id='word_1_9' title='bbox 42 100 94 130; x_wconf 93'>我</span>\n      <span class='ocrx_word' id='word_1_10' title='bbox 96 101 121 130; x_wconf 91'>們</span>\n      <span class='ocrx_word' id='word_1_11' title='bbox 122 101 174 130; x_wconf 96'>明天</span>\n      <span class='ocrx_word' id='word_1_12' title='bbox 185 100 208 130; x_wconf 95'>在</span>\n      <span class='ocrx_word' id='word_1_13' title='bbox 224 101 241 129; x_wconf 96'>圖</span>\n      <span class='ocrx_word' id='word_1_14' title='bbox 258 99 293 130; x_wconf 93'>書</span>\n      <span class='ocrx_word' id='word_1_15' title='bbox 294 99 310 130; x_wconf 93'>館</span>\n      <span class='ocrx_word' id='word_1_16' title='bbox 325 95 394 144; x_wconf 89'>見面</span>\n      <span class='ocrx_word' id='word_1_17' title='bbox 394 112 401 118; x_wconf 93'>。</span>\n     </span>\n     <span class='ocr_line' id='line_1_3' title=\"bbox 42 204 401 235; baseline -0.003 0; x_size 39.719299; x_descenders 9.9298248; x_ascenders 9.9298248\">\n      <span class='ocrx_word' id='word_1_18' title='bbox 42 204 378 235; x_wconf 93'>軟體</span>\n      <span class='ocrx_word' id='word_1_19' title='bbox 126 200 161 249; x_wconf 96'>開</span>\n      <span class='ocrx_word' id='word_1_20' title='bbox 160 200 195 249; x_wconf 96'>發</span>\n      <span class='ocrx_word' id='word_1_21' title='bbox 194 200 256 249; x_wconf 96'>需要</span>\n      <span class='ocrx_word' id='word_1_22' title='bbox 255 200 329 249; x_wconf 96'>認真</span>\n      <span class='ocrx_word' id='word_1_23' title='bbox 328 200 394 249; x_wconf 93'>測試</span>\n      <span class='ocrx_word' id='word_1_24' title='bbox 394 217 401 223; x_wconf 93'>。</span>\n     </span>\n    </p>\n   </div>\n  </div>\n </body>\n</html>\n",
+  "text": "這是一個離線翻譯程式。我們明天在圖書館見面。\n軟體開發需要認真測試。",
+  "lines": [
+   {
+    "text": "這是一個離線翻譯程式。",
+    "confidence": 94.9,
+    "bbox": {
+     "x": 42,
+     "y": 45,
+     "width": 359,
+     "height": 48
+    },
+    "block": 1,
+    "paragraph": 1,
+    "line": 1,
+    "wordCount": 8
+   },
+   {
+    "text": "我們明天在圖書館見面。",
+    "confidence": 93.1,
+    "bbox": {
+     "x": 42,
+     "y": 95,
+     "width": 359,
+     "height": 49
+    },
+    "block": 1,
+    "paragraph": 1,
+    "line": 2,
+    "wordCount": 9
+   },
+   {
+    "text": "軟體開發需要認真測試。",
+    "confidence": 94.6,
+    "bbox": {
+     "x": 42,
+     "y": 200,
+     "width": 359,
+     "height": 49
+    },
+    "block": 1,
+    "paragraph": 1,
+    "line": 3,
+    "wordCount": 7
+   }
+  ]
+ },
+ {
+  "fixture": "ko_degraded",
+  "language": "ko",
+  "psm": 3,
+  "hocr": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"\n    \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\n <head>\n  <title></title>\n  <meta http-equiv=\"Content-Type\" content=\"text/html;charset=utf-8\"/>\n  <meta name='ocr-system' content='tesseract v5.4.0.20240606' />\n  <meta name='ocr-capabilities' content='ocr_page ocr_carea ocr_par ocr_line ocrx_word ocrp_wconf'/>\n </head>\n <body>\n  <div class='ocr_page' id='page_1' title='image \"C:\\Users\\M.L\\AppData\\Local\\Temp\\tess_sdf36dsf_input.PNG\"; bbox 0 0 310 129; ppageno 0; scan_res 70 70'>\n   <div class='ocr_carea' id='block_1_1' title=\"bbox 19 21 292 59\">\n    <p class='ocr_par' id='par_1_1' lang='kor' title=\"bbox 19 21 292 59\">\n     <span class='ocr_line' id='line_1_1' title=\"bbox 19 21 220 37; baseline 0.005 -3; x_size 28.75; x_descenders 5.5; x_ascenders 7.75\">\n      <span class='ocrx_word' id='word_1_1' title='bbox 19 21 63 36; x_wconf 93'>오</span>\n      <span class='ocrx_word' id='word_1_2' title='bbox 35 10 49 46; x_wconf 91'>늘</span>\n      <span class='ocrx_word' id='word_1_3' title='bbox 48 10 60 46; x_wconf 93'>은</span>\n      <span class='ocrx_word' id='word_1_4' title='bbox 71 21 84 36; x_wconf 93'>날</span>\n      <span class='ocrx_word' id='word_1_5' title='bbox 85 21 114 37; x_wconf 92'>씨</span>\n      <span class='ocrx_word' id='word_1_6' title='bbox 100 10 112 46; x_wconf 96'>가</span>\n      <span class='ocrx_word' id='word_1_7' title='bbox 121 21 150 37; x_wconf 96'>매우</span>\n      <span class='ocrx_word' id='word_1_8' title='bbox 157 21 220 36; x_wconf 68'>좋습니다.</span>\n     </span>\n     <span class='ocr_line' id='line_1_2' title=\"bbox 19 44 292 59; baseline 0 0; x_size 28.75; x_descenders 5.5; x_ascenders 7.75\">\n      <span class='ocrx_word' id='word_1_9' title='bbox 19 44 32 59; x_wconf 92'>회</span>\n      <span class='ocrx_word' id='word_1_10' title='bbox 35 44 63 59; x_wconf 91'>의</span>\n      <span class='ocrx_word' id='word_1_11' title='bbox 49 32 59 69; x_wconf 96'>는</span>\n      <span class='ocrx_word' id='word_1_12' title='bbox 71 44 113 59; x_wconf 96'>월요일</span>\n      <span class='ocrx_word' id='word_1_13' title='bbox 121 44 149 59; x_wconf 93'>오전</span>\n      <span class='ocrx_word' id='word_1_14' title='bbox 158 44 169 59; x_wconf 61'>열</span>\n      <span class='ocrx_word' id='word_1_15' title='bbox 178 44 206 59; x_wconf 61'>시</span>\n      <span class='ocrx_word' id='word_1_16' title='bbox 193 32 205 69; x_wconf 86'>에</span>\n      <span class='ocrx_word' id='word_1_17' title='bbox 214 44 226 59; x_wconf 92'>시</span>\n      <span class='ocrx_word' id='word_1_18' title='bbox 230 44 242 59; x_wconf 93'>작</span>\n      <span class='ocrx_word' id='word_1_19' title='bbox 244 44 292 59; x_wconf 96'>합니다.</span>\n     </span>\n    </p>\n   </div>\n   <div class='ocr_carea' id='block_1_2' title=\"bbox 19 91 286 106\">\n    <p class='ocr_par' id='par_1_2' lang='kor' title=\"bbox 19 91 286 106\">\n     <span class='ocr_line' id='line_1_3' title=\"bbox 19 91 286 106; baseline 0 0; x_size 20; x_descenders 5; x_ascenders 5\">\n      <span class='ocrx_word' id='word_1_20' title='bbox 19 92 31 106; x_wconf 93'>이</span>\n      <span class='ocrx_word' id='word_1_21' title='bbox 39 92 53 104; x_wconf 93'>프</span>\n      <span class='ocrx_word' id='word_1_22' title='bbox 55 92 68 105; x_wconf 93'>로</span>\n      <span class='ocrx_word' id='word_1_23' title='bbox 70 93 84 105; x_wconf 92'>그</span>\n      <span class='ocrx_word' id='word_1_24' title='bbox 85 92 98 106; x_wconf 92'>램</span>\n      <span class='ocrx_word' id='word_1_25' title='bbox 101 91 112 106; x_wconf 97'>은</span>\n      <span class='ocrx_word' id='word_1_26' title='bbox 122 91 165 106; x_wconf 96'>인터넷</span>\n      <span class='ocrx_word' id='word_1_27' title='bbox 172 91 200 106; x_wconf 93'>없이</span>\n      <span class='ocrx_word' id='word_1_28' title='bbox 209 91 222 106; x_wconf 93'>작</span>\n      <span class='ocrx_word' id='word_1_29' title='bbox 225 91 237 106; x_wconf 93'>동</span>\n      <span class='ocrx_word' id='word_1_30' title='bbox 238 91 286 106; x_wconf 96'>합니다.</span>\n     </span>\n    </p>\n   </div>\n  </div>\n </body>\n</html>\n",
+  "text": "오늘은 날씨가 매우좋습니다. 회의는 월요일오전 열 시에 시작합니다.\n이프로그램은 인터넷없이 작동합니다.",
+  "lines": [
+   {
+    "text": "오늘은 날씨가 매우좋습니다.",
+    "confidence": 83.8,
+    "bbox": {
+     "x": 19,
+     "y": 10,
+     "width": 201,
+     "height": 36
+    },
+    "block": 1,
+    "paragraph": 1,
+    "line": 1,
+    "wordCount": 8
+   },
+   {
+    "text": "회의는 월요일오전 열 시에 시작합니다.",
+    "confidence": 90.0,
+    "bbox": {
+     "x": 19,
+     "y": 32,
+     "width": 273,
+     "height": 37
+    },
+    "block": 1,
+    "paragraph": 1,
+    "line": 2,
+    "wordCount": 11
+   },
+   {
+    "text": "이프로그램은 인터넷없이 작동합니다.",
+    "confidence": 94.4,
+    "bbox": {
+     "x": 19,
+     "y": 91,
+     "width": 267,
+     "height": 15
+    },
+    "block": 2,
+    "paragraph": 1,
+    "line": 1,
+    "wordCount": 11
+   }
+  ]
+ },
+ {
+  "fixture": "ko_degraded",
+  "language": "ko",
+  "psm": 6,
+  "hocr": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"\n    \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\n <head>\n  <title></title>\n  <meta http-equiv=\"Content-Type\" content=\"text/html;charset=utf-8\"/>\n  <meta name='ocr-system' content='tesseract v5.4.0.20240606' />\n  <meta name='ocr-capabilities' content='ocr_page ocr_carea ocr_par ocr_line ocrx_word ocrp_wconf'/>\n </head>\n <body>\n  <div class='ocr_page' id='page_1' title='image \"C:\\Users\\M.L\\AppData\\Local\\Temp\\tess_ggcflj_y_input.PNG\"; bbox 0 0 310 129; ppageno 0; scan_res 70 70'>\n   <div class='ocr_carea' id='block_1_1' title=\"bbox 19 21 292 106\">\n    <p class='ocr_par' id='par_1_1' lang='kor' title=\"bbox 19 21 292 106\">\n     <span class='ocr_line' id='line_1_1' title=\"bbox 19 21 220 37; baseline 0.005 -3; x_size 20; x_descenders 5; x_ascenders 5\">\n      <span class='ocrx_word' id='word_1_1' title='bbox 19 22 33 34; x_wconf 91'>오</span>\n      <span class='ocrx_word' id='word_1_2' title='bbox 34 22 48 36; x_wconf 88'>늘</span>\n      <span class='ocrx_word' id='word_1_3' title='bbox 49 21 61 36; x_wconf 90'>은</span>\n      <span class='ocrx_word' id='word_1_4' title='bbox 71 21 84 36; x_wconf 90'>날</span>\n      <span class='ocrx_word' id='word_1_5' title='bbox 85 21 98 36; x_wconf 73'>씨</span>\n      <span class='ocrx_word' id='word_1_6' title='bbox 101 22 109 32; x_wconf 96'>가</span>\n      <span class='ocrx_word' id='word_1_7' title='bbox 121 21 150 37; x_wconf 97'>매우</span>\n      <span class='ocrx_word' id='word_1_8' title='bbox 157 21 220 36; x_wconf 96'>좋습니다.</span>\n     </span>\n     <span class='ocr_line' id='line_1_2' title=\"bbox 19 44 292 59; baseline 0 0; x_size 20; x_descenders 5; x_ascenders 5\">\n      <span class='ocrx_word' id='word_1_9' title='bbox 19 44 32 59; x_wconf 92'>회</span>\n      <span class='ocrx_word' id='word_1_10' title='bbox 35 44 47 59; x_wconf 93'>의</span>\n      <span class='ocrx_word' id='word_1_11' title='bbox 50 45 61 59; x_wconf 96'>는</span>\n      <span class='ocrx_word' id='word_1_12' title='bbox 71 44 113 59; x_wconf 90'>월요일</span>\n      <span class='ocrx_word' id='word_1_13' title='bbox 121 44 149 59; x_wconf 93'>오전</span>\n      <span class='ocrx_word' id='word_1_14' title='bbox 158 44 169 59; x_wconf 93'>열</span>\n      <span class='ocrx_word' id='word_1_15' title='bbox 178 44 206 59; x_wconf 93'>시</span>\n      <span class='ocrx_word' id='word_1_16' title='bbox 193 40 204 68; x_wconf 93'>에</span>\n      <span class='ocrx_word' id='word_1_17' title='bbox 214 44 226 59; x_wconf 85'>시</span>\n      <span class='ocrx_word' id='word_1_18' title='bbox 230 44 242 59; x_wconf 93'>작</span>\n      <span class='ocrx_word' id='word_1_19' title='bbox 244 44 292 59; x_wconf 96'>합니다.</span>\n     </span>\n     <span class='ocr_line' id='line_1_3' title=\"bbox 19 91 286 106; baseline 0 0; x_size 20; x_descenders 5; x_ascenders 5\">\n      <span class='ocrx_word' id='word_1_20' title='bbox 19 92 31 106; x_wconf 93'>이</span>\n      <span class='ocrx_word' id='word_1_21' title='bbox 39 92 53 104; x_wconf 93'>프</span>\n      <span class='ocrx_word' id='word_1_22' title='bbox 55 92 68 105; x_wconf 93'>로</span>\n      <span class='ocrx_word' id='word_1_23' title='bbox 70 93 84 105; x_wconf 92'>그</span>\n      <span class='ocrx_word' id='word_1_24' title='bbox 85 92 98 106; x_wconf 92'>램</span>\n      <span class='ocrx_word' id='word_1_25' title='bbox 101 91 112 106; x_wconf 97'>은</span>\n      <span class='ocrx_word' id='word_1_26' title='bbox 122 91 165 106; x_wconf 96'>인터넷</span>\n      <span class='ocrx_word' id='word_1_27' title='bbox 172 91 200 106; x_wconf 93'>없이</span>\n      <span class='ocrx_word' id='word_1_28' title='bbox 209 91 222 106; x_wconf 93'>작</span>\n      <span class='ocrx_word' id='word_1_29' title='bbox 225 91 237 106; x_wconf 93'>동</span>\n      <span class='ocrx_word' id='word_1_30' title='bbox 238 91 286 106; x_wconf 96'>합니다.</span>\n     </span>\n    </p>\n   </div>\n  </div>\n </body>\n</html>\n",
+  "text": "오늘은 날씨가 매우좋습니다. 회의는 월요일오전 열 시에 시작합니다.\n이프로그램은 인터넷없이 작동합니다.",
+  "lines": [
+   {
+    "text": "오늘은 날씨가 매우좋습니다.",
+    "confidence": 92.5,
+    "bbox": {
+     "x": 19,
+     "y": 21,
+     "width": 201,
+     "height": 16
+    },
+    "block": 1,
+    "paragraph": 1,
+    "line": 1,
+    "wordCount": 8
+   },
+   {
+    "text": "회의는 월요일오전 열 시에 시작합니다.",
+    "confidence": 92.8,
+    "bbox": {
+     "x": 19,
+     "y": 40,
+     "width": 273,
+     "height": 28
+    },
+    "block": 1,
+    "paragraph": 1,
+    "line": 2,
+    "wordCount": 11
+   },
+   {
+    "text": "이프로그램은 인터넷없이 작동합니다.",
+    "confidence": 94.4,
+    "bbox": {
+     "x": 19,
+     "y": 91,
+     "width": 267,
+     "height": 15
+    },
+    "block": 1,
+    "paragraph": 1,
+    "line": 3,
+    "wordCount": 11
+   }
+  ]
+ },
+ {
+  "fixture": "zh-Hans_degraded",
+  "language": "zh-Hans",
+  "psm": 3,
+  "hocr": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"\n    \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\n <head>\n  <title></title>\n  <meta http-equiv=\"Content-Type\" content=\"text/html;charset=utf-8\"/>\n  <meta name='ocr-system' content='tesseract v5.4.0.20240606' />\n  <meta name='ocr-capabilities' content='ocr_page ocr_carea ocr_par ocr_line ocrx_word ocrp_wconf'/>\n </head>\n <body>\n  <div class='ocr_page' id='page_1' title='image \"C:\\Users\\M.L\\AppData\\Local\\Temp\\tess_7d5zogyc_input.PNG\"; bbox 0 0 204 129; ppageno 0; scan_res 70 70'>\n   <div class='ocr_carea' id='block_1_1' title=\"bbox 18 21 176 59\">\n    <p class='ocr_par' id='par_1_1' lang='chi_sim' title=\"bbox 18 21 176 59\">\n     <span class='ocr_line' id='line_1_1' title=\"bbox 18 21 176 37; baseline -0.013 1; x_size 20; x_descenders 5; x_ascenders 5\">\n      <span class='ocrx_word' id='word_1_1' title='bbox 14 17 40 46; x_wconf 96'>这</span>\n      <span class='ocrx_word' id='word_1_2' title='bbox 39 21 56 36; x_wconf 96'>是</span>\n      <span class='ocrx_word' id='word_1_3' title='bbox 55 17 71 46; x_wconf 96'>一</span>\n      <span class='ocrx_word' id='word_1_4' title='bbox 70 17 87 46; x_wconf 96'>个</span>\n      <span class='ocrx_word' id='word_1_5' title='bbox 86 21 118 37; x_wconf 96'>离线</span>\n      <span class='ocrx_word' id='word_1_6' title='bbox 117 17 149 46; x_wconf 96'>翻译</span>\n      <span class='ocrx_word' id='word_1_7' title='bbox 148 17 172 46; x_wconf 91'>程序</span>\n      <span class='ocrx_word' id='word_1_8' title='bbox 171 32 176 36; x_wconf 54'>.</span>\n     </span>\n     <span class='ocr_line' id='line_1_2' title=\"bbox 18 44 176 59; baseline 0 0; x_size 20; x_descenders 5; x_ascenders 5\">\n      <span class='ocrx_word' id='word_1_9' title='bbox 18 44 38 59; x_wconf 93'>我</span>\n      <span class='ocrx_word' id='word_1_10' title='bbox 40 45 48 59; x_wconf 93'>们</span>\n      <span class='ocrx_word' id='word_1_11' title='bbox 52 45 79 59; x_wconf 95'>明天</span>\n      <span class='ocrx_word' id='word_1_12' title='bbox 82 44 94 59; x_wconf 96'>在</span>\n      <span class='ocrx_word' id='word_1_13' title='bbox 99 45 109 59; x_wconf 93'>图</span>\n      <span class='ocrx_word' id='word_1_14' title='bbox 115 44 140 59; x_wconf 96'>书馆</span>\n      <span class='ocrx_word' id='word_1_15' title='bbox 147 45 175 59; x_wconf 92'>见面</span>\n      <span class='ocrx_word' id='word_1_16' title='bbox 175 40 181 68; x_wconf 74'>.</span>\n     </span>\n    </p>\n   </div>\n   <div class='ocr_carea' id='block_1_2' title=\"bbox 18 91 176 107\">\n    <p class='ocr_par' id='par_1_2' lang='chi_sim' title=\"bbox 18 91 176 107\">\n     <span class='ocr_line' id='line_1_3' title=\"bbox 18 91 176 107; baseline 0 -1; x_size 20; x_descenders 5; x_ascenders 5\">\n      <span class='ocrx_word' id='word_1_17' title='bbox 18 87 54 116; x_wconf 96'>软件</span>\n      <span class='ocrx_word' id='word_1_18' title='bbox 53 92 79 106; x_wconf 96'>开发</span>\n      <span class='ocrx_word' id='word_1_19' title='bbox 86 87 112 116; x_wconf 95'>需要</span>\n      <span class='ocrx_word' id='word_1_20' title='bbox 111 87 147 116; x_wconf 96'>认真</span>\n      <span class='ocrx_word' id='word_1_21' title='bbox 146 91 174 106; x_wconf 83'>测试</span>\n      <span class='ocrx_word' id='word_1_22' title='bbox 173 87 179 116; x_wconf 24'>。</span>\n     </span>\n    </p>\n   </div>\n  </div>\n </body>\n</html>\n",
+  "text": "这是一个离线翻译程序。我们明天在图书馆见面。\n软件开发需要认真测试。",
+  "lines": [
+   {
+    "text": "这是一个离线翻译程序。",
+    "confidence": 91.3,
+    "bbox": {
+     "x": 14,
+     "y": 17,
+     "width": 162,
+     "height": 29
+    },
+    "block": 1,
+    "paragraph": 1,
+    "line": 1,
+    "wordCount": 8
+   },
+   {
+    "text": "我们明天在图书馆见面。",
+    "confidence": 92.3,
+    "bbox": {
+     "x": 18,
+     "y": 40,
+     "width": 163,
+     "height": 28
+    },
+    "block": 1,
+    "paragraph": 1,
+    "line": 2,
+    "wordCount": 8
+   },
+   {
+    "text": "软件开发需要认真测试。",
+    "confidence": 86.9,
+    "bbox": {
+     "x": 18,
+     "y": 87,
+     "width": 161,
+     "height": 29
+    },
+    "block": 2,
+    "paragraph": 1,
+    "line": 1,
+    "wordCount": 6
+   }
+  ]
+ },
+ {
+  "fixture": "zh-Hans_degraded",
+  "language": "zh-Hans",
+  "psm": 6,
+  "hocr": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"\n    \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\n <head>\n  <title></title>\n  <meta http-equiv=\"Content-Type\" content=\"text/html;charset=utf-8\"/>\n  <meta name='ocr-system' content='tesseract v5.4.0.20240606' />\n  <meta name='ocr-capabilities' content='ocr_page ocr_carea ocr_par ocr_line ocrx_word ocrp_wconf'/>\n </head>\n <body>\n  <div class='ocr_page' id='page_1' title='image \"C:\\Users\\M.L\\AppData\\Local\\Temp\\tess_8r0v9pzu_input.PNG\"; bbox 0 0 204 129; ppageno 0; scan_res 70 70'>\n   <div class='ocr_carea' id='block_1_1' title=\"bbox 18 21 176 107\">\n    <p class='ocr_par' id='par_1_1' lang='chi_sim' title=\"bbox 18 21 176 107\">\n     <span class='ocr_line' id='line_1_1' title=\"bbox 18 21 176 37; baseline -0.013 1; x_size 20; x_descenders 5; x_ascenders 5\">\n      <span class='ocrx_word' id='word_1_1' title='bbox 14 17 40 46; x_wconf 96'>这</span>\n      <span class='ocrx_word' id='word_1_2' title='bbox 39 21 56 36; x_wconf 96'>是</span>\n      <span class='ocrx_word' id='word_1_3' title='bbox 55 17 71 46; x_wconf 96'>一</span>\n      <span class='ocrx_word' id='word_1_4' title='bbox 70 17 87 46; x_wconf 96'>个</span>\n      <span class='ocrx_word' id='word_1_5' title='bbox 86 21 118 37; x_wconf 96'>离线</span>\n      <span class='ocrx_word' id='word_1_6' title='bbox 117 17 149 46; x_wconf 96'>翻译</span>\n      <span class='ocrx_word' id='word_1_7' title='bbox 148 17 172 46; x_wconf 91'>程序</span>\n      <span class='ocrx_word' id='word_1_8' title='bbox 171 32 176 36; x_wconf 54'>.</span>\n     </span>\n     <span class='ocr_line' id='line_1_2' title=\"bbox 18 44 176 59; baseline 0 0; x_size 20; x_descenders 5; x_ascenders 5\">\n      <span class='ocrx_word' id='word_1_9' title='bbox 18 44 38 59; x_wconf 93'>我</span>\n      <span class='ocrx_word' id='word_1_10' title='bbox 40 45 48 59; x_wconf 93'>们</span>\n      <span class='ocrx_word' id='word_1_11' title='bbox 52 45 79 59; x_wconf 95'>明天</span>\n      <span class='ocrx_word' id='word_1_12' title='bbox 82 44 94 59; x_wconf 96'>在</span>\n      <span class='ocrx_word' id='word_1_13' title='bbox 99 45 109 59; x_wconf 93'>图</span>\n      <span class='ocrx_word' id='word_1_14' title='bbox 115 44 140 59; x_wconf 96'>书馆</span>\n      <span class='ocrx_word' id='word_1_15' title='bbox 147 45 175 59; x_wconf 92'>见面</span>\n      <span class='ocrx_word' id='word_1_16' title='bbox 175 40 181 68; x_wconf 74'>.</span>\n     </span>\n     <span class='ocr_line' id='line_1_3' title=\"bbox 18 91 176 107; baseline 0 -1; x_size 20; x_descenders 5; x_ascenders 5\">\n      <span class='ocrx_word' id='word_1_17' title='bbox 18 87 54 116; x_wconf 96'>软件</span>\n      <span class='ocrx_word' id='word_1_18' title='bbox 53 92 79 106; x_wconf 96'>开发</span>\n      <span class='ocrx_word' id='word_1_19' title='bbox 86 87 112 116; x_wconf 95'>需要</span>\n      <span class='ocrx_word' id='word_1_20' title='bbox 111 87 147 116; x_wconf 96'>认真</span>\n      <span class='ocrx_word' id='word_1_21' title='bbox 146 91 174 106; x_wconf 83'>测试</span>\n      <span class='ocrx_word' id='word_1_22' title='bbox 173 87 179 116; x_wconf 24'>。</span>\n     </span>\n    </p>\n   </div>\n  </div>\n </body>\n</html>\n",
+  "text": "这是一个离线翻译程序。我们明天在图书馆见面。软件开发需要认真测试。",
+  "lines": [
+   {
+    "text": "这是一个离线翻译程序。",
+    "confidence": 91.3,
+    "bbox": {
+     "x": 14,
+     "y": 17,
+     "width": 162,
+     "height": 29
+    },
+    "block": 1,
+    "paragraph": 1,
+    "line": 1,
+    "wordCount": 8
+   },
+   {
+    "text": "我们明天在图书馆见面。",
+    "confidence": 92.3,
+    "bbox": {
+     "x": 18,
+     "y": 40,
+     "width": 163,
+     "height": 28
+    },
+    "block": 1,
+    "paragraph": 1,
+    "line": 2,
+    "wordCount": 8
+   },
+   {
+    "text": "软件开发需要认真测试。",
+    "confidence": 86.9,
+    "bbox": {
+     "x": 18,
+     "y": 87,
+     "width": 161,
+     "height": 29
+    },
+    "block": 1,
+    "paragraph": 1,
+    "line": 3,
+    "wordCount": 6
+   }
+  ]
+ }
+]

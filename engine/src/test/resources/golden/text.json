@@ -1,0 +1,393 @@
+{
+ "split": [
+  {
+   "input": "Hello world. How are you? Fine!",
+   "output": [
+    "Hello world.",
+    "How are you?",
+    "Fine!"
+   ]
+  },
+  {
+   "input": "Dr. Smith met Mr. Jones at 3.30 p.m. today.",
+   "output": [
+    "Dr. Smith met Mr. Jones at 3.30 p.m. today."
+   ]
+  },
+  {
+   "input": "J. K. Rowling wrote books. They sold well.",
+   "output": [
+    "J. K. Rowling wrote books.",
+    "They sold well."
+   ]
+  },
+  {
+   "input": "He said \"Stop.\" Then he left.",
+   "output": [
+    "He said \"Stop.\"",
+    "Then he left."
+   ]
+  },
+  {
+   "input": "我们走吧。你好吗？很好！",
+   "output": [
+    "我们走吧。",
+    "你好吗？",
+    "很好！"
+   ]
+  },
+  {
+   "input": "「你好。」他說。",
+   "output": [
+    "「你好。」",
+    "他說。"
+   ]
+  },
+  {
+   "input": "안녕하세요. 반갑습니다! 잘 지내요?",
+   "output": [
+    "안녕하세요.",
+    "반갑습니다!",
+    "잘 지내요?"
+   ]
+  },
+  {
+   "input": "Version 1.2.3 is out",
+   "output": [
+    "Version 1.2.3 is out"
+   ]
+  },
+  {
+   "input": "   ",
+   "output": []
+  },
+  {
+   "input": "Wait — are you sure? Yes! (Absolutely.)",
+   "output": [
+    "Wait — are you sure?",
+    "Yes!",
+    "(Absolutely.)"
+   ]
+  },
+  {
+   "input": "U.S. officials met e.g. the U.K. team. Then they left.",
+   "output": [
+    "U.S. officials met e.g. the U.K. team.",
+    "Then they left."
+   ]
+  },
+  {
+   "input": "clause number 0, clause number 1, clause number 2, clause number 3, clause number 4, clause number 5, clause number 6, clause number 7, clause number 8, clause number 9, clause number 10, clause number 11, clause number 12, clause number 13, clause number 14, clause number 15, clause number 16, clause number 17, clause number 18, clause number 19, clause number 20, clause number 21, clause number 22, clause number 23, clause number 24, clause number 25, clause number 26, clause number 27, clause number 28, clause number 29, clause number 30, clause number 31, clause number 32, clause number 33, clause number 34, clause number 35, clause number 36, clause number 37, clause number 38, clause number 39, clause number 40, clause number 41, clause number 42, clause number 43, clause number 44, clause number 45, clause number 46, clause number 47, clause number 48, clause number 49, clause number 50, clause number 51, clause number 52, clause number 53, clause number 54, clause number 55, clause number 56, clause number 57, clause number 58, clause number 59, clause number 60, clause number 61, clause number 62, clause number 63, clause number 64, clause number 65, clause number 66, clause number 67, clause number 68, clause number 69, clause number 70, clause number 71, clause number 72, clause number 73, clause number 74, clause number 75, clause number 76, clause number 77, clause number 78, clause number 79.",
+   "output": [
+    "clause number 0, clause number 1, clause number 2, clause number 3, clause number 4, clause number 5, clause number 6, clause number 7, clause number 8, clause number 9, clause number 10, clause number 11, clause number 12, clause number 13, clause number 14, clause number 15, clause number 16,",
+    "clause number 17, clause number 18, clause number 19, clause number 20, clause number 21, clause number 22, clause number 23, clause number 24, clause number 25, clause number 26, clause number 27, clause number 28, clause number 29, clause number 30, clause number 31, clause number 32,",
+    "clause number 33, clause number 34, clause number 35, clause number 36, clause number 37, clause number 38, clause number 39, clause number 40, clause number 41, clause number 42, clause number 43, clause number 44, clause number 45, clause number 46, clause number 47, clause number 48,",
+    "clause number 49, clause number 50, clause number 51, clause number 52, clause number 53, clause number 54, clause number 55, clause number 56, clause number 57, clause number 58, clause number 59, clause number 60, clause number 61, clause number 62, clause number 63, clause number 64,",
+    "clause number 65, clause number 66, clause number 67, clause number 68, clause number 69, clause number 70, clause number 71, clause number 72, clause number 73, clause number 74, clause number 75, clause number 76, clause number 77, clause number 78, clause number 79."
+   ]
+  },
+  {
+   "input": "汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉",
+   "output": [
+    "汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉",
+    "汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉",
+    "汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉汉"
+   ]
+  },
+  {
+   "input": "지난 주말에 가족과 함께 제주도에 다녀왔습니다. 날씨가 맑아서 한라산에 올라갈 수 있었고, 저녁에는 바닷가에서 신선한 해산물을 먹었습니다.",
+   "output": [
+    "지난 주말에 가족과 함께 제주도에 다녀왔습니다.",
+    "날씨가 맑아서 한라산에 올라갈 수 있었고, 저녁에는 바닷가에서 신선한 해산물을 먹었습니다."
+   ]
+  }
+ ],
+ "terminalStop": [
+  {
+   "input": "Hi",
+   "output": true
+  },
+  {
+   "input": "Thank you  ",
+   "output": true
+  },
+  {
+   "input": "안녕하세요",
+   "output": true
+  },
+  {
+   "input": "谢谢",
+   "output": true
+  },
+  {
+   "input": "Version 2",
+   "output": true
+  },
+  {
+   "input": "Hi.",
+   "output": false
+  },
+  {
+   "input": "Really?",
+   "output": false
+  },
+  {
+   "input": "你好。",
+   "output": false
+  },
+  {
+   "input": "He said \"yes\"",
+   "output": false
+  },
+  {
+   "input": "Dear John,",
+   "output": false
+  },
+  {
+   "input": "(see above)",
+   "output": false
+  },
+  {
+   "input": "",
+   "output": false
+  },
+  {
+   "input": "Ⅻ",
+   "output": true
+  },
+  {
+   "input": "x²",
+   "output": true
+  }
+ ],
+ "chinesePunct": [
+  {
+   "input": "图书馆上午9点开馆.",
+   "output": "图书馆上午9点开馆。"
+  },
+  {
+   "input": "你好,世界!",
+   "output": "你好，世界！"
+  },
+  {
+   "input": "版本是3.14",
+   "output": "版本是3.14"
+  },
+  {
+   "input": "使用 U.S. 标准",
+   "output": "使用 U.S. 标准"
+  },
+  {
+   "input": "Hello, world.",
+   "output": "Hello, world."
+  },
+  {
+   "input": "问题:答案;结束?",
+   "output": "问题：答案；结束？"
+  }
+ ],
+ "detect": [
+  {
+   "input": "Hello, how are you?",
+   "output": {
+    "language": "en",
+    "confidence": 1.0,
+    "ambiguous": false,
+    "reason": "Latin script.",
+    "scores": {
+     "hangul": 0,
+     "han": 0,
+     "latin": 14
+    }
+   }
+  },
+  {
+   "input": "안녕하세요, 잘 지내세요?",
+   "output": {
+    "language": "ko",
+    "confidence": 1.0,
+    "ambiguous": false,
+    "reason": "Hangul script.",
+    "scores": {
+     "hangul": 10,
+     "han": 0,
+     "latin": 0
+    }
+   }
+  },
+  {
+   "input": "这是简体中文的句子，我们很高兴。",
+   "output": {
+    "language": "zh-Hans",
+    "confidence": 1.0,
+    "ambiguous": false,
+    "reason": "Chinese with 0 Traditional-specific and 5 Simplified-specific characters.",
+    "scores": {
+     "hangul": 0,
+     "han": 14,
+     "latin": 0,
+     "traditionalSpecific": 0,
+     "simplifiedSpecific": 5
+    }
+   }
+  },
+  {
+   "input": "這是繁體中文的句子，我們很高興。",
+   "output": {
+    "language": "zh-Hant",
+    "confidence": 1.0,
+    "ambiguous": false,
+    "reason": "Chinese with 4 Traditional-specific and 0 Simplified-specific characters.",
+    "scores": {
+     "hangul": 0,
+     "han": 14,
+     "latin": 0,
+     "traditionalSpecific": 4,
+     "simplifiedSpecific": 0
+    }
+   }
+  },
+  {
+   "input": "中文",
+   "output": {
+    "language": "zh-Hans",
+    "confidence": 0.5,
+    "ambiguous": true,
+    "reason": "Chinese, but every character is shared by Simplified and Traditional; please choose the script.",
+    "scores": {
+     "hangul": 0,
+     "han": 2,
+     "latin": 0,
+     "traditionalSpecific": 0,
+     "simplifiedSpecific": 0
+    }
+   }
+  },
+  {
+   "input": "",
+   "output": {
+    "language": null,
+    "confidence": 0.0,
+    "ambiguous": true,
+    "reason": "No letters found.",
+    "scores": {
+     "hangul": 0,
+     "han": 0,
+     "latin": 0
+    }
+   }
+  },
+  {
+   "input": "123 !!",
+   "output": {
+    "language": null,
+    "confidence": 0.0,
+    "ambiguous": true,
+    "reason": "No letters found.",
+    "scores": {
+     "hangul": 0,
+     "han": 0,
+     "latin": 0
+    }
+   }
+  },
+  {
+   "input": "Hello 안녕 中文",
+   "output": {
+    "language": "ko",
+    "confidence": 0.33,
+    "ambiguous": true,
+    "reason": "Hangul script.",
+    "scores": {
+     "hangul": 2,
+     "han": 2,
+     "latin": 5
+    }
+   }
+  },
+  {
+   "input": "吃飯了嗎",
+   "output": {
+    "language": "zh-Hant",
+    "confidence": 1.0,
+    "ambiguous": false,
+    "reason": "Chinese with 2 Traditional-specific and 0 Simplified-specific characters.",
+    "scores": {
+     "hangul": 0,
+     "han": 4,
+     "latin": 0,
+     "traditionalSpecific": 2,
+     "simplifiedSpecific": 0
+    }
+   }
+  }
+ ],
+ "openccChars": {
+  "t2s.json": {
+   "요": "요",
+   "繁": "繁",
+   "文": "文",
+   "简": "简",
+   "兴": "兴",
+   "中": "中",
+   "了": "了",
+   "興": "兴",
+   "们": "们",
+   "體": "体",
+   "吃": "吃",
+   "안": "안",
+   "지": "지",
+   "体": "体",
+   "們": "们",
+   "녕": "녕",
+   "這": "这",
+   "세": "세",
+   "句": "句",
+   "的": "的",
+   "高": "高",
+   "嗎": "吗",
+   "하": "하",
+   "잘": "잘",
+   "飯": "饭",
+   "내": "내",
+   "我": "我",
+   "是": "是",
+   "很": "很",
+   "这": "这",
+   "子": "子"
+  },
+  "s2tw.json": {
+   "요": "요",
+   "繁": "繁",
+   "文": "文",
+   "简": "簡",
+   "兴": "興",
+   "中": "中",
+   "了": "了",
+   "興": "興",
+   "们": "們",
+   "體": "體",
+   "吃": "吃",
+   "안": "안",
+   "지": "지",
+   "体": "體",
+   "們": "們",
+   "녕": "녕",
+   "這": "這",
+   "세": "세",
+   "句": "句",
+   "的": "的",
+   "高": "高",
+   "嗎": "嗎",
+   "하": "하",
+   "잘": "잘",
+   "飯": "飯",
+   "내": "내",
+   "我": "我",
+   "是": "是",
+   "很": "很",
+   "这": "這",
+   "子": "子"
+  }
+ }
+}

@@ -1,0 +1,271 @@
+{
+    "name": "Translate-models",
+    "id": "e5b7a85b30802dd54595837d5a076ef249299d7e21dc52a3f7c60153702dab41",
+    "files": [
+        {
+            "path": "argos/packages/en_ko/README.md",
+            "size": 1232,
+            "sha256": "53cbfcaac1cda06fb5b5dc291a0493a8c2a03f74f2f479dc238f898362f8c6e3"
+        },
+        {
+            "path": "argos/packages/en_ko/metadata.json",
+            "size": 158,
+            "sha256": "d62149092f03a99e5f4ac21bcdedece27f7c25ef14c3841dce06df898c0ce60e"
+        },
+        {
+            "path": "argos/packages/en_ko/model/model.bin",
+            "size": 132573333,
+            "sha256": "3ad29824a57f3842b165c87513bc8723deb1486f91dbb154137be6dc2fa0a777"
+        },
+        {
+            "path": "argos/packages/en_ko/model/shared_vocabulary.txt",
+            "size": 397468,
+            "sha256": "ba4229260f55ffdafa706e26aae6b2e956ff2eefcb9f25ca4ff613c63f2b1102"
+        },
+        {
+            "path": "argos/packages/en_ko/sentencepiece.model",
+            "size": 775634,
+            "sha256": "1e732c7195cf4d192bec9abf8f7f91d086edbd8f48aca8be3b1cdcffa530ad8b"
+        },
+        {
+            "path": "argos/packages/ko_en/README.md",
+            "size": 1232,
+            "sha256": "e4b3c19dbbbe7d561fed57d4a46641783321b6649aa7674b689e5265f68999f1"
+        },
+        {
+            "path": "argos/packages/ko_en/metadata.json",
+            "size": 158,
+            "sha256": "be98a5192f6e985982d0c11a08b861ad2448efa82443e06e539b4e1d9320142b"
+        },
+        {
+            "path": "argos/packages/ko_en/model/model.bin",
+            "size": 132573333,
+            "sha256": "30170587ac837b737a749d4f821feb0925937cc9cbbedcf6aed07b9cf974f6ad"
+        },
+        {
+            "path": "argos/packages/ko_en/model/shared_vocabulary.txt",
+            "size": 395408,
+            "sha256": "05967edbd8dd99ab2710dd102d0d17902ccdb23b1ba333884618052fd6075bfe"
+        },
+        {
+            "path": "argos/packages/ko_en/sentencepiece.model",
+            "size": 775609,
+            "sha256": "98506598307754afd153041193f46cf8b07c5dadbd5ffbebf67ef1c45ffbe74b"
+        },
+        {
+            "path": "argos/packages/translate-en_zh-1_9/README.md",
+            "size": 401,
+            "sha256": "050e546664f0e70d80b6f83aa1da5f04ee85335f4a1b62d1c89184f76100b5dc"
+        },
+        {
+            "path": "argos/packages/translate-en_zh-1_9/metadata.json",
+            "size": 135,
+            "sha256": "106086bc1b77d2d5c298aa38be69e8e87263eeb4167b4614b08a030c43d31b6a"
+        },
+        {
+            "path": "argos/packages/translate-en_zh-1_9/model/config.json",
+            "size": 216,
+            "sha256": "3a8660f12559a223969532ff191e5e6f50d4ff24164517edbd6a5090dc5144c6"
+        },
+        {
+            "path": "argos/packages/translate-en_zh-1_9/model/model.bin",
+            "size": 82713318,
+            "sha256": "1a039114d9456b6528fabb65b455b6f156319634a0f984b1f6018f7737d67598"
+        },
+        {
+            "path": "argos/packages/translate-en_zh-1_9/model/shared_vocabulary.json",
+            "size": 1367577,
+            "sha256": "c0b6e24705ec0489d5b810de365959c1013aecd644cfeca161b54ea1df6a7dc0"
+        },
+        {
+            "path": "argos/packages/translate-en_zh-1_9/sentencepiece.model",
+            "size": 806370,
+            "sha256": "872224b85a11edc9d769a94949fd387b67ea85b50708db9f91f32f5b497a9af3"
+        },
+        {
+            "path": "argos/packages/translate-en_zt-1_9/README.md",
+            "size": 415,
+            "sha256": "59f3f4722107afbce3f08eda0900ecce37e72ea6f7aff7b80f4a2716cf96c270"
+        },
+        {
+            "path": "argos/packages/translate-en_zt-1_9/metadata.json",
+            "size": 149,
+            "sha256": "ee1f069459cf5e85eb173d5fafcb04adf9a632f566b0a6b38fd9041c229514d6"
+        },
+        {
+            "path": "argos/packages/translate-en_zt-1_9/model/config.json",
+            "size": 216,
+            "sha256": "c3b3596ed40221c8ad22bdaf6155a2828d5a7fddabee93195e74022a8c730a30"
+        },
+        {
+            "path": "argos/packages/translate-en_zt-1_9/model/model.bin",
+            "size": 82713318,
+            "sha256": "1a039114d9456b6528fabb65b455b6f156319634a0f984b1f6018f7737d67598"
+        },
+        {
+            "path": "argos/packages/translate-en_zt-1_9/model/shared_vocabulary.json",
+            "size": 1367577,
+            "sha256": "c0b6e24705ec0489d5b810de365959c1013aecd644cfeca161b54ea1df6a7dc0"
+        },
+        {
+            "path": "argos/packages/translate-en_zt-1_9/sentencepiece.model",
+            "size": 806370,
+            "sha256": "872224b85a11edc9d769a94949fd387b67ea85b50708db9f91f32f5b497a9af3"
+        },
+        {
+            "path": "argos/packages/translate-zh_en-1_9/README.md",
+            "size": 393,
+            "sha256": "1bb7a1261520b8f7d1f94b7fd108c0ccfd7333a3e40a2256df274df0a2ff1cc8"
+        },
+        {
+            "path": "argos/packages/translate-zh_en-1_9/metadata.json",
+            "size": 135,
+            "sha256": "e42259bbbec6cd09ecd16d97d614bebbf1e7351130c6970fe77a2f1ed7f99cca"
+        },
+        {
+            "path": "argos/packages/translate-zh_en-1_9/model/config.json",
+            "size": 196,
+            "sha256": "b28e3136fc7a103e29585c10c8124849fb01d649531f58e00cbe240111560cd7"
+        },
+        {
+            "path": "argos/packages/translate-zh_en-1_9/model/model.bin",
+            "size": 82713318,
+            "sha256": "edd8c8a6863d36959613ff291074627a1635fab2f51b872ef437e924d238921a"
+        },
+        {
+            "path": "argos/packages/translate-zh_en-1_9/model/shared_vocabulary.json",
+            "size": 1368422,
+            "sha256": "c980413009e8041fc42c81730ad4b72ab6cb1313b3b89b1ced261fe5e177b024"
+        },
+        {
+            "path": "argos/packages/translate-zh_en-1_9/sentencepiece.model",
+            "size": 804374,
+            "sha256": "72600ea476b3e3b76763919c3a30ef5104d9b473b19567d45251f56034264f54"
+        },
+        {
+            "path": "argos/packages/translate-zt_en-1_9/README.md",
+            "size": 407,
+            "sha256": "c2de73306c1da80003b251a6542d33b3cbc9cec8656732b01f0c25f6fa1b846a"
+        },
+        {
+            "path": "argos/packages/translate-zt_en-1_9/metadata.json",
+            "size": 149,
+            "sha256": "02610e1045d98b81fd0e5635862920daa429a02fb2bbcac2ab352aab33751fb0"
+        },
+        {
+            "path": "argos/packages/translate-zt_en-1_9/model/config.json",
+            "size": 196,
+            "sha256": "b28e3136fc7a103e29585c10c8124849fb01d649531f58e00cbe240111560cd7"
+        },
+        {
+            "path": "argos/packages/translate-zt_en-1_9/model/model.bin",
+            "size": 82713318,
+            "sha256": "edd8c8a6863d36959613ff291074627a1635fab2f51b872ef437e924d238921a"
+        },
+        {
+            "path": "argos/packages/translate-zt_en-1_9/model/shared_vocabulary.json",
+            "size": 1368422,
+            "sha256": "c980413009e8041fc42c81730ad4b72ab6cb1313b3b89b1ced261fe5e177b024"
+        },
+        {
+            "path": "argos/packages/translate-zt_en-1_9/sentencepiece.model",
+            "size": 804374,
+            "sha256": "72600ea476b3e3b76763919c3a30ef5104d9b473b19567d45251f56034264f54"
+        },
+        {
+            "path": "models.manifest.json",
+            "size": 4995,
+            "sha256": "50d840a4ae86c6071a718b203048b5b23c42108fd79dacf615cc7fd849cca36f"
+        },
+        {
+            "path": "opencc/CJK_Compatibility_Ideographs.ocd2",
+            "size": 13843,
+            "sha256": "4b1faa6649012f524068ec18c0fb520ead343c11cbe0a8e4c8853ca61369d666"
+        },
+        {
+            "path": "opencc/STCharacters.ocd2",
+            "size": 45879,
+            "sha256": "94639fe1d2bbeb3dcb4f29a297cda70ecfd26425b8a935f4b6bac0746c3987f2"
+        },
+        {
+            "path": "opencc/STPhrases.ocd2",
+            "size": 927077,
+            "sha256": "c472f936ab624e8887ed48c2572d0af68b904f0be72d98e237a6b8c1f5de024d"
+        },
+        {
+            "path": "opencc/STPhrases_GeneratedFromRegionalPhrases.ocd2",
+            "size": 19885,
+            "sha256": "815bbb98c644095fb0bfd76dbf259b9da4350a19d4927b2342e7928fb26b20e2"
+        },
+        {
+            "path": "opencc/TSCharacters.ocd2",
+            "size": 52410,
+            "sha256": "7a994de7900707925fac9c68728a6bb9cf3059870426f661cf31b601efbf5f2f"
+        },
+        {
+            "path": "opencc/TSCharactersExt.ocd2",
+            "size": 14362,
+            "sha256": "e2b0286801dcd1d26119d19ba8b8a35cde021ec173468255d117c4c0951b2906"
+        },
+        {
+            "path": "opencc/TSPhrases.ocd2",
+            "size": 13496,
+            "sha256": "2b722237cc00a4ac985790deb6a68c99f34de10e980a0029ac82c72b0f7ae22b"
+        },
+        {
+            "path": "opencc/TWVariants.ocd2",
+            "size": 4623,
+            "sha256": "ed89fe928857500a77cbb601be4a1769da34ce863875eaae18d1d50bd036db5e"
+        },
+        {
+            "path": "opencc/TWVariantsPhrases.ocd2",
+            "size": 4407,
+            "sha256": "a9c356943779f1d9af8b38751fe9222a02dc211a56c83f83871cfc8558afe178"
+        },
+        {
+            "path": "opencc/s2t.json",
+            "size": 701,
+            "sha256": "82946f797e90ecd9a9bc7ec5a30bb22bc6cc8270cb933f0419ccf7262f32fcf0"
+        },
+        {
+            "path": "opencc/s2tw.json",
+            "size": 1255,
+            "sha256": "8307f38e2c9da284aa541f194980d2c1ea18abb7c2d61eaabac90b2f9301ed90"
+        },
+        {
+            "path": "opencc/t2s.json",
+            "size": 612,
+            "sha256": "e266a6d906439a794d118e79a23456a39019516dc6642723223fa09308167f6b"
+        },
+        {
+            "path": "speech/sense-voice-small/model.int8.onnx",
+            "size": 239233841,
+            "sha256": "c71f0ce00bec95b07744e116345e33d8cbbe08cef896382cf907bf4b51a2cd51"
+        },
+        {
+            "path": "speech/sense-voice-small/tokens.txt",
+            "size": 315894,
+            "sha256": "f449eb28dc567533d7fa59be34e2abca8784f771850c78a47fb731a31429a1dc"
+        },
+        {
+            "path": "tessdata/chi_sim.traineddata",
+            "size": 2469156,
+            "sha256": "a5fcb6f0db1e1d6d8522f39db4e848f05984669172e584e8d76b6b3141e1f730"
+        },
+        {
+            "path": "tessdata/chi_tra.traineddata",
+            "size": 2366642,
+            "sha256": "529c5b5797d64b126065cd55f2bb4c7fd7b15790798091b1ff259941a829330b"
+        },
+        {
+            "path": "tessdata/eng.traineddata",
+            "size": 4113088,
+            "sha256": "7d4322bd2a7749724879683fc3912cb542f19906c83bcc1a52132556427170b2"
+        },
+        {
+            "path": "tessdata/kor.traineddata",
+            "size": 1677415,
+            "sha256": "6b85e11d9bbf07863b97b3523b1b112844c43e713df8b66418a081fd1060b3b2"
+        }
+    ]
+}

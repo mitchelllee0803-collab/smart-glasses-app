@@ -1,0 +1,19 @@
+.gradle/
+.kotlin/
+build/
+.cxx/
+.externalNativeBuild/
+local.properties
+*.iml
+.idea/
+captures/
+*.log
+*.hprof
+
+# Native sources (CTranslate2, SentencePiece, OpenCC) copied from the Translation project,
+# where scripts/android/fetch-native-deps.ps1 fetches them at pinned tags.
+engine/src/main/cpp/third_party/
+
+# Release signing
+keystore/
+keystore.properties
