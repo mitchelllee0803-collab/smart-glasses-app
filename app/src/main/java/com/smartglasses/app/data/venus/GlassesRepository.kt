@@ -17,6 +17,8 @@ import com.smartglasses.app.domain.model.BluetoothAvailability
 import com.smartglasses.app.domain.model.ConnectFailure
 import com.smartglasses.app.domain.model.ConnectionState
 import com.smartglasses.app.domain.model.GlassesDevice
+import com.smartglasses.app.domain.model.GlassesInfo
+import com.smartglasses.app.domain.model.GlassesReset
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -36,6 +38,7 @@ import kotlinx.coroutines.flow.filterIsInstance
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeoutOrNull
 
 /**
@@ -98,15 +101,56 @@ class GlassesRepository @Inject constructor(
 
     /** User-initiated: no automatic reconnection afterwards. */
     fun disconnect() {
-        scope.launch(confined) {
-            connectJob?.cancel()
-            stopWatchdog()
-            val previous = _state.value
-            if (previous !is ConnectionState.Disconnected) {
-                // State first: the ACL broadcast caused by disconnecting must not look like a lost link.
-                _state.value = ConnectionState.Disconnected
-                if (!previous.isSimulated()) venus.disconnect()
+        scope.launch(confined) { endLink() }
+    }
+
+    /** Runs in [confined]. */
+    private suspend fun endLink() {
+        connectJob?.cancel()
+        stopWatchdog()
+        val previous = _state.value
+        if (previous !is ConnectionState.Disconnected) {
+            // State first: the ACL broadcast caused by disconnecting must not look like a lost link.
+            _state.value = ConnectionState.Disconnected
+            if (!previous.isSimulated()) venus.disconnect()
+        }
+    }
+
+    /** The connected glasses' details, or null when not connected or they did not answer. */
+    suspend fun deviceInfo(): GlassesInfo? {
+        val device = (_state.value as? ConnectionState.Connected)?.device ?: return null
+        if (device.simulated) return SIMULATED_INFO
+        val info = venus.deviceInfo() ?: return null
+        return GlassesInfo(
+            name = info.name, manufacturer = info.manufacturer, model = info.model, edition = info.edition,
+            serialNumber = info.sn, firmware = info.firmware, bluetoothStack = info.bth, protocol = info.protocol,
+            bluetoothAddress = info.mac, bleName = info.bleName, bleAddress = info.bleMac,
+        )
+    }
+
+    /** True while an unbind or factory reset runs: the link ending then is expected, not lost. */
+    private var resetting = false
+
+    /**
+     * Unbinds (guide §5.10) or factory-resets (§5.9) the connected glasses. Once they accept, the
+     * app disconnects without reconnecting: the glasses forget this phone or restart.
+     */
+    suspend fun reset(kind: GlassesReset): VenusResult = withContext(confined) {
+        val device = (_state.value as? ConnectionState.Connected)?.device ?: return@withContext VenusResult.FAILED
+        if (device.simulated) {
+            endLink()
+            return@withContext VenusResult.SUCCESS
+        }
+        resetting = true
+        try {
+            val result = when (kind) {
+                GlassesReset.UNBIND -> venus.unbind()
+                GlassesReset.FACTORY_RESET -> venus.factoryReset()
             }
+            if (result == VenusResult.SUCCESS) endLink()
+            result
+        } finally {
+            resetting = false
         }
     }
 
@@ -186,6 +230,10 @@ class GlassesRepository @Inject constructor(
     /** Runs in [confined]. Reconnects with back-off; gives up after [RECONNECT_DELAYS_MS]. */
     private fun onLinkLost(reason: String) {
         val device = (_state.value as? ConnectionState.Connected)?.device ?: return
+        if (resetting) {
+            Log.i(TAG, "link ending during unbind/reset: $reason")
+            return
+        }
         Log.w(TAG, "link lost: $reason")
         stopWatchdog()
         connectJob?.cancel()
@@ -252,6 +300,11 @@ class GlassesRepository @Inject constructor(
         const val CONNECT_TIMEOUT_MS = 20_000L
         const val SIMULATED_CONNECT_MS = 800L
         const val SIMULATED_BATTERY = 82
+        val SIMULATED_INFO = GlassesInfo(
+            name = GlassesDevice.TEST_DEVICE.name, manufacturer = "Test", model = "Simulated glasses", edition = null,
+            serialNumber = "TEST-0001", firmware = "1.0.0", bluetoothStack = null, protocol = null,
+            bluetoothAddress = GlassesDevice.TEST_DEVICE.address, bleName = null, bleAddress = null,
+        )
         const val WATCHDOG_INTERVAL_MS = 5_000L
         const val WATCHDOG_MISSES = 2
         val RECONNECT_DELAYS_MS = listOf(1_000L, 3_000L, 6_000L, 12_000L, 20_000L)

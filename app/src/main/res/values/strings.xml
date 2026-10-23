@@ -242,4 +242,33 @@
     <string name="notification_glasses_title">Translate opened on the glasses</string>
     <string name="notification_glasses_text">Tap to start translating</string>
     <string name="notification_session_text">Listening for speech</string>
+    <!-- Settings → About Glasses -->
+    <string name="app_glasses">Glasses</string>
+    <string name="about_glasses_title">About Glasses</string>
+    <string name="about_glasses_hint">Name, details, unbind and factory reset</string>
+    <string name="about_glasses_connect_hint">Connect your glasses on the dashboard to see their details, unbind or reset them.</string>
+    <string name="glasses_name">Glasses Name</string>
+    <string name="glasses_info_title">Glasses Info</string>
+    <string name="glasses_unbind">Unbind</string>
+    <string name="glasses_factory_reset">Factory Reset</string>
+    <string name="glasses_factory_reset_action">Reset</string>
+    <string name="glasses_unbind_confirm_title">Unbind these glasses?</string>
+    <string name="glasses_unbind_confirm_body">The glasses forget this phone and disconnect. To use them again, scan and connect from the dashboard.</string>
+    <string name="glasses_factory_reset_confirm_title">Reset the glasses?</string>
+    <string name="glasses_factory_reset_confirm_body">All settings and data on the glasses are erased and they restart. This can\'t be undone.</string>
+    <string name="glasses_unbound">Glasses unbound. Connect them again from the dashboard.</string>
+    <string name="glasses_factory_reset_started">The glasses are resetting and will restart.</string>
+    <string name="glasses_reset_failed">The glasses didn\'t respond. Try again.</string>
+    <string name="glasses_info_unavailable">Couldn\'t read the details. Make sure the glasses are connected.</string>
+    <string name="glasses_info_name">Name</string>
+    <string name="glasses_info_manufacturer">Manufacturer</string>
+    <string name="glasses_info_model">Model</string>
+    <string name="glasses_info_edition">Edition</string>
+    <string name="glasses_info_bluetooth_address">Bluetooth address</string>
+    <string name="glasses_info_serial">Serial number</string>
+    <string name="glasses_info_firmware">Firmware version</string>
+    <string name="glasses_info_bluetooth_stack">Bluetooth stack version</string>
+    <string name="glasses_info_protocol">Protocol version</string>
+    <string name="glasses_info_ble_name">BLE name</string>
+    <string name="glasses_info_ble_address">BLE address</string>
 </resources>

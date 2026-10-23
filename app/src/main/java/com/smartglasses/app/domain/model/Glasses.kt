@@ -56,6 +56,26 @@ enum class ConnectFailure {
     SDK_ERROR,
 }
 
+/** What the glasses report about themselves (guide §4.3); a field is null when they leave it out. */
+@Immutable
+data class GlassesInfo(
+    val name: String?,
+    val manufacturer: String?,
+    val model: String?,
+    val edition: String?,
+    val serialNumber: String?,
+    val firmware: String?,
+    /** Bluetooth stack version. */
+    val bluetoothStack: String?,
+    val protocol: String?,
+    val bluetoothAddress: String?,
+    val bleName: String?,
+    val bleAddress: String?,
+)
+
+/** About Glasses actions that end the connection. */
+enum class GlassesReset { UNBIND, FACTORY_RESET }
+
 sealed interface ConnectionState {
     data object Disconnected : ConnectionState
     data class Connecting(val device: GlassesDevice) : ConnectionState

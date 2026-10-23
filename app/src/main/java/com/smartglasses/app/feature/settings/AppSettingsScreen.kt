@@ -20,6 +20,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.outlined.DarkMode
+import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material.icons.outlined.LightMode
 import androidx.compose.material.icons.outlined.Lock
 import androidx.compose.material3.Icon
@@ -56,7 +57,7 @@ import com.smartglasses.app.domain.model.ThemeMode
 
 /** ☰ → Settings: options for the app itself. */
 @Composable
-fun AppSettingsScreen(onBack: () -> Unit, viewModel: AppSettingsViewModel = hiltViewModel()) {
+fun AppSettingsScreen(onBack: () -> Unit, onOpenAboutGlasses: () -> Unit, viewModel: AppSettingsViewModel = hiltViewModel()) {
     val textSize by viewModel.textSize.collectAsStateWithLifecycle()
     val theme by viewModel.theme.collectAsStateWithLifecycle()
     val passwordResult by viewModel.passwordResult.collectAsStateWithLifecycle()
@@ -77,6 +78,35 @@ fun AppSettingsScreen(onBack: () -> Unit, viewModel: AppSettingsViewModel = hilt
             Modifier.weight(1f).verticalScroll(rememberScrollState()).navigationBarsPadding()
                 .padding(horizontal = Spacing.lg).padding(bottom = Spacing.xl),
         ) {
+            SettingsSectionTitle(stringResource(R.string.app_glasses))
+            Surface(shape = RoundedCornerShape(Radius.tile), color = MaterialTheme.colorScheme.surface, modifier = Modifier.fillMaxWidth()) {
+                ListRow(
+                    icon = Icons.Outlined.Info,
+                    title = stringResource(R.string.about_glasses_title),
+                    subtitle = stringResource(R.string.about_glasses_hint),
+                    onClick = onOpenAboutGlasses,
+                    modifier = Modifier.padding(horizontal = Spacing.md),
+                ) {
+                    Icon(Icons.AutoMirrored.Filled.KeyboardArrowRight, contentDescription = null, tint = AppTheme.colors.muted)
+                }
+            }
+
+            SettingsSectionTitle(stringResource(R.string.app_password))
+            Surface(shape = RoundedCornerShape(Radius.tile), color = MaterialTheme.colorScheme.surface, modifier = Modifier.fillMaxWidth()) {
+                ListRow(
+                    icon = Icons.Outlined.Lock,
+                    title = stringResource(R.string.change_password),
+                    subtitle = stringResource(R.string.change_password_hint),
+                    onClick = {
+                        viewModel.clearPasswordResult()
+                        changingPassword = true
+                    },
+                    modifier = Modifier.padding(horizontal = Spacing.md),
+                ) {
+                    Icon(Icons.AutoMirrored.Filled.KeyboardArrowRight, contentDescription = null, tint = AppTheme.colors.muted)
+                }
+            }
+
             SettingsSectionTitle(stringResource(R.string.app_font_size), stringResource(R.string.app_font_size_hint))
             OptionRow {
                 AppTextSize.entries.forEach { size ->
@@ -124,22 +154,6 @@ fun AppSettingsScreen(onBack: () -> Unit, viewModel: AppSettingsViewModel = hilt
                     ) {
                         ThemeIcon(if (mode == ThemeMode.LIGHT) Icons.Outlined.LightMode else Icons.Outlined.DarkMode)
                     }
-                }
-            }
-
-            SettingsSectionTitle(stringResource(R.string.app_password))
-            Surface(shape = RoundedCornerShape(Radius.tile), color = MaterialTheme.colorScheme.surface, modifier = Modifier.fillMaxWidth()) {
-                ListRow(
-                    icon = Icons.Outlined.Lock,
-                    title = stringResource(R.string.change_password),
-                    subtitle = stringResource(R.string.change_password_hint),
-                    onClick = {
-                        viewModel.clearPasswordResult()
-                        changingPassword = true
-                    },
-                    modifier = Modifier.padding(horizontal = Spacing.md),
-                ) {
-                    Icon(Icons.AutoMirrored.Filled.KeyboardArrowRight, contentDescription = null, tint = AppTheme.colors.muted)
                 }
             }
         }

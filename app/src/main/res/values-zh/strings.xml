@@ -240,4 +240,33 @@
     <string name="notification_glasses_title">已在眼镜上打开翻译</string>
     <string name="notification_glasses_text">点击开始翻译</string>
     <string name="notification_session_text">正在聆听语音</string>
+    <!-- Settings → About Glasses -->
+    <string name="app_glasses">眼镜</string>
+    <string name="about_glasses_title">关于眼镜</string>
+    <string name="about_glasses_hint">名称、详细信息、解绑和恢复出厂设置</string>
+    <string name="about_glasses_connect_hint">请先在首页连接眼镜，才能查看详细信息、解绑或恢复出厂设置。</string>
+    <string name="glasses_name">眼镜名称</string>
+    <string name="glasses_info_title">眼镜信息</string>
+    <string name="glasses_unbind">解绑</string>
+    <string name="glasses_factory_reset">恢复出厂设置</string>
+    <string name="glasses_factory_reset_action">恢复</string>
+    <string name="glasses_unbind_confirm_title">解绑此眼镜？</string>
+    <string name="glasses_unbind_confirm_body">眼镜将忘记此手机并断开连接。如需再次使用，请在首页扫描并连接。</string>
+    <string name="glasses_factory_reset_confirm_title">恢复眼镜出厂设置？</string>
+    <string name="glasses_factory_reset_confirm_body">眼镜上的所有设置和数据将被清除，眼镜将重新启动。此操作无法撤销。</string>
+    <string name="glasses_unbound">眼镜已解绑。可在首页重新连接。</string>
+    <string name="glasses_factory_reset_started">眼镜正在恢复出厂设置，并将重新启动。</string>
+    <string name="glasses_reset_failed">眼镜没有响应，请重试。</string>
+    <string name="glasses_info_unavailable">无法读取详细信息，请确认眼镜已连接。</string>
+    <string name="glasses_info_name">名称</string>
+    <string name="glasses_info_manufacturer">厂商</string>
+    <string name="glasses_info_model">型号</string>
+    <string name="glasses_info_edition">发行版</string>
+    <string name="glasses_info_bluetooth_address">蓝牙地址</string>
+    <string name="glasses_info_serial">序列号</string>
+    <string name="glasses_info_firmware">固件版本</string>
+    <string name="glasses_info_bluetooth_stack">协议栈版本</string>
+    <string name="glasses_info_protocol">协议版本</string>
+    <string name="glasses_info_ble_name">BLE 名称</string>
+    <string name="glasses_info_ble_address">BLE 地址</string>
 </resources>

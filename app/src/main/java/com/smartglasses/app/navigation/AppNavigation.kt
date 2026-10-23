@@ -43,6 +43,8 @@ import com.smartglasses.app.BuildConfig
 import com.smartglasses.app.R
 import com.smartglasses.app.data.venus.GlassesAction
 import com.smartglasses.app.data.venus.GlassesSync
+import com.smartglasses.app.feature.glasses.AboutGlassesScreen
+import com.smartglasses.app.feature.glasses.GlassesInfoScreen
 import com.smartglasses.app.feature.history.RecordScreen
 import com.smartglasses.app.feature.history.RecordViewModel
 import com.smartglasses.app.feature.home.HomeScreen
@@ -61,6 +63,8 @@ private object Routes {
     const val MODELS = "models"
     const val TRANSLATION_SETTINGS = "translation_settings"
     const val APP_SETTINGS = "app_settings"
+    const val ABOUT_GLASSES = "about_glasses"
+    const val GLASSES_INFO = "glasses_info"
     const val SESSION = "session"
     const val RECORD = "record/{${RecordViewModel.ARG_RECORD_ID}}"
 
@@ -186,7 +190,21 @@ fun AppNavigation(glassesSync: GlassesSync) {
                     TranslationSettingsScreen(onBack = { entry.ifResumed { navController.popBackStack() } })
                 }
                 composable(Routes.MODELS) { entry -> ModelsScreen(onBack = { entry.ifResumed { navController.popBackStack() } }) }
-                composable(Routes.APP_SETTINGS) { entry -> AppSettingsScreen(onBack = { entry.ifResumed { navController.popBackStack() } }) }
+                composable(Routes.APP_SETTINGS) { entry ->
+                    AppSettingsScreen(
+                        onBack = { entry.ifResumed { navController.popBackStack() } },
+                        onOpenAboutGlasses = { entry.ifResumed { navController.navigate(Routes.ABOUT_GLASSES) } },
+                    )
+                }
+                composable(Routes.ABOUT_GLASSES) { entry ->
+                    AboutGlassesScreen(
+                        onBack = { entry.ifResumed { navController.popBackStack() } },
+                        onOpenInfo = { entry.ifResumed { navController.navigate(Routes.GLASSES_INFO) } },
+                        // Disconnected now: the dashboard is where glasses are connected again.
+                        onReleased = { navController.popBackStack(Routes.HOME, inclusive = false) },
+                    )
+                }
+                composable(Routes.GLASSES_INFO) { entry -> GlassesInfoScreen(onBack = { entry.ifResumed { navController.popBackStack() } }) }
             }
         }
         // Above every page, like the glasses' own touchpad; out of the way while the menu is open.

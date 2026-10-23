@@ -7,9 +7,11 @@ import android.os.SystemClock
 import android.util.Log
 import com.jueyuantech.venussdk.VNCommon
 import com.jueyuantech.venussdk.VNConstant
+import com.jueyuantech.venussdk.bean.VNDeviceInfo
 import com.jueyuantech.venussdk.bean.VNSystemConfig
 import com.jueyuantech.venussdk.bean.VNSystemStatus
 import com.jueyuantech.venussdk.cb.VNCommonCallBack
+import com.jueyuantech.venussdk.cb.VNDeviceInfoCallBack
 import com.jueyuantech.venussdk.cb.VNSystemConfigCallBack
 import com.jueyuantech.venussdk.cb.VNSystemStatusCallBack
 import com.jueyuantech.venussdk.cb.VNViewCallBack
@@ -184,6 +186,21 @@ class VenusClient @Inject constructor() {
             override fun onFailed() = finish(null)
         })
     }
+
+    /** Name, model, serial number, firmware… (guide §4.3), or null when the glasses did not answer. */
+    suspend fun deviceInfo(): VNDeviceInfo? = query("getDeviceInfo") { finish ->
+        VNCommon.getDeviceInfo(object : VNDeviceInfoCallBack {
+            override fun onSuccess(info: VNDeviceInfo?) = finish(info)
+            override fun onTimeOut() = finish(null)
+            override fun onFailed() = finish(null)
+        })
+    }
+
+    /** The glasses forget this phone (guide §5.10); they report onUnbind and the link ends. */
+    suspend fun unbind(): VenusResult = command("unbind") { VNCommon.unbind(it) }
+
+    /** Erases the glasses' settings and restarts them (guide §5.9). */
+    suspend fun factoryReset(): VenusResult = command("factoryReset") { VNCommon.factoryReset(it) }
 
     suspend fun setBrightness(level: Int): VenusResult = command("setBrightness($level)") { VNCommon.setBrightness(level, it) }
 
