@@ -3,6 +3,7 @@ package com.smartglasses.app.data.translation
 import android.net.Uri
 import com.smartglasses.app.data.speech.AudioInput
 import com.smartglasses.app.data.speech.GlassesMicUnavailableException
+import com.smartglasses.app.domain.AiTranslator
 import com.smartglasses.app.domain.EngineError
 import com.smartglasses.app.domain.EngineStatus
 import com.smartglasses.app.domain.ModelImportState
@@ -12,6 +13,7 @@ import com.smartglasses.app.domain.SubtitleSink
 import com.smartglasses.app.domain.SubtitleSinkStatus
 import com.smartglasses.app.domain.SubtitleUpdate
 import com.smartglasses.app.domain.TranscriptArchive
+import com.smartglasses.app.domain.TranscriptCorrector
 import com.smartglasses.app.domain.model.TranscriptLine
 import com.smartglasses.app.domain.model.Language
 import com.smartglasses.app.domain.model.MicrophoneSource
@@ -20,6 +22,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.withTimeout
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.runTest
@@ -108,12 +111,34 @@ class TranslationSessionManagerTest {
         }
     }
 
+    /** AI translator stand-in: "ai:<text>", or failure / hang as configured. Records the context it got. */
+    private class FakeAi(var installed: Boolean = true, var fail: Boolean = false, var hangMs: Long = 0) : AiTranslator {
+        val contexts = mutableListOf<List<String>>()
+        var prepared = 0
+        override fun handles(source: Language, target: Language) = installed
+        override fun prepare() {
+            prepared++
+        }
+        override suspend fun translate(text: String, source: Language, target: Language, context: List<String>): String {
+            contexts += context
+            if (hangMs > 0) withTimeout(100) { delay(hangMs) } // like the real translator's timeout
+            if (fail) throw IllegalStateException("model failed")
+            return "ai:$text"
+        }
+    }
+
+    private class UpperCaseCorrector : TranscriptCorrector {
+        override suspend fun correct(text: String, language: Language, context: List<String>) = text.uppercase()
+    }
+
     private fun TestScope.manager(
         engine: OfflineSpeechEngine,
         audio: AudioInput,
         sink: SubtitleSink,
         archive: TranscriptArchive = FakeArchive(),
-    ) = TranslationSessionManager(engine, audio, sink, archive, this, StandardTestDispatcher(testScheduler))
+        ai: AiTranslator = FakeAi(installed = false),
+        corrector: TranscriptCorrector = NoOpTranscriptCorrector(),
+    ) = TranslationSessionManager(engine, audio, sink, archive, ai, corrector, this, StandardTestDispatcher(testScheduler))
 
     @Test
     fun `phrase is recognised, translated and sent to the glasses as final`() = runTest {
@@ -281,5 +306,71 @@ class TranslationSessionManagerTest {
 
         session.stopListening()
         testScheduler.advanceUntilIdle()
+    }
+
+    @Test
+    fun `finished sentences are translated by the AI model with earlier sentences as context`() = runTest {
+        val engine = FakeEngine().apply { finals += listOf("one", "two", "three") }
+        val ai = FakeAi()
+        val sink = RecordingSink()
+        val session = manager(engine, ScriptedAudio(listOf(8, 8, 8)), sink, ai = ai)
+
+        session.startListening(options)
+        testScheduler.advanceUntilIdle()
+
+        assertEquals(listOf("ai:one", "ai:two", "ai:three"), session.state.value.lines.map { it.translation })
+        assertEquals(listOf(emptyList(), listOf("one"), listOf("one", "two")), ai.contexts)
+        assertEquals(1, ai.prepared) // model loaded while the microphone starts
+        assertEquals("ai:three", sink.updates.last().translation)
+    }
+
+    @Test
+    fun `live text keeps the fast engine, only the final translation is AI`() = runTest {
+        val engine = FakeEngine().apply { finals += "hello" }
+        val ai = FakeAi()
+        val session = manager(engine, ScriptedAudio(listOf(15)), RecordingSink(), ai = ai)
+
+        session.startListening(options.copy(liveTranslation = true))
+        testScheduler.advanceUntilIdle()
+
+        assertTrue(engine.partials.contains(true)) // live text came from the fast engine
+        assertEquals(1, ai.contexts.size) // the AI model only ran for the finished sentence
+        assertEquals("ai:hello", session.state.value.lines.single().translation)
+    }
+
+    @Test
+    fun `AI failure or timeout falls back to the standard translator`() = runTest {
+        for (ai in listOf(FakeAi(fail = true), FakeAi(hangMs = 10_000))) {
+            val engine = FakeEngine().apply { finals += "hello" }
+            val session = manager(engine, ScriptedAudio(listOf(10)), RecordingSink(), ai = ai)
+            session.startListening(options)
+            testScheduler.advanceUntilIdle()
+            assertEquals("ko:hello", session.state.value.lines.single().translation)
+            assertEquals(null, session.state.value.error)
+        }
+    }
+
+    @Test
+    fun `AI translation can be switched off`() = runTest {
+        val engine = FakeEngine().apply { finals += "hello" }
+        val ai = FakeAi()
+        val session = manager(engine, ScriptedAudio(listOf(10)), RecordingSink(), ai = ai)
+        session.startListening(options.copy(aiTranslation = false))
+        testScheduler.advanceUntilIdle()
+        assertEquals("ko:hello", session.state.value.lines.single().translation)
+        assertTrue(ai.contexts.isEmpty())
+    }
+
+    @Test
+    fun `the correction step changes the text before it is translated and shown`() = runTest {
+        val engine = FakeEngine().apply { finals += "hello" }
+        val sink = RecordingSink()
+        val session = manager(engine, ScriptedAudio(listOf(10)), sink, ai = FakeAi(), corrector = UpperCaseCorrector())
+        session.startListening(options)
+        testScheduler.advanceUntilIdle()
+        val line = session.state.value.lines.single()
+        assertEquals("HELLO", line.original)
+        assertEquals("ai:HELLO", line.translation)
+        assertEquals("HELLO", sink.updates.last().original)
     }
 }

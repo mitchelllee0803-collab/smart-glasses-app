@@ -16,6 +16,7 @@ import androidx.lifecycle.LifecycleService
 import androidx.lifecycle.lifecycleScope
 import com.smartglasses.app.MainActivity
 import com.smartglasses.app.R
+import com.smartglasses.app.core.locale.AppLocales
 import com.smartglasses.app.data.translation.TranslationSessionManager
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -34,6 +35,10 @@ import kotlinx.coroutines.withTimeoutOrNull
 class TranslationSessionService : LifecycleService() {
     @Inject lateinit var session: TranslationSessionManager
     private var watching = false
+
+    override fun attachBaseContext(newBase: Context) {
+        super.attachBaseContext(AppLocales.wrap(newBase)) // notification in the app's language
+    }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         super.onStartCommand(intent, flags, startId)

@@ -83,8 +83,13 @@ class GlassesRepository @Inject constructor(
             connectJob?.cancel()
             stopWatchdog()
             _state.value = ConnectionState.Connecting(device)
-            if (s is ConnectionState.Connected) venus.disconnect()
+            if (s is ConnectionState.Connected && !s.device.simulated) venus.disconnect()
             connectJob = launch {
+                if (device.simulated) {
+                    delay(SIMULATED_CONNECT_MS)
+                    _state.value = ConnectionState.Connected(device, battery = SIMULATED_BATTERY)
+                    return@launch
+                }
                 val failure = attempt(device)
                 _state.value = if (failure == null) connected(device) else ConnectionState.Failed(device, failure)
             }
@@ -96,10 +101,11 @@ class GlassesRepository @Inject constructor(
         scope.launch(confined) {
             connectJob?.cancel()
             stopWatchdog()
-            if (_state.value !is ConnectionState.Disconnected) {
+            val previous = _state.value
+            if (previous !is ConnectionState.Disconnected) {
                 // State first: the ACL broadcast caused by disconnecting must not look like a lost link.
                 _state.value = ConnectionState.Disconnected
-                venus.disconnect()
+                if (!previous.isSimulated()) venus.disconnect()
             }
         }
     }
@@ -199,6 +205,7 @@ class GlassesRepository @Inject constructor(
 
     private fun onBluetoothUnavailable() {
         val device = currentDevice() ?: return
+        if (device.simulated) return // the test device does not use Bluetooth
         connectJob?.cancel()
         stopWatchdog()
         _state.value = ConnectionState.Failed(device, ConnectFailure.BLUETOOTH_OFF)
@@ -225,6 +232,14 @@ class GlassesRepository @Inject constructor(
         watchdogJob = null
     }
 
+    private fun ConnectionState.isSimulated(): Boolean = when (this) {
+        is ConnectionState.Connecting -> device.simulated
+        is ConnectionState.Connected -> device.simulated
+        is ConnectionState.Reconnecting -> device.simulated
+        is ConnectionState.Failed -> device.simulated
+        ConnectionState.Disconnected -> false
+    }
+
     private fun currentDevice(): GlassesDevice? = when (val s = _state.value) {
         is ConnectionState.Connecting -> s.device
         is ConnectionState.Connected -> s.device
@@ -235,6 +250,8 @@ class GlassesRepository @Inject constructor(
     private companion object {
         const val TAG = "GlassesRepository"
         const val CONNECT_TIMEOUT_MS = 20_000L
+        const val SIMULATED_CONNECT_MS = 800L
+        const val SIMULATED_BATTERY = 82
         const val WATCHDOG_INTERVAL_MS = 5_000L
         const val WATCHDOG_MISSES = 2
         val RECONNECT_DELAYS_MS = listOf(1_000L, 3_000L, 6_000L, 12_000L, 20_000L)

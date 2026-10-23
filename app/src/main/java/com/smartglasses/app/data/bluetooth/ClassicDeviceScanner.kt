@@ -10,6 +10,7 @@ import android.content.Intent
 import android.content.IntentFilter
 import androidx.core.content.ContextCompat
 import androidx.core.content.IntentCompat
+import com.smartglasses.app.BuildConfig
 import com.smartglasses.app.data.settings.SettingsRepository
 import com.smartglasses.app.di.ApplicationScope
 import com.smartglasses.app.domain.model.BluetoothAvailability
@@ -62,6 +63,7 @@ class ClassicDeviceScanner @Inject constructor(
         }
         finishDiscovery(publish = false)
         found.clear()
+        if (BuildConfig.SHOW_TEST_DEVICE) found[GlassesDevice.TEST_DEVICE.address] = GlassesDevice.TEST_DEVICE
         // Glasses already paired in system settings are listed even if they are not discoverable now.
         adapter.bondedDevices.orEmpty().forEach { put(it, name = it.name, rssi = null) }
 
@@ -151,7 +153,8 @@ class ClassicDeviceScanner @Inject constructor(
     }
 
     private fun sorted(): List<GlassesDevice> = found.values.sortedWith(
-        compareByDescending<GlassesDevice> { it.address == lastGlassesAddress }
+        compareByDescending<GlassesDevice> { it.simulated }
+            .thenByDescending { it.address == lastGlassesAddress }
             .thenByDescending { it.likelyGlasses }
             .thenByDescending { it.rssi ?: Int.MIN_VALUE }
             .thenBy { it.name.lowercase() },

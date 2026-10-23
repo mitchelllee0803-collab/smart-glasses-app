@@ -7,6 +7,7 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import com.smartglasses.app.domain.model.AppSettings
+import com.smartglasses.app.domain.model.AppTextSize
 import com.smartglasses.app.domain.model.DisplaySettings
 import com.smartglasses.app.domain.model.GlassesTextMode
 import com.smartglasses.app.domain.model.Language
@@ -34,6 +35,8 @@ class SettingsRepository @Inject constructor(private val store: DataStore<Prefer
                 liveTranslation = p[LIVE_TRANSLATION] ?: defaults.display.liveTranslation,
             ),
             microphone = p[MICROPHONE]?.let { runCatching { MicrophoneSource.valueOf(it) }.getOrNull() } ?: defaults.microphone,
+            aiTranslation = p[AI_TRANSLATION] ?: defaults.aiTranslation,
+            appTextSize = p[APP_TEXT_SIZE]?.let { runCatching { AppTextSize.valueOf(it) }.getOrNull() } ?: defaults.appTextSize,
             lastGlassesAddress = p[LAST_GLASSES],
         )
     }.distinctUntilChanged()
@@ -54,6 +57,10 @@ class SettingsRepository @Inject constructor(private val store: DataStore<Prefer
 
     suspend fun setMicrophone(source: MicrophoneSource) = store.edit { it[MICROPHONE] = source.name }
 
+    suspend fun setAiTranslation(enabled: Boolean) = store.edit { it[AI_TRANSLATION] = enabled }
+
+    suspend fun setAppTextSize(size: AppTextSize) = store.edit { it[APP_TEXT_SIZE] = size.name }
+
     suspend fun setLastGlasses(address: String) = store.edit { it[LAST_GLASSES] = address }
 
     private companion object {
@@ -64,6 +71,8 @@ class SettingsRepository @Inject constructor(private val store: DataStore<Prefer
         val FONT_SIZE = intPreferencesKey("glasses_font_size")
         val LIVE_TRANSLATION = booleanPreferencesKey("live_translation")
         val MICROPHONE = stringPreferencesKey("microphone_source")
+        val AI_TRANSLATION = booleanPreferencesKey("ai_translation")
+        val APP_TEXT_SIZE = stringPreferencesKey("app_text_size")
         val LAST_GLASSES = stringPreferencesKey("last_glasses_address")
     }
 }

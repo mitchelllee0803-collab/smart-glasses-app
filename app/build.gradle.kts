@@ -11,6 +11,8 @@ plugins {
 android {
     namespace = "com.smartglasses.app"
     compileSdk = 36
+    // Same NDK as :engine and :llm; packaging uses its strip tool to drop native debug symbols.
+    ndkVersion = "27.1.12297006"
 
     defaultConfig {
         applicationId = "com.smartglasses.app"
@@ -20,14 +22,20 @@ android {
         versionName = "0.1.0"
         // The offline engine ships for 64-bit ARM phones only.
         ndk { abiFilters += "arm64-v8a" }
+        // "test_device" in the scan list: checks the dashboard without glasses. Set to false before
+        // publishing to users.
+        buildConfigField("boolean", "SHOW_TEST_DEVICE", "true")
     }
 
     buildTypes {
         release {
-            // R8 stays off until a minified build has been verified on the glasses (the VenusSDK
-            // is already obfuscated and uses Gson reflection). Keep rules are in proguard-rules.pro.
-            isMinifyEnabled = false
+            // R8: removes unused code (e.g. the unused Material icons) and resources. Names that
+            // native code or reflection depends on are kept by proguard-rules.pro.
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            // Debug key until a release key exists: fine for installing with adb, not for a store.
+            signingConfig = signingConfigs.getByName("debug")
         }
     }
     compileOptions {
@@ -39,7 +47,12 @@ android {
         buildConfig = true
     }
     packaging {
-        jniLibs { useLegacyPackaging = false }
+        jniLibs {
+            // Compressed in the APK (about half the size); Android unpacks them at install time.
+            useLegacyPackaging = true
+            // :engine and :llm both ship the NDK C++ runtime (same NDK version).
+            pickFirsts += "**/libc++_shared.so"
+        }
     }
     testOptions {
         unitTests.isReturnDefaultValues = true
@@ -56,6 +69,7 @@ kotlin {
 
 dependencies {
     implementation(project(":engine"))
+    implementation(project(":llm"))
 
     // VenusSDK (VenusOS smart glasses). It references Gson and androidx.core without bundling them.
     implementation(files("libs/VenusSDK_v1.8.4_6c1c58f_release.aar"))

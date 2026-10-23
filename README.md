@@ -5,6 +5,9 @@ Android app for offline real-time speech translation shown on VenusOS smart glas
 - **Speech recognition and translation** run on the phone, offline. The engine comes from the
   Translation project (`D:\Data\My project\Translation`). It uses SenseVoice-Small through
   sherpa-onnx, and CTranslate2 + SentencePiece + OpenCC.
+- **AI translation (optional):** finished sentences can be translated by Tencent **Hy-MT2 1.8B**
+  (Apache-2.0) running on the phone through llama.cpp. The model file (~1.1 GB) is imported once;
+  without it, or on phones that cannot run it, the standard translator is used.
 - **Glasses link** goes through the VenusSDK 1.8.4 AAR: Classic Bluetooth, `VNCommon`, and the
   glasses' built-in translation view.
 - **Languages:** English, Korean, Chinese (Simplified), Chinese (Traditional).
@@ -15,6 +18,7 @@ Android app for offline real-time speech translation shown on VenusOS smart glas
 | Module    | Contents |
 | --------- | -------- |
 | `:engine` | The Translation project's Android engine, copied unchanged: `com.offlinetranslate.engine` and `com.offlinetranslate.app.engine`, plus the JNI library `libotengine.so` and its 38 parity tests. The package names must not change, because the JNI symbols depend on them. |
+| `:llm`    | llama.cpp (release b11102) as a static library plus a small JNI bridge (`libllmbridge.so`, `LlmModel`): load a GGUF model, generate, cancel. CPU only, built for ARMv8.2 + dot-product + FP16; `LlmModel.isCpuSupported()` checks the phone before loading. |
 | `:app`    | Jetpack Compose UI, Hilt, VenusSDK integration, microphone pipeline. |
 
 ```
@@ -23,7 +27,8 @@ app/src/main/java/com/smartglasses/app/
   data/venus/        VenusClient (SDK wrapper), GlassesRepository (connection state machine),
                      VenusSubtitleSink + SubtitleQueue (subtitles on the glasses)
   data/speech/       MicrophoneCapture (AudioRecord 16 kHz), PhraseSegmenter (port of pcm.ts)
-  data/translation/  EngineRepository (engine -> coroutines), TranslationSessionManager (pipeline)
+  data/translation/  EngineRepository (engine -> coroutines), TranslationSessionManager (pipeline),
+                     HyMtTranslator + HyMtPrompt + GgufHeader (AI translation), NoOpTranscriptCorrector
   domain/            SubtitleSink and OfflineSpeechEngine interfaces, models
   data/history/      HistoryDatabase (Room) + HistoryRepository: saved sessions, on this phone only
   feature/           home, translate (hub + live session), history (record view), settings, models
@@ -33,10 +38,16 @@ app/src/main/java/com/smartglasses/app/
 How data flows through the app:
 
 ```
-microphone -> PhraseSegmenter -> engine.transcribe (partial / final) -> engine.translate
-          -> TranslationSessionManager -> UI state
-                                       -> SubtitleSink -> VNCommon.updateSttInfo(TRANSLATE)
+microphone -> PhraseSegmenter -> engine.transcribe (sherpa-onnx SenseVoice)
+   live text:         engine.translate (fast standard translator)
+   finished sentence: TranscriptCorrector (slot, no-op for now)
+                      -> Hy-MT2 1.8B (one sentence at a time; context is off, see HyMtTranslator.USE_CONTEXT)
+                         (falls back to engine.translate when off, missing, failing or > 15 s)
+-> TranslationSessionManager -> UI state + history
+                             -> SubtitleSink -> VNCommon.updateSttInfo(TRANSLATE)
 ```
+
+Simplified <-> Traditional Chinese always uses the exact OpenCC conversion, not the AI model.
 
 ## Building
 
@@ -48,11 +59,18 @@ You need:
 
 ```powershell
 $env:JAVA_HOME = "D:\Android\jdk-21"
-.\gradlew :app:assembleDebug            # -> app\build\outputs\apk\debug\app-debug.apk
+.\gradlew :app:assembleRelease          # -> app\build\outputs\apk\release\app-release.apk (~17 MB)
+.\gradlew :app:assembleDebug            # -> app\build\outputs\apk\debug\app-debug.apk (not shrunk, larger)
 .\gradlew :engine:testDebugUnitTest :app:testDebugUnitTest
 ```
 
-The first build compiles the native engine, which takes several minutes.
+The first build compiles the native engine and llama.cpp, which takes several minutes.
+
+llama.cpp sources (git-ignored) are fetched once, checksum-verified:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scriptsetch-llama-cpp.ps1
+```
 
 The native sources in `engine/src/main/cpp/third_party` were copied from the Translation project, where `scripts/android/fetch-native-deps.ps1` fetches them at pinned versions.
 - They are git-ignored here because they are large.
@@ -68,6 +86,7 @@ These steps have **not** been run on hardware yet:
 
 1. **Install:** `adb install -r app\build\outputs\apk\debug\app-debug.apk`.
 2. **Import models:** open ☰ → *Offline models* → *Choose folder*. Select the `Translate-models` folder you copied to the phone. The import takes 1–3 minutes.
+   - **AI translation model:** download `Hy-MT2-1.8B-Q4_K_M.gguf` (1.13 GB) from https://huggingface.co/tencent/Hy-MT2-1.8B-GGUF on a PC, copy it to the phone, then in *Offline models* → *AI translation (Hy-MT2 1.8B)* tap *Choose file*. The app checks it is a Hy-MT2 model before copying. Needs 6 GB RAM or more. Check speed and memory with `adb logcat -s HyMtTranslator llmbridge`.
 3. **Find the glasses:** turn them on and open their Bluetooth pairing screen. In the app, tap **Scan**. The glasses should appear in the list, with their signal strength.
 4. **Connect:** tap the glasses. The card shows *Connecting…*. On success you see *Connected to …* with the battery level.
    - If it fails, check the log for the SDK callbacks: `adb logcat -s VenusClient GlassesRepository VenusSubtitleSink`.
@@ -85,4 +104,8 @@ These steps have **not** been run on hardware yet:
 - **Pairing:** the app does not create a Bluetooth bond. The SDK opens an insecure RFCOMM socket, which should not need one. If the glasses refuse unpaired connections, pair them in Android's Bluetooth settings first.
 - **msgId format:** the AAR's `VNSttInfo.setMsgId` takes a `String`, while the guide documents an integer. The app sends numeric strings that fit in an `int`, so either reading works.
 - **Glasses microphone:** it reaches the phone over Bluetooth hands-free (HFP/SCO), so the glasses must be paired in Android's Bluetooth settings. Depending on the link, audio is 16 kHz or 8 kHz; at 8 kHz recognition accuracy may drop. While it is in use, Android treats audio like a call (music through the glasses pauses). If it cannot be opened, the app offers *Use phone*.
-- **Release build:** R8 is disabled until a minified build has been verified with the glasses. The keep rules are already in `app/proguard-rules.pro`.
+- **AI translation:** the first finished sentence after starting waits for the model to load (a few seconds). Each finished sentence then takes roughly 1–3 s on a recent phone (to be measured on your phone); if it takes over 15 s the standard translation is shown instead. The text-correction step is a no-op placeholder for now.
+- **App password:** asked when the app starts; default `123321`, changed in ☰ → Settings (stored as a salted PBKDF2 hash). There is no reset: a forgotten password means clearing the app's data (models must then be imported again).
+- **Languages:** English and Simplified Chinese (`values-zh`). Messages produced inside the reused offline engine (e.g. model-import problems) stay English.
+- **Test device:** "test_device" appears in the scan list of every build, so the dashboard can be checked without glasses (nothing is sent to the VenusSDK). Set `SHOW_TEST_DEVICE` to `false` in `app/build.gradle.kts` before publishing to users.
+- **Release build:** R8 code and resource shrinking is on, and native libraries are compressed in the APK. Names used by native code or reflection (VenusSDK, sherpa-onnx, Tesseract, the JNI bridges, stored enum names) are kept by `app/proguard-rules.pro`. Until a release key exists, the release APK is signed with the debug key (fine for adb installs, not for a store).

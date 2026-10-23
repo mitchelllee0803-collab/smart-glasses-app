@@ -19,4 +19,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "SmartGlasses"
-include(":app", ":engine")
+include(":app", ":engine", ":llm")

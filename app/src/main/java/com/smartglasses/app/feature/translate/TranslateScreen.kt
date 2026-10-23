@@ -60,11 +60,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.role
 import androidx.compose.ui.semantics.semantics
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.smartglasses.app.R
@@ -100,7 +98,7 @@ fun TranslateScreen(
             IconButton(onClick = onBack, modifier = Modifier.align(Alignment.CenterStart).padding(start = Spacing.sm)) {
                 Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.action_back))
             }
-            Text(stringResource(R.string.translate_title), style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Normal))
+            Text(stringResource(R.string.translate_title), style = MaterialTheme.typography.titleLarge)
             IconButton(onClick = onOpenSettings, modifier = Modifier.align(Alignment.CenterEnd).padding(end = Spacing.sm)) {
                 Icon(Icons.Outlined.Settings, contentDescription = stringResource(R.string.cd_display_settings))
             }
@@ -206,7 +204,7 @@ private fun LanguageCard(
             Row(verticalAlignment = Alignment.CenterVertically) {
                 LanguagePicker(stringResource(R.string.source_language), source, onSource, Modifier.weight(1f))
                 IconButton(onClick = onSwap) {
-                    Icon(Icons.Filled.SwapHoriz, contentDescription = stringResource(R.string.cd_swap_languages), modifier = Modifier.size(30.dp))
+                    Icon(Icons.Filled.SwapHoriz, contentDescription = stringResource(R.string.cd_swap_languages), modifier = Modifier.size(ICON_SIZE))
                 }
                 LanguagePicker(stringResource(R.string.target_language), target, onTarget, Modifier.weight(1f))
             }
@@ -220,11 +218,11 @@ private fun LanguageCard(
 private fun LanguagePicker(label: String, selected: Language, onSelect: (Language) -> Unit, modifier: Modifier = Modifier) {
     var open by remember { mutableStateOf(false) }
     Column(modifier, horizontalAlignment = Alignment.CenterHorizontally) {
-        Text(label, style = MaterialTheme.typography.bodyLarge.copy(fontSize = 17.sp))
+        Text(label, style = MaterialTheme.typography.bodyMedium, color = AppTheme.colors.muted)
         Box {
             TextButton(onClick = { open = true }) {
-                Text(selected.label, style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Normal), color = MaterialTheme.colorScheme.onSurface)
-                Icon(Icons.Filled.ArrowDropDown, contentDescription = null, tint = MaterialTheme.colorScheme.onSurface, modifier = Modifier.size(32.dp))
+                Text(selected.label, style = MaterialTheme.typography.titleMedium, color = MaterialTheme.colorScheme.onSurface)
+                Icon(Icons.Filled.ArrowDropDown, contentDescription = null, tint = MaterialTheme.colorScheme.onSurface, modifier = Modifier.size(ICON_SIZE))
             }
             DropdownMenu(expanded = open, onDismissRequest = { open = false }) {
                 Language.entries.forEach { language ->
@@ -270,11 +268,11 @@ private fun RecordsHeader(
         } else {
             Text(
                 stringResource(R.string.all_records),
-                style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Normal),
+                style = MaterialTheme.typography.titleMedium,
                 modifier = Modifier.weight(1f).padding(start = Spacing.xs),
             )
             IconButton(onClick = onOpenSearch) {
-                Icon(Icons.Outlined.Search, contentDescription = stringResource(R.string.cd_search_records), modifier = Modifier.size(28.dp))
+                Icon(Icons.Outlined.Search, contentDescription = stringResource(R.string.cd_search_records), modifier = Modifier.size(ICON_SIZE))
             }
         }
         IconButton(onClick = onToggleSelecting) {
@@ -282,7 +280,7 @@ private fun RecordsHeader(
                 painterResource(R.drawable.ic_edit_square),
                 contentDescription = stringResource(R.string.cd_select_records),
                 tint = if (selecting) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onBackground,
-                modifier = Modifier.size(28.dp),
+                modifier = Modifier.size(ICON_SIZE),
             )
         }
     }
@@ -307,7 +305,7 @@ private fun RecordRow(record: RecordSummary, selecting: Boolean, selected: Boole
                     Row(Modifier.weight(1f), verticalAlignment = Alignment.CenterVertically) {
                         Text(
                             record.displayTitle(),
-                            style = MaterialTheme.typography.bodyLarge.copy(fontSize = 18.sp),
+                            style = MaterialTheme.typography.titleSmall,
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis,
                             modifier = Modifier.weight(1f, fill = false),
@@ -316,7 +314,7 @@ private fun RecordRow(record: RecordSummary, selecting: Boolean, selected: Boole
                             Icon(painterResource(R.drawable.ic_edit_square), contentDescription = stringResource(R.string.cd_rename_record))
                         }
                     }
-                    Text(formatRecordTime(record.createdAt), style = MaterialTheme.typography.bodyLarge, maxLines = 1)
+                    Text(formatRecordTime(record.createdAt), style = MaterialTheme.typography.bodyMedium, color = AppTheme.colors.muted, maxLines = 1)
                 }
                 PreviewLine(record.previewOriginal)
                 PreviewLine(record.previewTranslation)
@@ -330,7 +328,7 @@ private fun PreviewLine(text: String) {
     if (text.isBlank()) return
     Text(
         text,
-        style = MaterialTheme.typography.bodyLarge,
+        style = MaterialTheme.typography.bodyMedium,
         color = AppTheme.colors.muted,
         maxLines = 1,
         overflow = TextOverflow.Ellipsis,
@@ -360,7 +358,7 @@ private fun SelectionBar(allSelected: Boolean, canDelete: Boolean, onSelectAll: 
         ) {
             IconButton(onClick = onSelectAll) { SelectionCircle(allSelected) }
             TextButton(onClick = onSelectAll) {
-                Text(stringResource(R.string.select_all), style = MaterialTheme.typography.bodyLarge.copy(fontSize = 18.sp), color = MaterialTheme.colorScheme.onBackground)
+                Text(stringResource(R.string.select_all), style = MaterialTheme.typography.bodyLarge, color = MaterialTheme.colorScheme.onBackground)
             }
         }
         Button(
@@ -370,10 +368,11 @@ private fun SelectionBar(allSelected: Boolean, canDelete: Boolean, onSelectAll: 
             colors = ButtonDefaults.buttonColors(containerColor = AppTheme.colors.danger, contentColor = Color.White),
             modifier = Modifier.width(DELETE_WIDTH).height(Sizes.buttonHeight),
         ) {
-            Text(stringResource(R.string.action_delete), style = MaterialTheme.typography.bodyLarge.copy(fontSize = 18.sp))
+            Text(stringResource(R.string.action_delete), style = MaterialTheme.typography.labelLarge)
         }
     }
 }
 
-private val SELECTION_SIZE = 28.dp
+private val SELECTION_SIZE = 24.dp
+private val ICON_SIZE = 24.dp
 private val DELETE_WIDTH = 160.dp

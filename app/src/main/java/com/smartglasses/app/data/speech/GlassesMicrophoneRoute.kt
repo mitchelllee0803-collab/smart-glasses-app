@@ -10,6 +10,7 @@ import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
+import com.smartglasses.app.R
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -54,15 +55,15 @@ class GlassesMicrophoneRoute @Inject constructor(@ApplicationContext private val
     private suspend fun openCommunicationDevice(glassesAddress: String?): AudioDeviceInfo? {
         val candidates = audioManager.availableCommunicationDevices.filter { it.type == AudioDeviceInfo.TYPE_BLUETOOTH_SCO }
         val device = candidates.firstOrNull { it.address.equals(glassesAddress, ignoreCase = true) } ?: candidates.firstOrNull()
-            ?: throw GlassesMicUnavailableException(NOT_AVAILABLE)
+            ?: throw GlassesMicUnavailableException(context.getString(R.string.error_glasses_mic_not_available))
         audioManager.mode = AudioManager.MODE_IN_COMMUNICATION
-        if (!audioManager.setCommunicationDevice(device)) throw GlassesMicUnavailableException(NOT_STARTED)
+        if (!audioManager.setCommunicationDevice(device)) throw GlassesMicUnavailableException(context.getString(R.string.error_glasses_mic_not_started))
         // The SCO link takes a moment to come up after the request.
         val active = withTimeoutOrNull(SCO_TIMEOUT_MS) {
             while (audioManager.communicationDevice?.id != device.id) delay(POLL_MS)
             true
         }
-        if (active == null) throw GlassesMicUnavailableException(NOT_STARTED)
+        if (active == null) throw GlassesMicUnavailableException(context.getString(R.string.error_glasses_mic_not_started))
         return audioManager.getDevices(AudioManager.GET_DEVICES_INPUTS)
             .firstOrNull { it.type == AudioDeviceInfo.TYPE_BLUETOOTH_SCO && it.address.equals(device.address, ignoreCase = true) }
     }
@@ -70,7 +71,7 @@ class GlassesMicrophoneRoute @Inject constructor(@ApplicationContext private val
     /** Android 7–11: the SCO link is started explicitly and reported by broadcast. */
     @Suppress("DEPRECATION") // The replacement (setCommunicationDevice) only exists from Android 12.
     private suspend fun openSco(): AudioDeviceInfo? {
-        if (!audioManager.isBluetoothScoAvailableOffCall) throw GlassesMicUnavailableException(NOT_AVAILABLE)
+        if (!audioManager.isBluetoothScoAvailableOffCall) throw GlassesMicUnavailableException(context.getString(R.string.error_glasses_mic_not_available))
         val connected = CompletableDeferred<Boolean>()
         val receiver = object : BroadcastReceiver() {
             override fun onReceive(context: Context, intent: Intent) {
@@ -88,7 +89,7 @@ class GlassesMicrophoneRoute @Inject constructor(@ApplicationContext private val
             audioManager.mode = AudioManager.MODE_IN_COMMUNICATION
             audioManager.startBluetoothSco()
             if (withTimeoutOrNull(SCO_TIMEOUT_MS) { connected.await() } != true) {
-                throw GlassesMicUnavailableException(NOT_STARTED)
+                throw GlassesMicUnavailableException(context.getString(R.string.error_glasses_mic_not_started))
             }
             audioManager.isBluetoothScoOn = true
         } finally {
@@ -107,8 +108,5 @@ class GlassesMicrophoneRoute @Inject constructor(@ApplicationContext private val
         const val TAG = "GlassesMicRoute"
         const val SCO_TIMEOUT_MS = 6_000L
         const val POLL_MS = 100L
-        const val NOT_AVAILABLE =
-            "The glasses' microphone is not available. Pair the glasses in Android's Bluetooth settings so they connect for calls/audio."
-        const val NOT_STARTED = "The glasses' microphone could not be started. Check that the glasses are on and connected for audio."
     }
 }

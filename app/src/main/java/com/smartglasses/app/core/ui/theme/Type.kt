@@ -5,6 +5,11 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 
+/**
+ * One text scale for every page (the dashboard's). Use these roles instead of custom sizes:
+ * titleLarge = page title, titleMedium = card / section heading, titleSmall = list item name,
+ * bodyLarge = body text, bodyMedium = secondary text (with AppTheme.colors.muted), labelLarge = buttons.
+ */
 internal val AppTypography = Typography().run {
     copy(
         titleLarge = titleLarge.copy(fontSize = 22.sp, fontWeight = FontWeight.SemiBold),

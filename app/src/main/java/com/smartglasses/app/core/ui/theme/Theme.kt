@@ -1,12 +1,15 @@
 package com.smartglasses.app.core.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.unit.Density
 
 private val LightColors = lightColorScheme(
     primary = Blue600,
@@ -41,13 +44,25 @@ private val DarkColors = darkColorScheme(
 )
 
 @Composable
-fun SmartGlassesTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
-    CompositionLocalProvider(LocalExtendedColors provides if (darkTheme) DarkExtendedColors else LightExtendedColors) {
+fun SmartGlassesTheme(
+    darkTheme: Boolean = isSystemInDarkTheme(),
+    /** The app's text-size setting, multiplied with the phone's own font scale (all text is in sp). */
+    textScale: Float = 1f,
+    content: @Composable () -> Unit,
+) {
+    val density = LocalDensity.current
+    CompositionLocalProvider(
+        LocalExtendedColors provides if (darkTheme) DarkExtendedColors else LightExtendedColors,
+        LocalDensity provides Density(density.density, density.fontScale * textScale),
+    ) {
         MaterialTheme(
             colorScheme = if (darkTheme) DarkColors else LightColors,
             typography = AppTypography,
-            content = content,
-        )
+        ) {
+            // Text and icons placed directly on the page background (top bars, headings) would
+            // otherwise use Compose's default content colour, which is black in both themes.
+            CompositionLocalProvider(LocalContentColor provides MaterialTheme.colorScheme.onBackground, content = content)
+        }
     }
 }
 

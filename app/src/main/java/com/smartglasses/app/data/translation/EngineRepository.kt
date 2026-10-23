@@ -8,6 +8,7 @@ import com.offlinetranslate.app.engine.OfflineEngine
 import com.offlinetranslate.app.engine.PickedFolderSource
 import com.offlinetranslate.engine.EngineException
 import com.offlinetranslate.engine.ErrorCode
+import com.smartglasses.app.R
 import com.smartglasses.app.data.speech.SAMPLE_RATE
 import com.smartglasses.app.domain.EngineError
 import com.smartglasses.app.domain.EngineStatus
@@ -117,10 +118,10 @@ class EngineRepository @Inject constructor(@ApplicationContext private val conte
     private fun Throwable.toEngineError(): EngineError = when (this) {
         is EngineError -> this
         is EngineException -> EngineError(code, message.orEmpty())
-        is OutOfMemoryError -> EngineError(ErrorCode.INTERNAL_ERROR, "Not enough memory on this phone for this operation.")
+        is OutOfMemoryError -> EngineError(ErrorCode.INTERNAL_ERROR, context.getString(R.string.error_engine_memory))
         else -> {
             Log.e(TAG, "engine request failed", this)
-            EngineError(ErrorCode.INTERNAL_ERROR, "Internal engine error (${javaClass.simpleName}).")
+            EngineError(ErrorCode.INTERNAL_ERROR, context.getString(R.string.error_engine_internal, javaClass.simpleName))
         }
     }
 

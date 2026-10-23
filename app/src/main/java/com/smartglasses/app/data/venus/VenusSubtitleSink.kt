@@ -104,7 +104,7 @@ class VenusSubtitleSink @Inject constructor(
             // elsewhere with the touchpad, they stay where they are.
             val showing = _status.value == SubtitleSinkStatus.Active
             _status.value = SubtitleSinkStatus.Idle
-            if (showing && glasses.state.value is ConnectionState.Connected) venus.setView(VNConstant.View.HOME)
+            if (showing && glasses.state.value is ConnectionState.Connected && !simulated()) venus.setView(VNConstant.View.HOME)
         }
     }
 
@@ -139,6 +139,11 @@ class VenusSubtitleSink @Inject constructor(
         queue.reset()
         // Numeric ids that fit an int: the AAR takes a String, the guide documents an integer.
         msgIdBase = (System.currentTimeMillis() / 1000 % MSG_ID_SESSIONS) * MSG_ID_SPAN
+        if (simulated()) {
+            _status.value = SubtitleSinkStatus.Active
+            wake.trySend(Unit)
+            return
+        }
         val result = venus.setView(VNConstant.View.TRANSLATE)
         if (result != VenusResult.SUCCESS) {
             _status.value = SubtitleSinkStatus.Failed(timedOut = result == VenusResult.TIMEOUT)
@@ -209,6 +214,10 @@ class VenusSubtitleSink @Inject constructor(
     }
 
     private suspend fun deliver(message: SubtitleQueue.Outgoing): Boolean {
+        if (simulated()) {
+            Log.d(TAG, "test device: line ${message.lineId} not sent (no glasses)")
+            return true
+        }
         val info = VNSttInfo().apply {
             msgId = (msgIdBase + message.lineId % MSG_ID_SPAN).toString()
             msgType = VNConstant.SttInfo.MsgType.STT
@@ -242,13 +251,16 @@ class VenusSubtitleSink @Inject constructor(
         while (true) {
             delay(KEEP_ALIVE_CHECK_MS)
             if (_status.value == SubtitleSinkStatus.Active &&
-                SystemClock.elapsedRealtime() - lastSentAt >= KEEP_ALIVE_INTERVAL_MS
+                SystemClock.elapsedRealtime() - lastSentAt >= KEEP_ALIVE_INTERVAL_MS && !simulated()
             ) {
                 venus.sendKeepAlive()
                 lastSentAt = SystemClock.elapsedRealtime()
             }
         }
     }
+
+    /** The connected device is the debug test device: nothing goes to the VenusSDK. */
+    private fun simulated(): Boolean = (glasses.state.value as? ConnectionState.Connected)?.device?.simulated == true
 
     private fun clip(text: String): String =
         if (text.length <= MAX_TEXT_CHARS) text else "…" + text.takeLast(MAX_TEXT_CHARS - 1)

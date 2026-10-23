@@ -11,10 +11,14 @@ import com.smartglasses.app.data.history.RecordDao
 import com.smartglasses.app.data.speech.AudioInput
 import com.smartglasses.app.data.speech.MicrophoneCapture
 import com.smartglasses.app.data.translation.EngineRepository
+import com.smartglasses.app.data.translation.HyMtTranslator
+import com.smartglasses.app.data.translation.NoOpTranscriptCorrector
 import com.smartglasses.app.data.venus.VenusSubtitleSink
+import com.smartglasses.app.domain.AiTranslator
 import com.smartglasses.app.domain.OfflineSpeechEngine
 import com.smartglasses.app.domain.SubtitleSink
 import com.smartglasses.app.domain.TranscriptArchive
+import com.smartglasses.app.domain.TranscriptCorrector
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -69,4 +73,10 @@ abstract class BindingsModule {
 
     @Binds
     abstract fun transcriptArchive(impl: HistoryRepository): TranscriptArchive
+
+    @Binds
+    abstract fun aiTranslator(impl: HyMtTranslator): AiTranslator
+
+    @Binds
+    abstract fun transcriptCorrector(impl: NoOpTranscriptCorrector): TranscriptCorrector
 }

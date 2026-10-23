@@ -13,6 +13,8 @@ captures/
 # Native sources (CTranslate2, SentencePiece, OpenCC) copied from the Translation project,
 # where scripts/android/fetch-native-deps.ps1 fetches them at pinned tags.
 engine/src/main/cpp/third_party/
+# llama.cpp sources, fetched by scripts/fetch-llama-cpp.ps1 (pinned release, checksum-verified).
+llm/src/main/cpp/third_party/
 
 # Release signing
 keystore/

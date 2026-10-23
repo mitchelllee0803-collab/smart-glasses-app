@@ -74,13 +74,16 @@ class SessionViewModel @Inject constructor(
     private fun config(s: AppSettings) = SubtitleConfig(s.source, s.target, s.display, s.microphone)
 
     private fun sessionOptions(): SessionOptions {
-        val connected = (glasses.state.value as? ConnectionState.Connected)?.device?.address
+        val device = (glasses.state.value as? ConnectionState.Connected)?.device
+        val connected = device?.address
         return SessionOptions(
             source = settings.source,
             target = settings.target,
             liveTranslation = settings.display.liveTranslation,
-            microphone = settings.microphone,
+            // The debug test device has no microphone: use the phone's (the setting is unchanged).
+            microphone = if (device?.simulated == true) MicrophoneSource.PHONE else settings.microphone,
             glassesAddress = connected ?: settings.lastGlassesAddress,
+            aiTranslation = settings.aiTranslation,
         )
     }
 

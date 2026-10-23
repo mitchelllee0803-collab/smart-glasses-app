@@ -344,7 +344,11 @@ private fun ScanResults(scan: ScanState, connection: ConnectionState, onSelect: 
             ListRow(
                 icon = Icons.Filled.Bluetooth,
                 title = device.name,
-                subtitle = if (device.bonded) stringResource(R.string.device_paired) else device.address,
+                subtitle = when {
+                    device.simulated -> stringResource(R.string.device_test)
+                    device.bonded -> stringResource(R.string.device_paired)
+                    else -> device.address
+                },
                 onClick = { onSelect(device) },
             ) {
                 device.rssi?.let {

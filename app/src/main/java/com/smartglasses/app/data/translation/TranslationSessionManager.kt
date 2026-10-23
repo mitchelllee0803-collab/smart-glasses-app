@@ -9,12 +9,14 @@ import com.smartglasses.app.data.speech.SegmenterEvent
 import com.smartglasses.app.data.speech.rms
 import com.smartglasses.app.data.speech.toPcm16
 import com.smartglasses.app.di.ApplicationScope
+import com.smartglasses.app.domain.AiTranslator
 import com.smartglasses.app.domain.EngineError
 import com.smartglasses.app.domain.EngineStatus
 import com.smartglasses.app.domain.OfflineSpeechEngine
 import com.smartglasses.app.domain.SubtitleSink
 import com.smartglasses.app.domain.SubtitleUpdate
 import com.smartglasses.app.domain.TranscriptArchive
+import com.smartglasses.app.domain.TranscriptCorrector
 import com.smartglasses.app.domain.model.Language
 import com.smartglasses.app.domain.model.MicrophoneSource
 import com.smartglasses.app.domain.model.TranscriptLine
@@ -29,11 +31,13 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 
 data class SessionState(
@@ -62,6 +66,8 @@ data class SessionOptions(
     val microphone: MicrophoneSource,
     /** Picks the glasses' Bluetooth audio device when several headsets are connected. */
     val glassesAddress: String?,
+    /** Translate finished sentences with the on-device AI model when it is installed. */
+    val aiTranslation: Boolean = true,
 )
 
 /**
@@ -78,6 +84,8 @@ class TranslationSessionManager internal constructor(
     private val audio: AudioInput,
     private val sink: SubtitleSink,
     private val archive: TranscriptArchive,
+    private val ai: AiTranslator,
+    private val corrector: TranscriptCorrector,
     private val scope: CoroutineScope,
     private val confined: CoroutineDispatcher,
 ) {
@@ -86,8 +94,10 @@ class TranslationSessionManager internal constructor(
         audio: AudioInput,
         sink: SubtitleSink,
         archive: TranscriptArchive,
+        ai: AiTranslator,
+        corrector: TranscriptCorrector,
         @ApplicationScope scope: CoroutineScope,
-    ) : this(engine, audio, sink, archive, scope, Dispatchers.Default.limitedParallelism(1))
+    ) : this(engine, audio, sink, archive, ai, corrector, scope, Dispatchers.Default.limitedParallelism(1))
 
     private val _state = MutableStateFlow(SessionState())
     val state: StateFlow<SessionState> = _state.asStateFlow()
@@ -110,6 +120,8 @@ class TranslationSessionManager internal constructor(
     private var sessionEpoch = 0
     private var sessionStartedAt = System.currentTimeMillis()
     private var recordId: Long? = null
+    /** Last finished source sentences of this page: context for the AI translator. */
+    private val recentSources = ArrayDeque<String>()
 
     fun startListening(options: SessionOptions) {
         scope.launch(confined) {
@@ -125,6 +137,7 @@ class TranslationSessionManager internal constructor(
             val queue = Channel<FinalPhrase>(Channel.UNLIMITED).also { finals = it }
             _state.update { it.copy(listening = true, finishing = false, error = null) }
             launch { runCatching { engine.prepareSpeech(options.source) } } // load while the microphone starts
+            if (options.aiTranslation && ai.handles(options.source, options.target)) ai.prepare()
 
             val finalsJob = launch { for (phrase in queue) processFinal(phrase) }
             val job = launch {
@@ -171,6 +184,7 @@ class TranslationSessionManager internal constructor(
             captureJob = null
             liveLine = null
             recordId = null
+            recentSources.clear()
             sessionStartedAt = System.currentTimeMillis()
             _state.value = SessionState()
         }
@@ -276,16 +290,55 @@ class TranslationSessionManager internal constructor(
         }
         if (phrase.generation != generation) return
         updateLine(phrase.lineId) { it.copy(original = text, translating = true) }?.let(::pushToGlasses)
-        val translation = try {
+        val context = recentSources.toList()
+        val corrected = correct(text, opts, context)
+        if (phrase.generation != generation) return
+        if (corrected != text) updateLine(phrase.lineId) { it.copy(original = corrected) }?.let(::pushToGlasses)
+        val translation = translateFinal(corrected, opts, context)
+        if (phrase.generation != generation) return
+        rememberSource(corrected)
+        val line = updateLine(phrase.lineId) { it.copy(translation = translation, translating = false, isFinal = true) } ?: return
+        pushToGlasses(line)
+        save(line, opts)
+    }
+
+    /** Offline AI text correction slot; on any failure the recognised text is kept. */
+    private suspend fun correct(text: String, opts: SessionOptions, context: List<String>): String = try {
+        corrector.correct(text, opts.source, context).ifBlank { text }
+    } catch (e: CancellationException) {
+        throw e
+    } catch (e: Exception) {
+        Log.w(TAG, "correction failed, keeping the recognised text", e)
+        text
+    }
+
+    /**
+     * Finished sentences: Hy-MT2 (with the preceding sentences as context) when enabled and
+     * installed, otherwise, or when it fails, the standard offline engine.
+     */
+    private suspend fun translateFinal(text: String, opts: SessionOptions, context: List<String>): String {
+        if (opts.aiTranslation && ai.handles(opts.source, opts.target)) {
+            try {
+                return ai.translate(text, opts.source, opts.target, context)
+            } catch (e: CancellationException) {
+                if (currentCoroutineContext().isActive) Log.w(TAG, "AI translation timed out, using the standard translator")
+                else throw e
+            } catch (e: Exception) {
+                Log.w(TAG, "AI translation failed, using the standard translator", e)
+            }
+        }
+        return try {
             engine.translate(text, opts.source, opts.target)
         } catch (e: EngineError) {
             if (e.code != EngineError.CANCELLED) onEngineError(e)
             ""
         }
-        if (phrase.generation != generation) return
-        val line = updateLine(phrase.lineId) { it.copy(translation = translation, translating = false, isFinal = true) } ?: return
-        pushToGlasses(line)
-        save(line, opts)
+    }
+
+    private fun rememberSource(text: String) {
+        if (text.isBlank()) return
+        recentSources.addLast(text)
+        while (recentSources.size > CONTEXT_SENTENCES) recentSources.removeFirst()
     }
 
     /** Saves a finished phrase; the session's record is created with its first phrase. */
@@ -341,5 +394,7 @@ class TranslationSessionManager internal constructor(
         const val MIN_PHRASE_SPEECH_MS = 500
         const val MAX_LINES = 200
         const val LEVEL_GAIN = 3f
+        /** Earlier sentences given to the AI translator as context. */
+        const val CONTEXT_SENTENCES = 2
     }
 }

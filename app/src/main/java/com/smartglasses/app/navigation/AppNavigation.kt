@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Download
 import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.Icon
@@ -25,7 +26,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -41,6 +44,7 @@ import com.smartglasses.app.feature.history.RecordScreen
 import com.smartglasses.app.feature.history.RecordViewModel
 import com.smartglasses.app.feature.home.HomeScreen
 import com.smartglasses.app.feature.models.ModelsScreen
+import com.smartglasses.app.feature.settings.AppSettingsScreen
 import com.smartglasses.app.feature.settings.TranslationSettingsScreen
 import com.smartglasses.app.feature.translate.SessionScreen
 import com.smartglasses.app.feature.translate.TranslateScreen
@@ -51,11 +55,24 @@ private object Routes {
     const val TRANSLATE = "translate"
     const val MODELS = "models"
     const val TRANSLATION_SETTINGS = "translation_settings"
+    const val APP_SETTINGS = "app_settings"
     const val SESSION = "session"
     const val RECORD = "record/{${RecordViewModel.ARG_RECORD_ID}}"
 
     fun record(id: Long) = "record/$id"
 }
+
+/**
+ * Runs [action] only while this page is the active one. A page that is closing still takes taps
+ * during the transition; a second tap on its back button would otherwise also close the page
+ * below it (on Home: an empty screen).
+ */
+private fun NavBackStackEntry.ifResumed(action: () -> Unit) {
+    if (lifecycle.currentState == Lifecycle.State.RESUMED) action()
+}
+
+/** A drawer item tapped twice quickly opens its page once. */
+private fun NavHostController.openFromDrawer(route: String) = navigate(route) { launchSingleTop = true }
 
 /** Brings the phone to the page matching the glasses. */
 private fun followGlasses(navController: NavHostController, action: GlassesAction) {
@@ -106,10 +123,17 @@ fun AppNavigation(glassesSync: GlassesSync) {
             ModalDrawerSheet {
                 Column(Modifier.padding(top = 24.dp)) {
                     NavigationDrawerItem(
+                        label = { Text(stringResource(R.string.drawer_settings)) },
+                        icon = { Icon(Icons.Outlined.Settings, contentDescription = null) },
+                        selected = false,
+                        onClick = { scope.launch { drawerState.close() }; navController.openFromDrawer(Routes.APP_SETTINGS) },
+                        modifier = Modifier.padding(horizontal = 12.dp),
+                    )
+                    NavigationDrawerItem(
                         label = { Text(stringResource(R.string.drawer_models)) },
                         icon = { Icon(Icons.Filled.Download, contentDescription = null) },
                         selected = false,
-                        onClick = { scope.launch { drawerState.close() }; navController.navigate(Routes.MODELS) },
+                        onClick = { scope.launch { drawerState.close() }; navController.openFromDrawer(Routes.MODELS) },
                         modifier = Modifier.padding(horizontal = 12.dp),
                     )
                     NavigationDrawerItem(
@@ -124,33 +148,36 @@ fun AppNavigation(glassesSync: GlassesSync) {
         },
     ) {
         NavHost(navController = navController, startDestination = Routes.HOME) {
-            composable(Routes.HOME) {
+            composable(Routes.HOME) { entry ->
                 HomeScreen(
-                    onOpenMenu = { scope.launch { drawerState.open() } },
-                    onOpenTranslate = { navController.navigate(Routes.TRANSLATE) },
+                    onOpenMenu = { entry.ifResumed { scope.launch { drawerState.open() } } },
+                    onOpenTranslate = { entry.ifResumed { navController.navigate(Routes.TRANSLATE) } },
                 )
             }
-            composable(Routes.TRANSLATE) {
+            composable(Routes.TRANSLATE) { entry ->
                 TranslateScreen(
-                    onBack = { navController.popBackStack() },
-                    onOpenSettings = { navController.navigate(Routes.TRANSLATION_SETTINGS) },
-                    onStartSession = { navController.navigate(Routes.SESSION) },
-                    onOpenRecord = { id -> navController.navigate(Routes.record(id)) },
+                    onBack = { entry.ifResumed { navController.popBackStack() } },
+                    onOpenSettings = { entry.ifResumed { navController.navigate(Routes.TRANSLATION_SETTINGS) } },
+                    onStartSession = { entry.ifResumed { navController.navigate(Routes.SESSION) } },
+                    onOpenRecord = { id -> entry.ifResumed { navController.navigate(Routes.record(id)) } },
                 )
             }
-            composable(Routes.SESSION) {
+            composable(Routes.SESSION) { entry ->
                 SessionScreen(
-                    onBack = { navController.popBackStack() },
-                    onOpenModels = { navController.navigate(Routes.MODELS) },
-                    onOpenSettings = { navController.navigate(Routes.TRANSLATION_SETTINGS) },
+                    onBack = { entry.ifResumed { navController.popBackStack() } },
+                    onOpenModels = { entry.ifResumed { navController.navigate(Routes.MODELS) } },
+                    onOpenSettings = { entry.ifResumed { navController.navigate(Routes.TRANSLATION_SETTINGS) } },
                 )
             }
             composable(
                 Routes.RECORD,
                 arguments = listOf(navArgument(RecordViewModel.ARG_RECORD_ID) { type = NavType.LongType }),
-            ) { RecordScreen(onBack = { navController.popBackStack() }) }
-            composable(Routes.TRANSLATION_SETTINGS) { TranslationSettingsScreen(onBack = { navController.popBackStack() }) }
-            composable(Routes.MODELS) { ModelsScreen(onBack = { navController.popBackStack() }) }
+            ) { entry -> RecordScreen(onBack = { entry.ifResumed { navController.popBackStack() } }) }
+            composable(Routes.TRANSLATION_SETTINGS) { entry ->
+                TranslationSettingsScreen(onBack = { entry.ifResumed { navController.popBackStack() } })
+            }
+            composable(Routes.MODELS) { entry -> ModelsScreen(onBack = { entry.ifResumed { navController.popBackStack() } }) }
+            composable(Routes.APP_SETTINGS) { entry -> AppSettingsScreen(onBack = { entry.ifResumed { navController.popBackStack() } }) }
         }
     }
 

@@ -29,6 +29,10 @@ class TranslationSettingsViewModel @Inject constructor(private val repository: S
 
     fun setShowHistory(show: Boolean) = updateDisplay { it.copy(showHistory = show) }
 
+    fun setFontSize(size: Int) = updateDisplay {
+        it.copy(fontSize = size.coerceIn(DisplaySettings.MIN_FONT_SIZE, DisplaySettings.MAX_FONT_SIZE))
+    }
+
     private fun updateDisplay(change: (DisplaySettings) -> DisplaySettings) {
         viewModelScope.launch { repository.setDisplay(change(repository.current().display)) }
     }

@@ -29,6 +29,11 @@ data class TranscriptLine(
 
 enum class GlassesTextMode { TRANSLATION_ONLY, ORIGINAL_AND_TRANSLATION }
 
+enum class ThemeMode { LIGHT, DARK }
+
+/** Text size of the app's own screens (not the glasses), on top of the phone's font size. */
+enum class AppTextSize(val scale: Float) { SMALL(0.9f), MEDIUM(1.0f), LARGE(1.15f) }
+
 /** Where speech is picked up. The glasses' microphone reaches the phone over Bluetooth hands-free (HFP). */
 enum class MicrophoneSource { GLASSES, PHONE }
 
@@ -55,5 +60,8 @@ data class AppSettings(
     val target: Language = Language.KOREAN,
     val display: DisplaySettings = DisplaySettings(),
     val microphone: MicrophoneSource = MicrophoneSource.GLASSES,
+    /** Translate finished sentences with the on-device AI model (Hy-MT2) when it is installed. */
+    val aiTranslation: Boolean = true,
+    val appTextSize: AppTextSize = AppTextSize.MEDIUM,
     val lastGlassesAddress: String? = null,
 )

@@ -12,7 +12,21 @@ data class GlassesDevice(
     val bonded: Boolean,
     /** Ranked first: the last glasses used, or an audio/wearable Bluetooth class. */
     val likelyGlasses: Boolean,
-)
+    /** The test device (BuildConfig.SHOW_TEST_DEVICE): no hardware, nothing goes over Bluetooth or to the VenusSDK. */
+    val simulated: Boolean = false,
+) {
+    companion object {
+        /** Lets the connected dashboard and the translation screens be checked without glasses. */
+        val TEST_DEVICE = GlassesDevice(
+            address = "TEST-DEVICE",
+            name = "test_device",
+            rssi = -55,
+            bonded = false,
+            likelyGlasses = true,
+            simulated = true,
+        )
+    }
+}
 
 enum class BluetoothAvailability {
     UNSUPPORTED,

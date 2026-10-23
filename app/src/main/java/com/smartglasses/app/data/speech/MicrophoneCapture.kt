@@ -1,11 +1,14 @@
 package com.smartglasses.app.data.speech
 
 import android.Manifest
+import android.content.Context
 import android.media.AudioFormat
 import android.media.AudioRecord
 import android.media.MediaRecorder
 import androidx.annotation.RequiresPermission
+import com.smartglasses.app.R
 import com.smartglasses.app.domain.model.MicrophoneSource
+import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 import javax.inject.Singleton
 import kotlin.math.max
@@ -39,7 +42,10 @@ fun interface AudioInput {
  * depending on the link) to this rate. Audio stays in memory.
  */
 @Singleton
-class MicrophoneCapture @Inject constructor(private val glassesRoute: GlassesMicrophoneRoute) : AudioInput {
+class MicrophoneCapture @Inject constructor(
+    @ApplicationContext private val context: Context,
+    private val glassesRoute: GlassesMicrophoneRoute,
+) : AudioInput {
 
     @RequiresPermission(Manifest.permission.RECORD_AUDIO)
     override fun blocks(source: MicrophoneSource, glassesAddress: String?): Flow<FloatArray> = flow {
@@ -47,7 +53,7 @@ class MicrophoneCapture @Inject constructor(private val glassesRoute: GlassesMic
         try {
             val inputDevice = if (glasses) glassesRoute.open(glassesAddress) else null
             val minBuffer = AudioRecord.getMinBufferSize(SAMPLE_RATE, AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_16BIT)
-            if (minBuffer <= 0) throw MicrophoneException("This phone cannot record 16 kHz audio.")
+            if (minBuffer <= 0) throw MicrophoneException(context.getString(R.string.error_mic_rate))
             val record = AudioRecord(
                 // VOICE_COMMUNICATION follows the Bluetooth communication route; VOICE_RECOGNITION
                 // is the phone source tuned for speech recognisers.
@@ -59,20 +65,20 @@ class MicrophoneCapture @Inject constructor(private val glassesRoute: GlassesMic
             )
             if (record.state != AudioRecord.STATE_INITIALIZED) {
                 record.release()
-                throw MicrophoneException("The microphone could not be opened.")
+                throw MicrophoneException(context.getString(R.string.error_mic_open))
             }
             try {
                 inputDevice?.let { record.setPreferredDevice(it) }
                 record.startRecording()
                 if (record.recordingState != AudioRecord.RECORDSTATE_RECORDING) {
-                    throw MicrophoneException("The microphone is in use by another app.")
+                    throw MicrophoneException(context.getString(R.string.error_mic_busy))
                 }
                 val pcm = ShortArray(AudioInput.BLOCK_SAMPLES)
                 while (currentCoroutineContext().isActive) {
                     var filled = 0
                     while (filled < pcm.size) {
                         val n = record.read(pcm, filled, pcm.size - filled)
-                        if (n < 0) throw MicrophoneException("Recording failed (error $n).")
+                        if (n < 0) throw MicrophoneException(context.getString(R.string.error_mic_failed, n))
                         filled += n
                     }
                     emit(FloatArray(pcm.size) { pcm[it] / PCM16_SCALE })

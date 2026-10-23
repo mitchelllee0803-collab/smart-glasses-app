@@ -117,6 +117,14 @@ fun ModelsScreen(onBack: () -> Unit, viewModel: ModelsViewModel = hiltViewModel(
                 }
                 else -> Unit
             }
+            AiModelCard(
+                state = state.aiModel,
+                enabled = state.aiEnabled,
+                onImport = viewModel::importAiModel,
+                onCancelImport = viewModel::cancelAiImport,
+                onRemove = viewModel::removeAiModel,
+                onEnabledChange = viewModel::setAiEnabled,
+            )
         }
     }
 }

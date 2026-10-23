@@ -28,6 +28,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -137,13 +138,21 @@ fun FeatureCard(
 /** The product image of the glasses. */
 @Composable
 fun GlassesImage(width: Dp, modifier: Modifier = Modifier) {
+    // The photo has black frames on a transparent background: on the dark theme it gets a soft
+    // light backdrop, or the frames would disappear into the background.
+    val dark = MaterialTheme.colorScheme.background.luminance() < DARK_LUMINANCE
     Image(
         painter = painterResource(R.drawable.glasses),
         contentDescription = stringResource(R.string.cd_glasses_image),
         contentScale = ContentScale.Fit,
-        modifier = modifier.width(width),
+        modifier = modifier
+            .let { if (dark) it.background(GLASSES_BACKDROP, RoundedCornerShape(Radius.tile)).padding(Spacing.sm) else it }
+            .width(width),
     )
 }
+
+private const val DARK_LUMINANCE = 0.5f
+private val GLASSES_BACKDROP = Color(0xFFDCDFE6)
 
 /** A single-line row: leading icon, title + subtitle, trailing slot. */
 @Composable

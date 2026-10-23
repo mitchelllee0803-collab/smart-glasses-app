@@ -47,6 +47,7 @@
     <string name="scan_none_tips">Turn the glasses on and open their Bluetooth pairing screen. Glasses that are connected to another phone are not visible.</string>
     <string name="scan_failed">Bluetooth scanning could not start. Try again.</string>
     <string name="device_paired">Paired</string>
+    <string name="device_test">Test device · no glasses needed</string>
     <string name="device_rssi">%1$d dBm</string>
 
     <!-- Home: features -->
@@ -60,6 +61,63 @@
     <!-- Drawer -->
     <string name="drawer_models">Offline models</string>
     <string name="drawer_about">About</string>
+    <string name="drawer_settings">Settings</string>
+
+    <!-- App settings -->
+    <string name="app_settings_title">Settings</string>
+    <string name="app_font_size">Font size</string>
+    <string name="app_font_size_hint"> (app screens)</string>
+    <string name="app_font_size_small">Small</string>
+    <string name="app_font_size_medium">Medium</string>
+    <string name="app_font_size_large">Large</string>
+    <string name="app_font_size_note">Changes the text on every screen of the app. The size of the subtitles on the glasses is set in Translate → Translation Settings.</string>
+    <string name="app_language">Language</string>
+    <string name="app_theme">Theme</string>
+    <string name="theme_light">Light</string>
+    <string name="theme_dark">Dark</string>
+    <string name="app_password">Password</string>
+    <string name="change_password">Change password</string>
+    <string name="change_password_hint">Asked for each time the app starts</string>
+    <string name="password_current">Current password</string>
+    <string name="password_new">New password</string>
+    <string name="password_confirm">Confirm new password</string>
+    <string name="password_current_wrong">The current password is wrong.</string>
+    <string name="password_too_short">Use at least %1$d characters.</string>
+    <string name="password_mismatch">The passwords do not match.</string>
+    <string name="password_changed">Password changed</string>
+    <string name="action_save">Save</string>
+    <string name="cd_show_password">Show password</string>
+    <string name="cd_hide_password">Hide password</string>
+
+    <!-- Lock screen -->
+    <string name="lock_prompt">Enter the password to continue</string>
+    <string name="lock_password_hint">Password</string>
+    <string name="action_unlock">Unlock</string>
+    <plurals name="lock_wrong_password">
+        <item quantity="one">Wrong password. %1$d attempt left before a short wait.</item>
+        <item quantity="other">Wrong password. %1$d attempts left before a short wait.</item>
+    </plurals>
+    <plurals name="lock_blocked">
+        <item quantity="one">Too many wrong passwords. Try again in %1$d second.</item>
+        <item quantity="other">Too many wrong passwords. Try again in %1$d seconds.</item>
+    </plurals>
+
+    <!-- Errors shown in the app -->
+    <string name="error_glasses_mic_not_available">The glasses\' microphone is not available. Pair the glasses in Android\'s Bluetooth settings so they connect for calls/audio.</string>
+    <string name="error_glasses_mic_not_started">The glasses\' microphone could not be started. Check that the glasses are on and connected for audio.</string>
+    <string name="error_mic_rate">This phone cannot record 16 kHz audio.</string>
+    <string name="error_mic_open">The microphone could not be opened.</string>
+    <string name="error_mic_busy">The microphone is in use by another app.</string>
+    <string name="error_mic_failed">Recording failed (error %1$d).</string>
+    <string name="error_engine_memory">Not enough memory on this phone for this operation.</string>
+    <string name="error_engine_internal">Internal engine error (%1$s).</string>
+    <string name="ai_import_not_gguf">This file is not a model file. Choose Hy-MT2-1.8B-Q4_K_M.gguf.</string>
+    <string name="ai_import_not_hymt">This is not a Hy-MT2 translation model (architecture: %1$s).</string>
+    <string name="ai_import_unreadable">The file cannot be read.</string>
+    <string name="ai_import_no_space">Not enough free storage: %1$.1f GB needed.</string>
+    <string name="ai_import_incomplete">The copy is incomplete.</string>
+    <string name="ai_import_save_failed">The model could not be saved.</string>
+    <string name="ai_import_failed">Import failed.</string>
 
     <!-- Translate -->
     <string name="translate_title">Translate</string>
@@ -126,6 +184,10 @@
     <string name="settings_text_display">Text display</string>
     <string name="settings_history">History</string>
     <string name="settings_newest">Newest</string>
+    <string name="settings_font_size">Font size</string>
+    <string name="settings_font_size_value">Size %1$d</string>
+    <string name="settings_font_size_value_default">Size %1$d (recommended)</string>
+    <string name="settings_font_size_hint">Size of the subtitles on the glasses.</string>
     <string name="action_use_phone_mic">Use phone</string>
 
     <!-- Models -->
@@ -142,8 +204,19 @@
     <string name="models_failed">Import failed: %1$s</string>
     <string name="models_cancelled">Import cancelled.</string>
 
+    <!-- AI translation model (Hy-MT2) -->
+    <string name="ai_model_title">AI translation (Hy-MT2 1.8B)</string>
+    <string name="ai_model_steps">More accurate translation of finished sentences, offline on this phone. Copy the model file %1$s (about 1.1 GB, from huggingface.co/tencent/Hy-MT2-1.8B-GGUF) to this phone, then tap Choose file.</string>
+    <string name="ai_model_installed">Installed (%1$s). Finished sentences are translated by the AI model; live text uses the standard translator.</string>
+    <string name="ai_model_use">Use AI translation</string>
+    <string name="ai_model_remove">Remove model</string>
+    <string name="ai_model_remove_confirm">Remove the AI translation model from this phone? The standard translator is used instead.</string>
+    <string name="ai_model_unsupported_memory">This phone has too little memory for the AI translation model (6 GB RAM or more is needed). The standard translator is used.</string>
+    <string name="ai_model_unsupported_cpu">This phone\'s processor cannot run the AI translation model. The standard translator is used.</string>
+    <string name="action_choose_file">Choose file</string>
+
     <!-- About -->
-    <string name="about_body">Smart Glasses %1$s\nVenusSDK %2$s (%3$s)\n\nSpeech recognition and translation run offline on this phone. Audio and text are not stored or sent anywhere.</string>
+    <string name="about_body">Smart Glasses %1$s\nVenusSDK %2$s (%3$s)\n\nSpeech recognition and translation run offline on this phone. Audio is not stored; translation records stay on this phone and are never sent anywhere.</string>
 
     <!-- Notification -->
     <string name="notification_channel_session">Translation session</string>

@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Simplified Chinese. Keep in step with values/strings.xml. -->
+<resources>
+    <string name="app_name">智能眼镜</string>
+
+    <!-- Common -->
+    <string name="action_stop">停止</string>
+    <string name="action_cancel">取消</string>
+    <string name="action_back">返回</string>
+    <string name="action_close">关闭</string>
+    <string name="action_retry">重试</string>
+    <string name="action_open_settings">打开设置</string>
+    <string name="cd_menu">菜单</string>
+    <string name="cd_glasses_image">智能眼镜</string>
+
+    <!-- Home: connection -->
+    <string name="status_not_connected">未连接</string>
+    <string name="status_connected_to">已连接到 %1$s</string>
+    <string name="action_disconnect">断开连接</string>
+    <string name="connect_ready_title">准备连接</string>
+    <string name="action_scan">扫描</string>
+    <string name="connect_connecting_title">正在连接…</string>
+    <string name="connect_reconnecting_title">正在重新连接…</string>
+    <string name="connect_reconnecting_subtitle">%1$s · 第 %2$d 次，共 %3$d 次</string>
+    <string name="connect_failed_title">无法连接</string>
+    <string name="connect_failed_timeout">%1$s 没有响应。请确认眼镜已开机并停留在蓝牙配对界面。</string>
+    <string name="connect_failed_rejected">%1$s 拒绝了连接。请确认眼镜没有连接到其他手机。</string>
+    <string name="connect_failed_lost">与 %1$s 的连接已断开。</string>
+    <string name="connect_failed_bluetooth_off">蓝牙已关闭。</string>
+    <string name="connect_failed_sdk">无法开始与 %1$s 的连接，请重试。</string>
+    <string name="action_scan_again">重新扫描</string>
+    <string name="bt_permission_title">允许访问蓝牙</string>
+    <string name="bt_permission_subtitle">用于查找并连接您的眼镜</string>
+    <string name="action_allow">允许</string>
+    <string name="bt_off_title">蓝牙已关闭</string>
+    <string name="bt_off_subtitle">打开蓝牙以查找您的眼镜</string>
+    <string name="action_turn_on_bluetooth">打开蓝牙</string>
+    <string name="location_off_title">打开位置信息</string>
+    <string name="location_off_subtitle">Android 10 和 11 仅在位置信息开启时才能找到蓝牙设备</string>
+    <string name="action_location_settings">位置信息设置</string>
+    <string name="bt_unsupported_title">蓝牙不可用</string>
+    <string name="bt_unsupported_subtitle">此手机没有蓝牙</string>
+
+    <!-- Home: scan results -->
+    <string name="scan_scanning">正在扫描…（已找到 %1$d 个）</string>
+    <string name="scan_finished">找到 %1$d 个设备</string>
+    <string name="scan_none_title">未找到眼镜</string>
+    <string name="scan_none_tips">请打开眼镜并进入蓝牙配对界面。已连接到其他手机的眼镜不会显示。</string>
+    <string name="scan_failed">无法开始蓝牙扫描，请重试。</string>
+    <string name="device_paired">已配对</string>
+    <string name="device_test">测试设备 · 无需眼镜</string>
+    <string name="device_rssi">%1$d dBm</string>
+
+    <!-- Home: features -->
+    <string name="section_features">功能</string>
+    <string name="feature_translate_title">翻译</string>
+    <string name="feature_translate_subtitle">实时语音翻译并显示</string>
+    <string name="battery_percent">%1$d%%</string>
+    <string name="cd_battery">电量 %1$d%%</string>
+    <string name="cd_charging">充电中</string>
+
+    <!-- Drawer -->
+    <string name="drawer_models">离线模型</string>
+    <string name="drawer_about">关于</string>
+    <string name="drawer_settings">设置</string>
+
+    <!-- App settings -->
+    <string name="app_settings_title">设置</string>
+    <string name="app_font_size">字体大小</string>
+    <string name="app_font_size_hint">（应用界面）</string>
+    <string name="app_font_size_small">小</string>
+    <string name="app_font_size_medium">中</string>
+    <string name="app_font_size_large">大</string>
+    <string name="app_font_size_note">更改应用所有界面的文字大小。眼镜上字幕的大小在“翻译 → 翻译设置”中设置。</string>
+    <string name="app_language">语言</string>
+    <string name="app_theme">主题</string>
+    <string name="theme_light">浅色</string>
+    <string name="theme_dark">深色</string>
+    <string name="app_password">密码</string>
+    <string name="change_password">修改密码</string>
+    <string name="change_password_hint">每次启动应用时都需要输入</string>
+    <string name="password_current">当前密码</string>
+    <string name="password_new">新密码</string>
+    <string name="password_confirm">确认新密码</string>
+    <string name="password_current_wrong">当前密码不正确。</string>
+    <string name="password_too_short">请至少使用 %1$d 个字符。</string>
+    <string name="password_mismatch">两次输入的密码不一致。</string>
+    <string name="password_changed">密码已修改</string>
+    <string name="action_save">保存</string>
+    <string name="cd_show_password">显示密码</string>
+    <string name="cd_hide_password">隐藏密码</string>
+
+    <!-- Lock screen -->
+    <string name="lock_prompt">请输入密码以继续</string>
+    <string name="lock_password_hint">密码</string>
+    <string name="action_unlock">解锁</string>
+    <plurals name="lock_wrong_password">
+        <item quantity="other">密码错误。再错 %1$d 次需要稍等片刻。</item>
+    </plurals>
+    <plurals name="lock_blocked">
+        <item quantity="other">密码错误次数过多，请 %1$d 秒后再试。</item>
+    </plurals>
+
+    <!-- Errors shown in the app -->
+    <string name="error_glasses_mic_not_available">眼镜麦克风不可用。请在 Android 蓝牙设置中配对眼镜，使其连接通话/音频。</string>
+    <string name="error_glasses_mic_not_started">无法启动眼镜麦克风。请确认眼镜已开机并已连接音频。</string>
+    <string name="error_mic_rate">此手机无法录制 16 kHz 音频。</string>
+    <string name="error_mic_open">无法打开麦克风。</string>
+    <string name="error_mic_busy">麦克风正被其他应用使用。</string>
+    <string name="error_mic_failed">录音失败（错误 %1$d）。</string>
+    <string name="error_engine_memory">此手机内存不足，无法完成该操作。</string>
+    <string name="error_engine_internal">引擎内部错误（%1$s）。</string>
+    <string name="ai_import_not_gguf">此文件不是模型文件。请选择 Hy-MT2-1.8B-Q4_K_M.gguf。</string>
+    <string name="ai_import_not_hymt">这不是 Hy-MT2 翻译模型（架构：%1$s）。</string>
+    <string name="ai_import_unreadable">无法读取该文件。</string>
+    <string name="ai_import_no_space">存储空间不足：需要 %1$.1f GB。</string>
+    <string name="ai_import_incomplete">文件复制不完整。</string>
+    <string name="ai_import_save_failed">无法保存模型。</string>
+    <string name="ai_import_failed">导入失败。</string>
+
+    <!-- Translate -->
+    <string name="translate_title">翻译</string>
+    <string name="cd_display_settings">翻译设置</string>
+    <string name="cd_swap_languages">交换语言</string>
+    <string name="glasses_status_none">眼镜未连接 · 仅在手机上显示</string>
+    <string name="glasses_status_opening">正在眼镜上打开翻译…</string>
+    <string name="glasses_status_active">正在眼镜上显示</string>
+    <string name="glasses_status_left">眼镜已切换到其他界面</string>
+    <string name="glasses_status_failed">眼镜未能打开翻译界面</string>
+    <string name="action_reopen">重新打开</string>
+    <string name="transcript_empty_title">点击麦克风开始说话</string>
+    <string name="transcript_empty_subtitle">翻译会显示在这里和您的眼镜上。</string>
+    <string name="line_recognizing">正在识别…</string>
+    <string name="line_translating">正在翻译…</string>
+    <string name="mic_start">点击开始</string>
+    <string name="mic_listening">正在聆听…</string>
+    <string name="mic_finishing">正在完成…</string>
+    <string name="cd_start_listening">开始聆听</string>
+    <string name="cd_stop_listening">停止聆听</string>
+    <string name="action_clear">清除</string>
+    <string name="models_needed_title">需要离线模型</string>
+    <string name="models_needed_body">语音识别和翻译在此手机上运行。请先导入一次 Translate-models 文件夹。</string>
+    <string name="action_set_up_models">设置模型</string>
+    <string name="engine_starting">正在启动离线引擎…</string>
+    <string name="engine_failed">离线引擎无法启动：%1$s</string>
+    <string name="mic_permission_denied">翻译需要麦克风权限。</string>
+    <string name="error_microphone">麦克风问题：%1$s</string>
+
+    <!-- Translate home and records -->
+    <string name="source_language">源语言</string>
+    <string name="target_language">目标语言</string>
+    <string name="action_start_translation">开始翻译</string>
+    <string name="all_records">全部记录</string>
+    <string name="records_empty">暂无记录。点击“开始翻译”开始。</string>
+    <string name="records_no_match">没有符合搜索条件的记录。</string>
+    <string name="search_records_hint">搜索记录</string>
+    <string name="cd_search_records">搜索记录</string>
+    <string name="cd_select_records">选择记录</string>
+    <string name="cd_rename_record">重命名</string>
+    <string name="record_default_title">记录%1$d</string>
+    <string name="record_missing">该记录已被删除。</string>
+    <string name="select_all">全选</string>
+    <string name="action_delete">删除</string>
+    <string name="action_done">完成</string>
+    <string name="edit_title">编辑标题</string>
+    <string name="edit_title_hint">请输入内容</string>
+    <plurals name="delete_records_confirm">
+        <item quantity="other">删除 %1$d 条记录？此操作无法撤销。</item>
+    </plurals>
+
+    <!-- Translation Settings -->
+    <string name="settings_title">翻译设置</string>
+    <string name="settings_microphone">麦克风设备</string>
+    <string name="settings_microphone_hint">（会议记录建议使用手机麦克风）</string>
+    <string name="settings_mic_glasses">眼镜</string>
+    <string name="settings_mic_phone">手机</string>
+    <string name="settings_subtitle_content">字幕内容</string>
+    <string name="settings_show_both">显示原文和译文</string>
+    <string name="settings_show_translation">仅显示译文</string>
+    <string name="settings_sample_original">Hello!</string>
+    <string name="settings_sample_translation">你好!</string>
+    <string name="settings_text_display">文字显示</string>
+    <string name="settings_history">历史</string>
+    <string name="settings_newest">最新</string>
+    <string name="settings_font_size">字体大小</string>
+    <string name="settings_font_size_value">大小 %1$d</string>
+    <string name="settings_font_size_value_default">大小 %1$d（推荐）</string>
+    <string name="settings_font_size_hint">眼镜上字幕的大小。</string>
+    <string name="action_use_phone_mic">使用手机</string>
+
+    <!-- Models -->
+    <string name="models_title">离线模型</string>
+    <string name="models_ready_title">模型已就绪</string>
+    <string name="models_ready_body">翻译和语音识别可在此手机上离线使用。</string>
+    <string name="models_missing_title">未安装模型</string>
+    <string name="models_partial_title">部分模型缺失</string>
+    <string name="models_steps">1. 将 Translate-models 文件夹（来自 Translation 项目的构建）复制到此手机，例如“Download”文件夹。\n2. 点击“选择文件夹”，选择 Translate-models 文件夹本身。\n3. 等待复制和校验完成（1–3 分钟）。</string>
+    <string name="action_choose_folder">选择文件夹</string>
+    <string name="models_progress">%1$s / %2$s</string>
+    <string name="models_done">已导入 %1$d 个文件（%2$d 个已安装）。</string>
+    <string name="models_done_missing">仍然缺少：%1$s</string>
+    <string name="models_failed">导入失败：%1$s</string>
+    <string name="models_cancelled">已取消导入。</string>
+
+    <!-- AI translation model (Hy-MT2) -->
+    <string name="ai_model_title">AI 翻译（Hy-MT2 1.8B）</string>
+    <string name="ai_model_steps">更准确地翻译完整句子，在此手机上离线运行。请将模型文件 %1$s（约 1.1 GB，来自 huggingface.co/tencent/Hy-MT2-1.8B-GGUF）复制到此手机，然后点击“选择文件”。</string>
+    <string name="ai_model_installed">已安装（%1$s）。完整句子由 AI 模型翻译；实时文字使用标准翻译。</string>
+    <string name="ai_model_use">使用 AI 翻译</string>
+    <string name="ai_model_remove">移除模型</string>
+    <string name="ai_model_remove_confirm">要从此手机移除 AI 翻译模型吗？之后将使用标准翻译。</string>
+    <string name="ai_model_unsupported_memory">此手机内存不足，无法运行 AI 翻译模型（需要 6 GB 或以上运行内存）。将使用标准翻译。</string>
+    <string name="ai_model_unsupported_cpu">此手机的处理器无法运行 AI 翻译模型。将使用标准翻译。</string>
+    <string name="action_choose_file">选择文件</string>
+
+    <!-- About -->
+    <string name="about_body">智能眼镜 %1$s\nVenusSDK %2$s（%3$s）\n\n语音识别和翻译在此手机上离线运行。不会保存音频；翻译记录仅保存在此手机上，绝不会发送到任何地方。</string>
+
+    <!-- Notification -->
+    <string name="notification_channel_session">翻译会话</string>
+    <string name="notification_session_title">正在翻译</string>
+    <string name="notification_channel_glasses">来自眼镜的请求</string>
+    <string name="notification_glasses_title">已在眼镜上打开翻译</string>
+    <string name="notification_glasses_text">点击开始翻译</string>
+    <string name="notification_session_text">正在聆听语音</string>
+</resources>
