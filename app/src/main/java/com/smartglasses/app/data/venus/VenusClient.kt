@@ -7,8 +7,10 @@ import android.os.SystemClock
 import android.util.Log
 import com.jueyuantech.venussdk.VNCommon
 import com.jueyuantech.venussdk.VNConstant
+import com.jueyuantech.venussdk.bean.VNSystemConfig
 import com.jueyuantech.venussdk.bean.VNSystemStatus
 import com.jueyuantech.venussdk.cb.VNCommonCallBack
+import com.jueyuantech.venussdk.cb.VNSystemConfigCallBack
 import com.jueyuantech.venussdk.cb.VNSystemStatusCallBack
 import com.jueyuantech.venussdk.listener.VNDeviceConnectionListener
 import com.jueyuantech.venussdk.listener.VNDeviceServiceListener
@@ -140,22 +142,50 @@ class VenusClient @Inject constructor() {
     }
 
     /** Battery and charge state, or null when the glasses did not answer. */
-    suspend fun systemStatus(): VNSystemStatus? = withTimeoutOrNull(COMMAND_TIMEOUT_MS) {
-        suspendCancellableCoroutine { cont ->
-            val done = AtomicBoolean(false)
-            fun finish(s: VNSystemStatus?) {
-                if (done.compareAndSet(false, true)) cont.resume(s)
-            }
-            mainHandler.post {
-                runCatching {
-                    VNCommon.getSystemStatus(object : VNSystemStatusCallBack {
-                        override fun onSuccess(status: VNSystemStatus?) = finish(status)
-                        override fun onTimeOut() = finish(null)
-                        override fun onFailed() = finish(null)
-                    })
-                }.onFailure { finish(null) }
+    suspend fun systemStatus(): VNSystemStatus? = query("getSystemStatus") { finish ->
+        VNCommon.getSystemStatus(object : VNSystemStatusCallBack {
+            override fun onSuccess(status: VNSystemStatus?) = finish(status)
+            override fun onTimeOut() = finish(null)
+            override fun onFailed() = finish(null)
+        })
+    }
+
+    /** Brightness (0–255) and auto-brightness state (guide §4.6), or null when the glasses did not answer. */
+    suspend fun brightness(): VNSystemConfig? = query("getBrightness") { finish ->
+        VNCommon.getBrightness(object : VNSystemConfigCallBack {
+            override fun onSuccess(config: VNSystemConfig?) = finish(config)
+            override fun onTimeOut() = finish(null)
+            override fun onFailed() = finish(null)
+        })
+    }
+
+    suspend fun setBrightness(level: Int): VenusResult = command("setBrightness($level)") { VNCommon.setBrightness(level, it) }
+
+    suspend fun setAutoBrightness(enabled: Boolean): VenusResult {
+        val state = if (enabled) VNConstant.EnableState.ENABLED else VNConstant.EnableState.DISABLED
+        return command("setAutoBrightnessEnabled($state)") { VNCommon.setAutoBrightnessEnabled(state, it) }
+    }
+
+    /** Runs an SDK read whose callback hands [call]'s `finish` the answer (null: none). */
+    private suspend fun <T> query(name: String, call: (finish: (T?) -> Unit) -> Unit): T? {
+        val result = withTimeoutOrNull(COMMAND_TIMEOUT_MS) {
+            suspendCancellableCoroutine { cont ->
+                val done = AtomicBoolean(false)
+                fun finish(value: T?) {
+                    if (done.compareAndSet(false, true)) cont.resume(value)
+                }
+                mainHandler.post {
+                    try {
+                        call(::finish)
+                    } catch (e: RuntimeException) {
+                        Log.e(TAG, "$name threw", e)
+                        finish(null)
+                    }
+                }
             }
         }
+        if (result == null) Log.w(TAG, "$name -> no answer")
+        return result
     }
 
     private suspend fun <T> onSdkThread(block: () -> T): T = withContext(Dispatchers.Main.immediate) { block() }

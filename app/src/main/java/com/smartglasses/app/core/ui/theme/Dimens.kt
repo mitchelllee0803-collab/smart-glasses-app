@@ -23,6 +23,7 @@ object Sizes {
     val buttonHeight = 52.dp
     val iconCircle = 56.dp
     val featureTile = 60.dp
+    val quickTile = 64.dp
     val micButton = 76.dp
     val heroImageWidth = 132.dp
     val rowImageWidth = 96.dp

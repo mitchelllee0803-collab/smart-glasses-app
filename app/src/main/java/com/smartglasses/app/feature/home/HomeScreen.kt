@@ -31,6 +31,7 @@ import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.ErrorOutline
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Translate
+import androidx.compose.material.icons.outlined.LightMode
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -41,7 +42,11 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -97,6 +102,7 @@ fun HomeScreen(
     }
 
     val connected = state.connection as? ConnectionState.Connected
+    var showBrightness by rememberSaveable { mutableStateOf(false) }
     Column(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background)) {
         HeaderCard(state.connection, onOpenMenu)
         Column(
@@ -105,6 +111,7 @@ fun HomeScreen(
         ) {
             if (connected != null) {
                 ConnectedBar(connected.device.name, viewModel::disconnect)
+                QuickControls(onBrightness = { showBrightness = true })
                 SectionLabel(stringResource(R.string.section_features))
                 FeatureCard(
                     icon = Icons.Filled.Translate,
@@ -126,6 +133,33 @@ fun HomeScreen(
                 )
                 ScanResults(state.scan, state.connection, viewModel::connect)
             }
+        }
+    }
+
+    // The popup controls the connected glasses only; it closes when the link ends.
+    LaunchedEffect(connected == null) { if (connected == null) showBrightness = false }
+    if (showBrightness && connected != null) BrightnessDialog(onDismiss = { showBrightness = false })
+}
+
+/** Row of square shortcuts under the connection bar (only brightness for now). */
+@Composable
+private fun QuickControls(onBrightness: () -> Unit) {
+    Row(horizontalArrangement = Arrangement.spacedBy(Spacing.md)) {
+        QuickTile(Icons.Outlined.LightMode, stringResource(R.string.cd_brightness), onBrightness)
+    }
+}
+
+@Composable
+private fun QuickTile(icon: androidx.compose.ui.graphics.vector.ImageVector, description: String, onClick: () -> Unit) {
+    Surface(
+        onClick = onClick,
+        shape = RoundedCornerShape(Radius.tile),
+        color = MaterialTheme.colorScheme.surface,
+        shadowElevation = Sizes.cardElevation,
+        modifier = Modifier.size(Sizes.quickTile),
+    ) {
+        Box(contentAlignment = Alignment.Center) {
+            Icon(icon, contentDescription = description, modifier = Modifier.size(28.dp))
         }
     }
 }

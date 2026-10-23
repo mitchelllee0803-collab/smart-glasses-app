@@ -59,6 +59,14 @@
     <string name="cd_battery">电量 %1$d%%</string>
     <string name="cd_charging">充电中</string>
 
+    <!-- Home: glasses brightness -->
+    <string name="cd_brightness">眼镜亮度</string>
+    <string name="brightness_auto">自动</string>
+    <string name="brightness_percent">%1$d%%</string>
+    <string name="brightness_read_failed">无法读取眼镜亮度。</string>
+    <string name="brightness_set_failed">眼镜未接受此更改，请重试。</string>
+    <string name="brightness_auto_unsupported">此眼镜不支持自动亮度。</string>
+
     <!-- Drawer -->
     <string name="drawer_models">离线模型</string>
     <string name="drawer_about">关于</string>

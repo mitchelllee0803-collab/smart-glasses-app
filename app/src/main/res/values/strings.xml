@@ -58,6 +58,14 @@
     <string name="cd_battery">Battery %1$d%%</string>
     <string name="cd_charging">charging</string>
 
+    <!-- Home: glasses brightness -->
+    <string name="cd_brightness">Glasses brightness</string>
+    <string name="brightness_auto">Auto</string>
+    <string name="brightness_percent">%1$d%%</string>
+    <string name="brightness_read_failed">Couldn\'t read the brightness from the glasses.</string>
+    <string name="brightness_set_failed">The glasses didn\'t accept the change. Try again.</string>
+    <string name="brightness_auto_unsupported">These glasses don\'t support auto brightness.</string>
+
     <!-- Drawer -->
     <string name="drawer_models">Offline models</string>
     <string name="drawer_about">About</string>
