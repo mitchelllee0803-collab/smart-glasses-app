@@ -5,13 +5,18 @@ import android.os.Handler
 import android.os.Looper
 import android.os.SystemClock
 import android.util.Log
+import com.jueyuantech.venussdk.IVNFileUploadTask
 import com.jueyuantech.venussdk.VNCommon
 import com.jueyuantech.venussdk.VNConstant
 import com.jueyuantech.venussdk.bean.VNDeviceInfo
+import com.jueyuantech.venussdk.bean.VNFile
+import com.jueyuantech.venussdk.bean.VNRomUsage
 import com.jueyuantech.venussdk.bean.VNSystemConfig
 import com.jueyuantech.venussdk.bean.VNSystemStatus
 import com.jueyuantech.venussdk.cb.VNCommonCallBack
 import com.jueyuantech.venussdk.cb.VNDeviceInfoCallBack
+import com.jueyuantech.venussdk.cb.VNFileListCallBack
+import com.jueyuantech.venussdk.cb.VNRomUsageCallBack
 import com.jueyuantech.venussdk.cb.VNSystemConfigCallBack
 import com.jueyuantech.venussdk.cb.VNSystemStatusCallBack
 import com.jueyuantech.venussdk.cb.VNViewCallBack
@@ -19,6 +24,8 @@ import com.jueyuantech.venussdk.listener.VNDeviceConnectionListener
 import com.jueyuantech.venussdk.listener.VNDeviceServiceListener
 import com.jueyuantech.venussdk.listener.VNDeviceStatusListener
 import com.jueyuantech.venussdk.listener.VNDeviceUnsolicitedListener
+import com.jueyuantech.venussdk.listener.VNFileUploadListener
+import java.io.File
 import java.util.concurrent.atomic.AtomicBoolean
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -194,6 +201,63 @@ class VenusClient @Inject constructor() {
             override fun onTimeOut() = finish(null)
             override fun onFailed() = finish(null)
         })
+    }
+
+    /** The photos stored for the glasses' Gallery (guide §5.5), or null when they did not answer. */
+    suspend fun galleryFiles(): List<VNFile>? = query("getFileList(GALLERY)") { finish ->
+        VNCommon.getFileList(VNConstant.VNFile.Type.GALLERY, object : VNFileListCallBack {
+            override fun onSuccess(files: MutableList<VNFile>?) = finish(files.orEmpty().toList())
+            override fun onTimeOut() = finish(null)
+            override fun onFailed() = finish(null)
+        })
+    }
+
+    /** Storage of the glasses in KB (guide §5.6), or null when they did not answer. */
+    suspend fun romUsage(): VNRomUsage? = query("getRomUsage") { finish ->
+        VNCommon.getRomUsage(object : VNRomUsageCallBack {
+            override fun onSuccess(usage: VNRomUsage?) = finish(usage)
+            override fun onTimeOut() = finish(null)
+            override fun onFailed() = finish(null)
+        })
+    }
+
+    suspend fun removeFile(file: VNFile): VenusResult = command("removeFile(${file.name})") { VNCommon.removeFile(file, it) }
+
+    suspend fun clearGallery(): VenusResult = command("clearFolder(GALLERY)") { VNCommon.clearFolder(VNConstant.VNFile.Type.GALLERY, it) }
+
+    /** Shows a photo that is on the glasses; their Gallery view must be open (guide §6.6). */
+    suspend fun showGalleryFile(file: VNFile): VenusResult = command("setGalleryFile(${file.name})") { VNCommon.setGalleryFile(file, it) }
+
+    /**
+     * Uploads [file] into the glasses' [type] folder (guide §5.5), reporting (sent, total) to
+     * [onProgress] from the SDK's thread. Cancelling the caller cancels the transfer.
+     * Returns null when done, otherwise the SDK's error code ([VNConstant.VNFile.ErrorCode]).
+     */
+    suspend fun upload(file: File, type: Int, onProgress: (Int, Int) -> Unit): Int? = suspendCancellableCoroutine { cont ->
+        val done = AtomicBoolean(false)
+        fun finish(error: Int?) {
+            if (done.compareAndSet(false, true)) cont.resume(error)
+        }
+        var task: IVNFileUploadTask? = null
+        mainHandler.post {
+            try {
+                task = VNCommon.createFileTransferTask().apply {
+                    init(file, type, object : VNFileUploadListener {
+                        override fun onError(code: Int, message: String?) {
+                            Log.w(TAG, "upload ${file.name} failed: $code $message")
+                            finish(code)
+                        }
+                        override fun onComplete() = finish(null)
+                        override fun onProgress(sent: Int, total: Int) = onProgress(sent, total)
+                    })
+                    start()
+                }
+            } catch (e: RuntimeException) {
+                Log.e(TAG, "upload ${file.name} threw", e)
+                finish(VNConstant.VNFile.ErrorCode.TRANS_FAILED)
+            }
+        }
+        cont.invokeOnCancellation { mainHandler.post { task?.cancel() } }
     }
 
     /** The glasses forget this phone (guide §5.10); they report onUnbind and the link ends. */

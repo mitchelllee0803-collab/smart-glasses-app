@@ -43,6 +43,7 @@ import com.smartglasses.app.BuildConfig
 import com.smartglasses.app.R
 import com.smartglasses.app.data.venus.GlassesAction
 import com.smartglasses.app.data.venus.GlassesSync
+import com.smartglasses.app.feature.gallery.GalleryScreen
 import com.smartglasses.app.feature.glasses.AboutGlassesScreen
 import com.smartglasses.app.feature.glasses.GlassesInfoScreen
 import com.smartglasses.app.feature.history.RecordScreen
@@ -65,6 +66,7 @@ private object Routes {
     const val APP_SETTINGS = "app_settings"
     const val ABOUT_GLASSES = "about_glasses"
     const val GLASSES_INFO = "glasses_info"
+    const val GALLERY = "gallery"
     const val SESSION = "session"
     const val RECORD = "record/{${RecordViewModel.ARG_RECORD_ID}}"
 
@@ -165,8 +167,10 @@ fun AppNavigation(glassesSync: GlassesSync) {
                     HomeScreen(
                         onOpenMenu = { entry.ifResumed { scope.launch { drawerState.open() } } },
                         onOpenTranslate = { entry.ifResumed { navController.navigate(Routes.TRANSLATE) } },
+                        onOpenGallery = { entry.ifResumed { navController.navigate(Routes.GALLERY) } },
                     )
                 }
+                composable(Routes.GALLERY) { entry -> GalleryScreen(onBack = { entry.ifResumed { navController.popBackStack() } }) }
                 composable(Routes.TRANSLATE) { entry ->
                     TranslateScreen(
                         onBack = { entry.ifResumed { navController.popBackStack() } },

@@ -29,6 +29,7 @@ import androidx.compose.material.icons.filled.BatteryChargingFull
 import androidx.compose.material.icons.filled.BatteryFull
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.ErrorOutline
+import androidx.compose.material.icons.filled.Image
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Translate
 import androidx.compose.material.icons.outlined.LightMode
@@ -88,6 +89,7 @@ import com.smartglasses.app.domain.model.ScanState
 fun HomeScreen(
     onOpenMenu: () -> Unit,
     onOpenTranslate: () -> Unit,
+    onOpenGallery: () -> Unit,
     viewModel: HomeViewModel = hiltViewModel(),
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
@@ -131,6 +133,14 @@ fun HomeScreen(
                     title = stringResource(R.string.feature_translate_title),
                     subtitle = stringResource(R.string.feature_translate_subtitle),
                     onClick = onOpenTranslate,
+                )
+                FeatureCard(
+                    icon = Icons.Filled.Image,
+                    tint = AppTheme.colors.galleryIcon,
+                    tileColor = AppTheme.colors.galleryTile,
+                    title = stringResource(R.string.feature_gallery_title),
+                    subtitle = stringResource(R.string.feature_gallery_subtitle),
+                    onClick = onOpenGallery,
                 )
             } else {
                 ConnectionCard(

@@ -269,4 +269,36 @@
     <string name="glasses_info_protocol">协议版本</string>
     <string name="glasses_info_ble_name">BLE 名称</string>
     <string name="glasses_info_ble_address">BLE 地址</string>
+
+    <!-- Gallery -->
+    <string name="feature_gallery_title">图库</string>
+    <string name="feature_gallery_subtitle">在眼镜上查看照片</string>
+    <string name="gallery_title">图库</string>
+    <string name="gallery_import">导入</string>
+    <string name="gallery_preparing">正在处理照片…</string>
+    <string name="gallery_free_space">剩余空间：%1$s</string>
+    <string name="gallery_cast">投屏</string>
+    <string name="gallery_casting">投屏中</string>
+    <string name="gallery_uploading">上传中 %1$d%%</string>
+    <string name="gallery_upload_failed">上传失败</string>
+    <string name="gallery_empty">眼镜上还没有照片。点击“导入”添加。</string>
+    <string name="gallery_not_connected">请先连接眼镜再使用图库。</string>
+    <string name="gallery_refresh">刷新存储</string>
+    <string name="gallery_clear">清空眼镜照片</string>
+    <string name="gallery_clear_confirm_title">清空眼镜上的所有照片？</string>
+    <string name="gallery_clear_confirm_body">眼镜图库中的所有照片都将被删除，包括其他应用添加的照片。此操作无法撤销。</string>
+    <string name="gallery_clear_action">清空</string>
+    <string name="gallery_select_all">全选</string>
+    <string name="gallery_delete_confirm_title">删除所选照片（%1$d 张）？</string>
+    <string name="gallery_delete_confirm_body">照片将从眼镜中删除。此操作无法撤销。</string>
+    <string name="cd_gallery_edit">选择照片</string>
+    <string name="cd_gallery_menu">图库选项</string>
+    <string name="cd_discard_upload">移除</string>
+    <string name="gallery_list_failed">无法读取眼镜上的照片。</string>
+    <string name="gallery_import_failed">部分照片无法打开。</string>
+    <string name="gallery_no_space">眼镜空间不足，请先删除一些照片。</string>
+    <string name="gallery_upload_failed_message">照片未能发送到眼镜，请点击“重试”。</string>
+    <string name="gallery_cast_failed">眼镜无法显示这张照片。</string>
+    <string name="gallery_delete_failed">部分照片未能删除。</string>
+    <string name="gallery_clear_failed">眼镜未能清空照片。</string>
 </resources>

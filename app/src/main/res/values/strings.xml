@@ -271,4 +271,36 @@
     <string name="glasses_info_protocol">Protocol version</string>
     <string name="glasses_info_ble_name">BLE name</string>
     <string name="glasses_info_ble_address">BLE address</string>
+
+    <!-- Gallery -->
+    <string name="feature_gallery_title">Gallery</string>
+    <string name="feature_gallery_subtitle">Show your photos on the glasses</string>
+    <string name="gallery_title">Gallery</string>
+    <string name="gallery_import">Import</string>
+    <string name="gallery_preparing">Preparing photos…</string>
+    <string name="gallery_free_space">Free Space: %1$s</string>
+    <string name="gallery_cast">Cast</string>
+    <string name="gallery_casting">Casting</string>
+    <string name="gallery_uploading">Uploading %1$d%%</string>
+    <string name="gallery_upload_failed">Upload failed</string>
+    <string name="gallery_empty">No photos on the glasses yet. Tap Import to add some.</string>
+    <string name="gallery_not_connected">Connect your glasses to use the Gallery.</string>
+    <string name="gallery_refresh">Refresh Storage</string>
+    <string name="gallery_clear">Clear Device Photos</string>
+    <string name="gallery_clear_confirm_title">Clear all photos on the glasses?</string>
+    <string name="gallery_clear_confirm_body">Every photo in the glasses\' Gallery is deleted, including ones added by other apps. This can\'t be undone.</string>
+    <string name="gallery_clear_action">Clear</string>
+    <string name="gallery_select_all">Select All</string>
+    <string name="gallery_delete_confirm_title">Delete selected photos (%1$d)?</string>
+    <string name="gallery_delete_confirm_body">They are removed from the glasses. This can\'t be undone.</string>
+    <string name="cd_gallery_edit">Select photos</string>
+    <string name="cd_gallery_menu">Gallery options</string>
+    <string name="cd_discard_upload">Remove</string>
+    <string name="gallery_list_failed">Couldn\'t read the photos on the glasses.</string>
+    <string name="gallery_import_failed">Some photos couldn\'t be opened.</string>
+    <string name="gallery_no_space">Not enough space on the glasses. Delete some photos first.</string>
+    <string name="gallery_upload_failed_message">The photo couldn\'t be sent to the glasses. Tap Retry.</string>
+    <string name="gallery_cast_failed">The glasses couldn\'t show this photo.</string>
+    <string name="gallery_delete_failed">Some photos couldn\'t be deleted.</string>
+    <string name="gallery_clear_failed">The glasses couldn\'t clear the photos.</string>
 </resources>
