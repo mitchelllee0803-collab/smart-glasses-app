@@ -38,6 +38,7 @@ class SettingsRepository @Inject constructor(private val store: DataStore<Prefer
             aiTranslation = p[AI_TRANSLATION] ?: defaults.aiTranslation,
             appTextSize = p[APP_TEXT_SIZE]?.let { runCatching { AppTextSize.valueOf(it) }.getOrNull() } ?: defaults.appTextSize,
             lastGlassesAddress = p[LAST_GLASSES],
+            touchpadPanel = p[TOUCHPAD_PANEL] ?: defaults.touchpadPanel,
         )
     }.distinctUntilChanged()
 
@@ -63,6 +64,8 @@ class SettingsRepository @Inject constructor(private val store: DataStore<Prefer
 
     suspend fun setLastGlasses(address: String) = store.edit { it[LAST_GLASSES] = address }
 
+    suspend fun setTouchpadPanel(shown: Boolean) = store.edit { it[TOUCHPAD_PANEL] = shown }
+
     private companion object {
         val SOURCE = stringPreferencesKey("source_language")
         val TARGET = stringPreferencesKey("target_language")
@@ -74,5 +77,6 @@ class SettingsRepository @Inject constructor(private val store: DataStore<Prefer
         val AI_TRANSLATION = booleanPreferencesKey("ai_translation")
         val APP_TEXT_SIZE = stringPreferencesKey("app_text_size")
         val LAST_GLASSES = stringPreferencesKey("last_glasses_address")
+        val TOUCHPAD_PANEL = booleanPreferencesKey("touchpad_panel")
     }
 }

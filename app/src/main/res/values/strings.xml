@@ -66,6 +66,15 @@
     <string name="brightness_set_failed">The glasses didn\'t accept the change. Try again.</string>
     <string name="brightness_auto_unsupported">These glasses don\'t support auto brightness.</string>
 
+    <!-- Floating touchpad (the glasses' temple touchpad on the phone) -->
+    <string name="cd_touchpad_toggle">Touchpad on the phone</string>
+    <string name="cd_touchpad">Glasses touchpad</string>
+    <string name="touchpad_tap">Tap</string>
+    <string name="touchpad_double_tap">Double tap</string>
+    <string name="touchpad_long_press">Long press</string>
+    <string name="touchpad_forward">Swipe forward</string>
+    <string name="touchpad_back">Swipe back</string>
+
     <!-- Drawer -->
     <string name="drawer_models">Offline models</string>
     <string name="drawer_about">About</string>

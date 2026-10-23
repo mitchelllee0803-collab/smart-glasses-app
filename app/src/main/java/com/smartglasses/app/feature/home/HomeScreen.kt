@@ -32,10 +32,12 @@ import androidx.compose.material.icons.filled.ErrorOutline
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Translate
 import androidx.compose.material.icons.outlined.LightMode
+import androidx.compose.material.icons.outlined.TouchApp
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -51,6 +53,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.role
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.toggleableState
+import androidx.compose.ui.state.ToggleableState
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
@@ -111,7 +118,11 @@ fun HomeScreen(
         ) {
             if (connected != null) {
                 ConnectedBar(connected.device.name, viewModel::disconnect)
-                QuickControls(onBrightness = { showBrightness = true })
+                QuickControls(
+                    touchpadOn = state.touchpadPanel,
+                    onBrightness = { showBrightness = true },
+                    onTouchpad = { viewModel.setTouchpadPanel(!state.touchpadPanel) },
+                )
                 SectionLabel(stringResource(R.string.section_features))
                 FeatureCard(
                     icon = Icons.Filled.Translate,
@@ -141,25 +152,41 @@ fun HomeScreen(
     if (showBrightness && connected != null) BrightnessDialog(onDismiss = { showBrightness = false })
 }
 
-/** Row of square shortcuts under the connection bar (only brightness for now). */
+/** Row of square shortcuts under the connection bar: brightness and the floating touchpad. */
 @Composable
-private fun QuickControls(onBrightness: () -> Unit) {
+private fun QuickControls(touchpadOn: Boolean, onBrightness: () -> Unit, onTouchpad: () -> Unit) {
     Row(horizontalArrangement = Arrangement.spacedBy(Spacing.md)) {
-        QuickTile(Icons.Outlined.LightMode, stringResource(R.string.cd_brightness), onBrightness)
+        QuickTile(Icons.Outlined.LightMode, stringResource(R.string.cd_brightness), onClick = onBrightness)
+        QuickTile(Icons.Outlined.TouchApp, stringResource(R.string.cd_touchpad_toggle), selected = touchpadOn, onClick = onTouchpad)
     }
 }
 
+/** [selected]: a switch tile that is on (blue, like the reference app). Null: a plain button. */
 @Composable
-private fun QuickTile(icon: androidx.compose.ui.graphics.vector.ImageVector, description: String, onClick: () -> Unit) {
+private fun QuickTile(
+    icon: androidx.compose.ui.graphics.vector.ImageVector,
+    description: String,
+    selected: Boolean? = null,
+    onClick: () -> Unit,
+) {
+    val on = selected == true
+    val modifier = Modifier.size(Sizes.quickTile).let {
+        if (selected == null) it else it.semantics { toggleableState = ToggleableState(on); role = Role.Switch }
+    }
     Surface(
         onClick = onClick,
         shape = RoundedCornerShape(Radius.tile),
-        color = MaterialTheme.colorScheme.surface,
+        color = if (on) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.surface,
         shadowElevation = Sizes.cardElevation,
-        modifier = Modifier.size(Sizes.quickTile),
+        modifier = modifier,
     ) {
         Box(contentAlignment = Alignment.Center) {
-            Icon(icon, contentDescription = description, modifier = Modifier.size(28.dp))
+            Icon(
+                icon,
+                contentDescription = description,
+                tint = if (on) MaterialTheme.colorScheme.primary else LocalContentColor.current,
+                modifier = Modifier.size(28.dp),
+            )
         }
     }
 }

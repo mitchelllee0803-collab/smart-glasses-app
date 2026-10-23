@@ -12,6 +12,7 @@ import com.jueyuantech.venussdk.bean.VNSystemStatus
 import com.jueyuantech.venussdk.cb.VNCommonCallBack
 import com.jueyuantech.venussdk.cb.VNSystemConfigCallBack
 import com.jueyuantech.venussdk.cb.VNSystemStatusCallBack
+import com.jueyuantech.venussdk.cb.VNViewCallBack
 import com.jueyuantech.venussdk.listener.VNDeviceConnectionListener
 import com.jueyuantech.venussdk.listener.VNDeviceServiceListener
 import com.jueyuantech.venussdk.listener.VNDeviceStatusListener
@@ -85,12 +86,14 @@ class VenusClient @Inject constructor() {
     }
 
     private fun emit(event: VenusEvent) {
+        if (event is VenusEvent.ViewChanged) knownView = event.view
         if (event !is VenusEvent.Battery) Log.d(TAG, "event $event")
         if (!_events.tryEmit(event)) Log.w(TAG, "event dropped: $event")
     }
 
     /** Starts the business connection; the result arrives as [VenusEvent.ServiceState]. */
     suspend fun connect(device: BluetoothDevice) = onSdkThread {
+        knownView = null
         VNCommon.initDevice(device)
         VNCommon.connect(device)
     }
@@ -109,6 +112,29 @@ class VenusClient @Inject constructor() {
     suspend fun setView(view: Int): VenusResult {
         lastRequestedView = RequestedView(view, SystemClock.elapsedRealtime())
         return command("setView($view)") { VNCommon.setView(view, it) }
+            .also { if (it == VenusResult.SUCCESS) knownView = view }
+    }
+
+    /** The view the glasses last reported, accepted or answered with; null until known. */
+    @Volatile var knownView: Int? = null
+        private set
+
+    /** The view the glasses show now (guide §5.3), or null when they did not answer. */
+    suspend fun currentView(): Int? = query("getView") { finish ->
+        VNCommon.getView(object : VNViewCallBack {
+            override fun onSuccess(view: Int) = finish(view)
+            override fun onTimeOut() = finish(null)
+            override fun onFailed() = finish(null)
+        })
+    }
+
+    /**
+     * [view] was read with [currentView]: a change is passed on as [VenusEvent.ViewChanged], as if
+     * the glasses had reported it. The first reading only sets the starting point.
+     */
+    fun reportView(view: Int) {
+        val known = knownView
+        if (known == null) knownView = view else if (view != known) emit(VenusEvent.ViewChanged(view))
     }
 
     /**
@@ -164,6 +190,18 @@ class VenusClient @Inject constructor() {
     suspend fun setAutoBrightness(enabled: Boolean): VenusResult {
         val state = if (enabled) VNConstant.EnableState.ENABLED else VNConstant.EnableState.DISABLED
         return command("setAutoBrightnessEnabled($state)") { VNCommon.setAutoBrightnessEnabled(state, it) }
+    }
+
+    /**
+     * A touchpad gesture ([VNConstant.TouchEvent]) as if made on the glasses (guide §5.2). The SDK
+     * gives no answer, so there is nothing to wait for.
+     */
+    suspend fun sendTouchEvent(event: Int) = onSdkThread {
+        try {
+            VNCommon.sendTouchEvent(event)
+        } catch (e: RuntimeException) {
+            Log.e(TAG, "sendTouchEvent($event) threw", e)
+        }
     }
 
     /** Runs an SDK read whose callback hands [call]'s `finish` the answer (null: none). */

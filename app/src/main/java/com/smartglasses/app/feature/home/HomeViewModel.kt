@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.smartglasses.app.data.bluetooth.BluetoothAvailabilityMonitor
 import com.smartglasses.app.data.bluetooth.ClassicDeviceScanner
+import com.smartglasses.app.data.settings.SettingsRepository
 import com.smartglasses.app.data.venus.GlassesRepository
 import com.smartglasses.app.domain.model.BluetoothAvailability
 import com.smartglasses.app.domain.model.ConnectionState
@@ -15,13 +16,17 @@ import javax.inject.Inject
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
 
 @Immutable
 data class HomeUiState(
     val availability: BluetoothAvailability,
     val scan: ScanState,
     val connection: ConnectionState,
+    /** The floating touchpad is switched on (👆). */
+    val touchpadPanel: Boolean = false,
 )
 
 @HiltViewModel
@@ -29,13 +34,19 @@ class HomeViewModel @Inject constructor(
     private val glasses: GlassesRepository,
     private val scanner: ClassicDeviceScanner,
     private val availability: BluetoothAvailabilityMonitor,
+    private val settings: SettingsRepository,
 ) : ViewModel() {
 
-    val state: StateFlow<HomeUiState> = combine(availability.state, scanner.state, glasses.state, ::HomeUiState)
-        .stateIn(
-            viewModelScope, SharingStarted.WhileSubscribed(STOP_TIMEOUT_MS),
-            HomeUiState(availability.state.value, scanner.state.value, glasses.state.value),
-        )
+    val state: StateFlow<HomeUiState> = combine(
+        availability.state, scanner.state, glasses.state, settings.settings.map { it.touchpadPanel }, ::HomeUiState,
+    ).stateIn(
+        viewModelScope, SharingStarted.WhileSubscribed(STOP_TIMEOUT_MS),
+        HomeUiState(availability.state.value, scanner.state.value, glasses.state.value),
+    )
+
+    fun setTouchpadPanel(shown: Boolean) {
+        viewModelScope.launch { settings.setTouchpadPanel(shown) }
+    }
 
     fun refreshAvailability() = availability.refresh()
 

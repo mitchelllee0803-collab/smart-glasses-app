@@ -64,4 +64,6 @@ data class AppSettings(
     val aiTranslation: Boolean = true,
     val appTextSize: AppTextSize = AppTextSize.MEDIUM,
     val lastGlassesAddress: String? = null,
+    /** The floating touchpad (👆 on the dashboard), shown while glasses are connected. */
+    val touchpadPanel: Boolean = false,
 )

@@ -1,6 +1,8 @@
 package com.smartglasses.app.navigation
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Download
@@ -26,6 +28,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavBackStackEntry
@@ -46,6 +49,8 @@ import com.smartglasses.app.feature.home.HomeScreen
 import com.smartglasses.app.feature.models.ModelsScreen
 import com.smartglasses.app.feature.settings.AppSettingsScreen
 import com.smartglasses.app.feature.settings.TranslationSettingsScreen
+import com.smartglasses.app.feature.touchpad.FloatingTouchpad
+import com.smartglasses.app.feature.touchpad.TouchpadViewModel
 import com.smartglasses.app.feature.translate.SessionScreen
 import com.smartglasses.app.feature.translate.TranslateScreen
 import kotlinx.coroutines.launch
@@ -115,70 +120,77 @@ fun AppNavigation(glassesSync: GlassesSync) {
         glassesSync.consume(request)
     }
 
-    ModalNavigationDrawer(
-        drawerState = drawerState,
-        // Only the home screen has the menu; swiping on the other screens would fight their gestures.
-        gesturesEnabled = drawerState.isOpen,
-        drawerContent = {
-            ModalDrawerSheet {
-                Column(Modifier.padding(top = 24.dp)) {
-                    NavigationDrawerItem(
-                        label = { Text(stringResource(R.string.drawer_settings)) },
-                        icon = { Icon(Icons.Outlined.Settings, contentDescription = null) },
-                        selected = false,
-                        onClick = { scope.launch { drawerState.close() }; navController.openFromDrawer(Routes.APP_SETTINGS) },
-                        modifier = Modifier.padding(horizontal = 12.dp),
-                    )
-                    NavigationDrawerItem(
-                        label = { Text(stringResource(R.string.drawer_models)) },
-                        icon = { Icon(Icons.Filled.Download, contentDescription = null) },
-                        selected = false,
-                        onClick = { scope.launch { drawerState.close() }; navController.openFromDrawer(Routes.MODELS) },
-                        modifier = Modifier.padding(horizontal = 12.dp),
-                    )
-                    NavigationDrawerItem(
-                        label = { Text(stringResource(R.string.drawer_about)) },
-                        icon = { Icon(Icons.Filled.Info, contentDescription = null) },
-                        selected = false,
-                        onClick = { scope.launch { drawerState.close() }; showAbout = true },
-                        modifier = Modifier.padding(horizontal = 12.dp),
+    val touchpad: TouchpadViewModel = hiltViewModel()
+    val touchpadVisible by touchpad.visible.collectAsStateWithLifecycle()
+
+    Box(Modifier.fillMaxSize()) {
+        ModalNavigationDrawer(
+            drawerState = drawerState,
+            // Only the home screen has the menu; swiping on the other screens would fight their gestures.
+            gesturesEnabled = drawerState.isOpen,
+            drawerContent = {
+                ModalDrawerSheet {
+                    Column(Modifier.padding(top = 24.dp)) {
+                        NavigationDrawerItem(
+                            label = { Text(stringResource(R.string.drawer_settings)) },
+                            icon = { Icon(Icons.Outlined.Settings, contentDescription = null) },
+                            selected = false,
+                            onClick = { scope.launch { drawerState.close() }; navController.openFromDrawer(Routes.APP_SETTINGS) },
+                            modifier = Modifier.padding(horizontal = 12.dp),
+                        )
+                        NavigationDrawerItem(
+                            label = { Text(stringResource(R.string.drawer_models)) },
+                            icon = { Icon(Icons.Filled.Download, contentDescription = null) },
+                            selected = false,
+                            onClick = { scope.launch { drawerState.close() }; navController.openFromDrawer(Routes.MODELS) },
+                            modifier = Modifier.padding(horizontal = 12.dp),
+                        )
+                        NavigationDrawerItem(
+                            label = { Text(stringResource(R.string.drawer_about)) },
+                            icon = { Icon(Icons.Filled.Info, contentDescription = null) },
+                            selected = false,
+                            onClick = { scope.launch { drawerState.close() }; showAbout = true },
+                            modifier = Modifier.padding(horizontal = 12.dp),
+                        )
+                    }
+                }
+            },
+        ) {
+            NavHost(navController = navController, startDestination = Routes.HOME) {
+                composable(Routes.HOME) { entry ->
+                    HomeScreen(
+                        onOpenMenu = { entry.ifResumed { scope.launch { drawerState.open() } } },
+                        onOpenTranslate = { entry.ifResumed { navController.navigate(Routes.TRANSLATE) } },
                     )
                 }
+                composable(Routes.TRANSLATE) { entry ->
+                    TranslateScreen(
+                        onBack = { entry.ifResumed { navController.popBackStack() } },
+                        onOpenSettings = { entry.ifResumed { navController.navigate(Routes.TRANSLATION_SETTINGS) } },
+                        onStartSession = { entry.ifResumed { navController.navigate(Routes.SESSION) } },
+                        onOpenRecord = { id -> entry.ifResumed { navController.navigate(Routes.record(id)) } },
+                    )
+                }
+                composable(Routes.SESSION) { entry ->
+                    SessionScreen(
+                        onBack = { entry.ifResumed { navController.popBackStack() } },
+                        onOpenModels = { entry.ifResumed { navController.navigate(Routes.MODELS) } },
+                        onOpenSettings = { entry.ifResumed { navController.navigate(Routes.TRANSLATION_SETTINGS) } },
+                    )
+                }
+                composable(
+                    Routes.RECORD,
+                    arguments = listOf(navArgument(RecordViewModel.ARG_RECORD_ID) { type = NavType.LongType }),
+                ) { entry -> RecordScreen(onBack = { entry.ifResumed { navController.popBackStack() } }) }
+                composable(Routes.TRANSLATION_SETTINGS) { entry ->
+                    TranslationSettingsScreen(onBack = { entry.ifResumed { navController.popBackStack() } })
+                }
+                composable(Routes.MODELS) { entry -> ModelsScreen(onBack = { entry.ifResumed { navController.popBackStack() } }) }
+                composable(Routes.APP_SETTINGS) { entry -> AppSettingsScreen(onBack = { entry.ifResumed { navController.popBackStack() } }) }
             }
-        },
-    ) {
-        NavHost(navController = navController, startDestination = Routes.HOME) {
-            composable(Routes.HOME) { entry ->
-                HomeScreen(
-                    onOpenMenu = { entry.ifResumed { scope.launch { drawerState.open() } } },
-                    onOpenTranslate = { entry.ifResumed { navController.navigate(Routes.TRANSLATE) } },
-                )
-            }
-            composable(Routes.TRANSLATE) { entry ->
-                TranslateScreen(
-                    onBack = { entry.ifResumed { navController.popBackStack() } },
-                    onOpenSettings = { entry.ifResumed { navController.navigate(Routes.TRANSLATION_SETTINGS) } },
-                    onStartSession = { entry.ifResumed { navController.navigate(Routes.SESSION) } },
-                    onOpenRecord = { id -> entry.ifResumed { navController.navigate(Routes.record(id)) } },
-                )
-            }
-            composable(Routes.SESSION) { entry ->
-                SessionScreen(
-                    onBack = { entry.ifResumed { navController.popBackStack() } },
-                    onOpenModels = { entry.ifResumed { navController.navigate(Routes.MODELS) } },
-                    onOpenSettings = { entry.ifResumed { navController.navigate(Routes.TRANSLATION_SETTINGS) } },
-                )
-            }
-            composable(
-                Routes.RECORD,
-                arguments = listOf(navArgument(RecordViewModel.ARG_RECORD_ID) { type = NavType.LongType }),
-            ) { entry -> RecordScreen(onBack = { entry.ifResumed { navController.popBackStack() } }) }
-            composable(Routes.TRANSLATION_SETTINGS) { entry ->
-                TranslationSettingsScreen(onBack = { entry.ifResumed { navController.popBackStack() } })
-            }
-            composable(Routes.MODELS) { entry -> ModelsScreen(onBack = { entry.ifResumed { navController.popBackStack() } }) }
-            composable(Routes.APP_SETTINGS) { entry -> AppSettingsScreen(onBack = { entry.ifResumed { navController.popBackStack() } }) }
         }
+        // Above every page, like the glasses' own touchpad; out of the way while the menu is open.
+        if (touchpadVisible && drawerState.targetValue == DrawerValue.Closed) FloatingTouchpad(onGesture = touchpad::send)
     }
 
     if (showAbout) {
